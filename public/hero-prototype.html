@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Dr. Nagy-Fazakas Csongor – Prototípus</title>
+
+  <!-- Google Fonts – ugyanaz mint custom.css -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #2d2d2d;
+      background-color: #f8f8f8;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    a { color: #5a5a5a; transition: color 0.25s; text-decoration: none; }
+    a:hover { color: #1a1a1a; }
+
+    /* ── Header ── */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 997;
+      height: 72px;
+      background: transparent;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+    }
+
+    #header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #header .hcontainer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .logo { margin-right: auto; }
+
+    .logo h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .logo h3 a { color: #1a1a1a; }
+
+    nav#navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 2px;
+    }
+
+    nav#navbar ul li a {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      color: #7e7e7e;
+      padding: 8px 14px;
+      display: block;
+      position: relative;
+    }
+
+    nav#navbar ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 4px; left: 14px;
+      width: 0; height: 1px;
+      background: #1a1a1a;
+      transition: width 0.28s ease;
+    }
+
+    nav#navbar ul li a:hover { color: #1a1a1a; }
+    nav#navbar ul li a:hover::after { width: calc(100% - 28px); }
+
+    .header-social { margin-left: 16px; }
+    .header-social a { color: #888; font-size: 18px; }
+    .header-social a:hover { color: #1a1a1a; }
+
+    /* ── Zoom ── */
+    #hero, #main, footer#footer { zoom: 0.8; }
+
+    @media (max-width: 991px) {
+      #hero, #main, footer#footer { zoom: 1; }
+      nav#navbar { display: none; }
+    }
+
+    /* ── Hero ── */
+    #hero {
+      height: 90vh;
+      min-height: 600px;
+      max-height: 1000px;
+      background: url("images/marble.jpg") center center / cover no-repeat fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.50);
+      z-index: 1;
+    }
+
+    #hero .container {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    #hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 44px);
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.2px;
+      color: #1a1a1a;
+      margin-bottom: 0;
+      display: block;
+    }
+
+    #hero h1 span {
+      border-bottom: 1px solid rgba(0,0,0,0.45);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    #hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.3px;
+      color: rgba(0,0,0,0.68);
+      line-height: 1.9;
+      margin-top: 20px;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+    }
+
+    .hero-scroll-hint span {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+    }
+
+    /* ── Container / Grid ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -12px;
+    }
+
+    [class*="col-"] { padding: 0 12px; }
+    .col-12 { width: 100%; }
+    .col-lg-3 { width: 25%; }
+    .col-lg-4 { width: 33.333%; }
+    .col-lg-6 { width: 50%; }
+    .col-lg-10 { width: 83.333%; }
+    .col-lg-12 { width: 100%; }
+    .col-md-6 { width: 50%; }
+    .g-4 > * { margin-bottom: 24px; }
+    .justify-content-center { justify-content: center; }
+    .d-flex { display: flex; }
+    .align-items-stretch { align-items: stretch; }
+    .w-100 { width: 100%; }
+    .text-center { text-align: center; }
+    .mt-5 { margin-top: 48px; }
+
+    @media (max-width: 992px) {
+      .col-lg-3, .col-lg-4, .col-lg-6, .col-lg-10, .col-lg-12 { width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .col-md-6 { width: 100%; }
+    }
+
+    /* ── Section általános ── */
+    section { padding: 80px 0; }
+
+    .section-title { padding-bottom: 48px; text-align: center; }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::before {
+      content: '';
+      position: absolute;
+      bottom: 1px; left: calc(50% - 30px);
+      width: 60px; height: 3px;
+      background: #e8e5e0;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: calc(50% - 15px);
+      width: 0; height: 2px;
+      background: #1a1a1a;
+      transition: width 0.55s ease 0.2s;
+    }
+
+    .section-title.line-revealed h2::after { width: 30px; }
+
+    .section-title p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      font-weight: 500;
+    }
+
+    /* ── About ── */
+    .about { background-color: #ffffff; }
+
+    .about-img-wrap {
+      position: relative;
+      padding: 0 0 24px 24px;
+      max-width: 80%;
+    }
+
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: calc(100% - 24px);
+      height: calc(100% - 24px);
+      border: 2px solid #d0d0d0;
+      border-radius: 12px;
+      z-index: 0;
+    }
+
+    .about-img-wrap img {
+      position: relative;
+      z-index: 1;
+      border-radius: 12px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.13);
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+
+    .about-list li {
+      border-left: 3px solid #1a1a1a;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: #fff;
+    }
+
+    .about-list li h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #444;
+      margin: 0;
+    }
+
+    .diploma-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e2e2e2;
+      padding: 22px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .diploma-card i { font-size: 32px; color: #888; flex-shrink: 0; }
+
+    .diploma-card h5 {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: #555;
+      font-weight: 400;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Services ── */
+    .what-we-do { background-color: #f3f3f3; }
+
+    .icon-box {
+      position: relative;
+      background: #fff;
+      border: 1px solid #e2e2e2;
+      border-top: 3px solid transparent;
+      border-radius: 12px;
+      padding: 40px 28px 32px;
+      transition: all 0.35s ease;
+      height: 100%;
+      overflow: hidden;
+      display: block;
+      color: inherit;
+    }
+
+    .icon-box::after {
+      content: '→';
+      position: absolute;
+      bottom: 20px; right: 24px;
+      font-size: 18px;
+      color: #ccc;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .icon-box:hover {
+      border-top-color: #1a1a1a;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.10);
+      transform: translateY(-5px);
+      color: inherit;
+    }
+
+    .icon-box:hover::after { color: #1a1a1a; right: 18px; }
+
+    .icon-box .icon {
+      width: 80px; height: 80px;
+      background: #fff;
+      border-radius: 50%;
+      margin-bottom: 28px;
+      border: 1px solid #e2e2e2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-box .icon i { font-size: 32px; color: #1a1a1a; }
+
+    .icon-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .icon-box p {
+      font-size: 12px;
+      color: #bbb;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 0;
+    }
+
+    /* ── Portfolio ── */
+    .portfolio { background-color: #f0f0f0; }
+
+    #portfolio-flters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 32px;
+    }
+
+    #portfolio-flters li {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 8px 20px;
+      color: #666;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    #portfolio-flters li:hover,
+    #portfolio-flters li.filter-active {
+      background: #1a1a1a;
+      border-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .portfolio-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background: #fff;
+      padding: 10px 10px 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .portfolio-wrap:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.16); }
+
+    .portfolio-wrap figure {
+      overflow: hidden;
+      border-radius: 8px 8px 0 0;
+      margin: 0;
+    }
+
+    .portfolio-wrap figure img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-wrap:hover figure img { transform: scale(1.05); }
+
+    .portfolio-info {
+      background: #fff;
+      padding: 14px 10px 18px;
+    }
+
+    .portfolio-info p {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: #777;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .portfolio-more-btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #1a1a1a;
+      border: 1.5px solid #1a1a1a;
+      border-radius: 50px;
+      padding: 12px 32px;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+
+    .portfolio-more-btn:hover { background: #1a1a1a; color: #fff; }
+
+    /* ── Team ── */
+    .team { background-color: #fff; }
+
+    .member {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+    }
+
+    .member img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .member h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 20px 20px 4px;
+      text-align: center;
+    }
+
+    .member p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 0.5px;
+      margin: 0 20px 16px;
+      text-align: center;
+    }
+
+    .member .social { margin: 0 20px 20px; text-align: center; }
+
+    .member .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      background: #ebebeb;
+      border-radius: 50%;
+      color: #555;
+      transition: all 0.25s;
+    }
+
+    .member .social a:hover { background: #1a1a1a; color: #fff; }
+    .member .social i { font-size: 15px; }
+
+    /* ── Contact ── */
+    .contact { background-color: #f8f8f8; }
+
+    .info-wrap {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e2e2e2;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      padding: 36px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.25s;
+    }
+
+    .info i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ebebeb;
+      color: #1a1a1a;
+      border-radius: 12px;
+      width: 48px; height: 48px;
+      font-size: 20px;
+      margin-bottom: 12px;
+      transition: all 0.25s;
+    }
+
+    .info:hover i { background: #1a1a1a; color: #fff; }
+
+    .info h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 6px;
+    }
+
+    .info p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #2d2d2d;
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .info p a { color: #2d2d2d; }
+    .info p a:hover { color: #555; }
+
+    #map {
+      height: 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    #map iframe { width: 100%; height: 100%; border: 0; }
+
+    /* ── Footer ── */
+    #footer { background: #f0f0f0; color: #444; font-size: 14px; }
+
+    .footer-top {
+      padding: 60px 0 30px;
+      border-top: 1px solid #ddd;
+    }
+
+    #footer h3 {
+      font-family: 'Playfair Display', serif;
+      color: #1a1a1a;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    #footer h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #d0d0d0;
+      margin-bottom: 16px;
+    }
+
+    #footer p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.9; }
+    #footer ul { list-style: none; padding: 0; }
+    #footer ul li { padding: 4px 0; }
+    #footer ul li a { color: #555; font-family: 'Inter', sans-serif; }
+    #footer ul li a:hover { color: #1a1a1a; }
+
+    .footer-bottom {
+      border-top: 1px solid #ddd;
+      padding: 16px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #777;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      background: #d0d0d0;
+      border-radius: 50%;
+      color: #1a1a1a;
+      margin-left: 6px;
+      transition: all 0.25s;
+    }
+
+    .social-links a:hover { background: #1a1a1a; color: #fff; }
+
+    /* ── Back to top ── */
+    .back-to-top {
+      position: fixed;
+      right: 20px; bottom: 20px;
+      z-index: 996;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 50%;
+      width: 42px; height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { background: #444; color: #fff; }
+
+    /* ── Scroll progress ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: #1a1a1a;
+      z-index: 9999;
+      width: 0%;
+      pointer-events: none;
+    }
+
+    /* ── GSAP animációs kiindulópontok ── */
+    .fade-up    { opacity: 0; transform: translateY(40px); }
+    .fade-left  { opacity: 0; transform: translateX(-50px); }
+    .fade-right { opacity: 0; transform: translateX(50px); }
+    .fade-scale { opacity: 0; transform: scale(0.92); }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ======= Header ======= -->
+<header id="header">
+  <div class="hcontainer">
+    <div class="logo">
+      <h3><a href="#">Dr. Nagy-Fazakas Csongor</a></h3>
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#about">Rólunk</a></li>
+        <li><a href="#what-we-do">Szolgáltatásaink</a></li>
+        <li><a href="#portfolio">Galéria</a></li>
+        <li><a href="#team">Csapatunk</a></li>
+        <li><a href="#">Árlista</a></li>
+        <li><a href="#contact">Elérhetőségek</a></li>
+      </ul>
+    </nav>
+    <div class="header-social">
+      <a href="#"><i class="bi bi-facebook"></i></a>
+    </div>
+  </div>
+</header>
+
+<!-- ======= Hero ======= -->
+<section id="hero">
+  <div class="container">
+    <h1 class="hero-line">Látogasson el a <span>fogorvosához</span>,</h1>
+    <h1 class="hero-line">ne hagyja, hogy a szenvedéstől való félelme nagyobb legyen,</h1>
+    <h1 class="hero-line">mint <span>mosolygási vágya</span>.</h1>
+    <h2 id="hero-address">
+      Magyarország &nbsp;·&nbsp; Miskolc &nbsp;·&nbsp; Madarász Viktor utca 13/A &nbsp;·&nbsp; 2. emelet, 03 kapucsengő
+    </h2>
+  </div>
+  <div class="hero-scroll-hint" id="scrollHint">
+    <span>Görgessen</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<main id="main">
+
+  <!-- ======= Rólunk ======= -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Rólunk</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="about-img-wrap fade-left">
+            <img src="images/rolunk.jpg" alt="Dr. Nagy-Fazakas Csongor fogászati rendelő">
+          </div>
+        </div>
+        <div class="col-lg-6 fade-right" style="padding-top: 16px;">
+          <ul class="about-list">
+            <li>
+              <h4>Munkám során legfontosabb szempont a páciensekkel kialakított közvetlen, bizalmi viszony,
+              mely lehetővé teszi számukra a szakmai szempontok ismertetése mellett, egyéni elvárásaik érvényesítését.</h4>
+            </li>
+            <li>
+              <h4>A legnagyobb elégtétel számomra, távozó pácienseim elégedett mosolya.
+              Ennek eléréséért, mindig azon vagyok, hogy szakmai tudásom legjavát nyújtsam
+              és, hogy egy olyan meghitt, szeretetteljes légkört biztosítsak, ahova örömmel térnek vissza.</h4>
+            </li>
+          </ul>
+          <div class="diploma-card">
+            <i class="bx bx-receipt"></i>
+            <h5>2016-ban szereztem diplomát a Marosvásárhelyi Orvosi és Gyógyszerészeti Egyetem Fogorvosi Karán</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Szolgáltatásaink ======= -->
+  <section id="what-we-do" class="what-we-do">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Szolgáltatásaink</h2>
+      </div>
+      <div class="row g-4 service-grid">
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch fade-scale">
+          <a href="#" class="icon-box w-100">
+            <div class="icon"><i class="bx bx-plus-medical"></i></div>
+            <h4>Gyökérkezelés</h4>
+            <p>Kattintson ide a részletekért</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch fade-scale">
+          <a href="#" class="icon-box w-100">
+            <div class="icon"><i class="bx bx-smile"></i></div>
+            <h4>Fogszabályozás</h4>
+            <p>Kattintson ide a részletekért</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch fade-scale">
+          <a href="#" class="icon-box w-100">
+            <div class="icon"><i class="bx bx-shield"></i></div>
+            <h4>Fogtömés</h4>
+            <p>Kattintson ide a részletekért</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch fade-scale">
+          <a href="#" class="icon-box w-100">
+            <div class="icon"><i class="bx bx-star"></i></div>
+            <h4>Fogpótlás</h4>
+            <p>Kattintson ide a részletekért</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch fade-scale">
+          <a href="#" class="icon-box w-100">
+            <div class="icon"><i class="bx bx-sun"></i></div>
+            <h4>Fogfehérítés</h4>
+            <p>Kattintson ide a részletekért</p>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch fade-scale">
+          <a href="#" class="icon-box w-100">
+            <div class="icon"><i class="bx bx-heart"></i></div>
+            <h4>Prevenciós kezelések</h4>
+            <p>Kattintson ide a részletekért</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Galéria ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Galéria</h2>
+        <p>Munkáink</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">Összes</li>
+            <li data-filter=".filter-gyoker">Gyökérkezelés</li>
+            <li data-filter=".filter-feherites">Fogfehérítés</li>
+            <li data-filter=".filter-potlas">Fogpótlás</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row g-4 portfolio-container">
+        <div class="col-lg-3 col-md-6 portfolio-item filter-feherites fade-scale">
+          <div class="portfolio-wrap">
+            <figure><img src="images/rolunk.jpg" alt="Fogfehérítés"></figure>
+            <div class="portfolio-info"><p>Fogfehérítés előtt / után</p></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 portfolio-item filter-gyoker fade-scale">
+          <div class="portfolio-wrap">
+            <figure><img src="images/rolunk.jpg" alt="Gyökérkezelés"></figure>
+            <div class="portfolio-info"><p>Gyökérkezelés</p></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 portfolio-item filter-potlas fade-scale">
+          <div class="portfolio-wrap">
+            <figure><img src="images/rolunk.jpg" alt="Fogpótlás"></figure>
+            <div class="portfolio-info"><p>Fogpótlás</p></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 portfolio-item filter-feherites fade-scale">
+          <div class="portfolio-wrap">
+            <figure><img src="images/rolunk.jpg" alt="Esztétika"></figure>
+            <div class="portfolio-info"><p>Esztétikai kezelés</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 fade-up gallery-btn-wrap">
+        <a href="#" class="portfolio-more-btn">Összes kép megtekintése &nbsp;→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Csapatunk ======= -->
+  <section id="team" class="team">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Csapatunk</h2>
+        <p>Ismerje meg orvosainkat, asszisztenseinket</p>
+      </div>
+      <div class="row justify-content-center g-4 team-grid">
+        <div class="col-lg-4 col-md-6 d-flex fade-scale">
+          <div class="member w-100">
+            <img src="images/drnfcsongor.jpg" alt="Dr. Nagy-Fazakas Csongor">
+            <h4>Dr. Nagy-Fazakas Csongor</h4>
+            <p>Fogorvos, rendelő vezető</p>
+            <div class="social"><a href="#"><i class="bi bi-facebook"></i></a></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex fade-scale">
+          <div class="member w-100">
+            <img src="images/szilvi.jpg" alt="Nagy-Fazakas Szilvia">
+            <h4>Nagy-Fazakas Szilvia</h4>
+            <p>Asszisztens</p>
+            <div class="social"><a href="#"><i class="bi bi-facebook"></i></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Elérhetőségek ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Elérhetőségek</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="info-wrap">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 info fade-up" style="margin-bottom: 24px;">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Helyszín:</h4>
+                <p>Magyarország, Miskolc<br>Madarász Viktor utca 13/A<br>2. emelet, 03 kapucsengő</p>
+              </div>
+              <div class="col-lg-4 col-md-6 info fade-up" style="margin-bottom: 24px;">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@fogaszat-miskolc.hu</p>
+              </div>
+              <div class="col-lg-4 col-md-6 info fade-up" style="margin-bottom: 24px;">
+                <i class="bi bi-phone"></i>
+                <h4>Telefonszám:</h4>
+                <p><a href="tel:+36706276160">+36 70 627 6160</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="width: 100%; padding: 0 12px;">
+          <div id="map" class="fade-up">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.0695239355053!2d20.787230008431443!3d48.106499155561345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47409ffcf4e6bc09%3A0xf5ca4089e8674680!2sMiskolc%2C%20Madar%C3%A1sz%20Viktor%20u.%2013%2C%203525%20Magyarorsz%C3%A1g!5e0!3m2!1shu!2sro!4v1682521750086!5m2!1shu!2sro"
+              allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Dr. Nagy-Fazakas Csongor fogászati rendelő helyszíne">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" style="margin-bottom: 24px;">
+          <h3>Dr. Nagy-Fazakas Csongor</h3>
+          <p>Magyarország, Miskolc<br>Madarász Viktor utca 13/A<br>2. emelet, 03 kapucsengő<br><br>
+          <strong>Telefon:</strong> +36 70 627 6160<br>
+          <strong>Email:</strong> info@fogaszat-miskolc.hu</p>
+        </div>
+        <div class="col-lg-4 col-md-6" style="margin-bottom: 24px;">
+          <h4>Szolgáltatásaink</h4>
+          <ul>
+            <li><a href="#">Gyökérkezelés</a></li>
+            <li><a href="#">Fogszabályozás</a></li>
+            <li><a href="#">Fogtömés</a></li>
+            <li><a href="#">Fogpótlás</a></li>
+            <li><a href="#">Fogfehérítés</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6" style="margin-bottom: 24px;">
+          <h4>Gyors linkek</h4>
+          <ul>
+            <li><a href="#">Főoldal</a></li>
+            <li><a href="#about">Rólunk</a></li>
+            <li><a href="#">Galéria</a></li>
+            <li><a href="#">Árlista</a></li>
+            <li><a href="#contact">Kapcsolat</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div>&copy; 2025 <strong>Dr. Nagy-Fazakas Csongor Fogászati Rendelő</strong>. Minden jog fenntartva.</div>
+    <div class="social-links">
+      <a href="#"><i class="bx bxl-facebook"></i></a>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" id="backToTop">
+  <i class="bi bi-arrow-up-short" style="font-size:22px;"></i>
+</a>
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  /* ── 1. SCROLL PROGRESS BAR ── */
+  const progressBar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    progressBar.style.width = pct + '%';
+  }, { passive: true });
+
+  /* ── 2. BACK TO TOP ── */
+  const btt = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btt.addEventListener('click', e => {
+    e.preventDefault();
+    gsap.to(window, { duration: 1.2, scrollTo: 0, ease: 'power3.inOut' });
+  });
+
+  /* ── 3. HERO — sorok beúszása ── */
+  gsap.set('.hero-line', { opacity: 0, y: 28 });
+  gsap.set('#hero-address', { opacity: 0, y: 20 });
+
+  const heroTl = gsap.timeline({ delay: 0.25 });
+  heroTl
+    .to('.hero-line', {
+      opacity: 1, y: 0,
+      duration: 0.85,
+      stagger: 0.2,
+      ease: 'power3.out'
+    })
+    .to('#hero-address', {
+      opacity: 1, y: 0,
+      duration: 0.7,
+      ease: 'power2.out'
+    }, '-=0.3')
+    .to('#scrollHint', {
+      opacity: 1,
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '+=0.2');
+
+  /* ── 4. HERO — marble parallax ── */
+  gsap.to('#hero', {
+    backgroundPositionY: '30%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1.8
+    }
+  });
+
+  /* Scroll hint eltűnik görgetésre */
+  gsap.to('#scrollHint', {
+    opacity: 0, y: -20,
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: '25% top',
+      scrub: true
+    }
+  });
+
+  /* ── 5. SECTION TITLE REVEAL (underline animáció) ── */
+  gsap.utils.toArray('.section-title.fade-up').forEach(el => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 88%',
+      onEnter: () => {
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' });
+        setTimeout(() => el.classList.add('line-revealed'), 350);
+      },
+      once: true
+    });
+  });
+
+  /* ── 6. ABOUT — kép bal, szöveg jobb beúszás ── */
+  ScrollTrigger.create({
+    trigger: '#about .row',
+    start: 'top 83%',
+    onEnter: () => {
+      gsap.to('.fade-left', { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out' });
+      gsap.to('.fade-right', { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out', delay: 0.15 });
+    },
+    once: true
+  });
+
+  /* ── 7. SERVICES — kártyák lépcsőzetes megjelenése ── */
+  ScrollTrigger.create({
+    trigger: '.service-grid',
+    start: 'top 85%',
+    onEnter: () => {
+      gsap.to('.service-grid .fade-scale', {
+        opacity: 1, scale: 1,
+        duration: 0.6,
+        stagger: 0.09,
+        ease: 'back.out(1.4)'
+      });
+    },
+    once: true
+  });
+
+  /* ── 8. PORTFOLIO KÁRTYÁK ── */
+  ScrollTrigger.create({
+    trigger: '.portfolio-container',
+    start: 'top 85%',
+    onEnter: () => {
+      gsap.to('.portfolio-container .fade-scale', {
+        opacity: 1, scale: 1,
+        duration: 0.55,
+        stagger: 0.12,
+        ease: 'power3.out'
+      });
+    },
+    once: true
+  });
+
+  /* Portfolio gomb */
+  ScrollTrigger.create({
+    trigger: '.gallery-btn-wrap',
+    start: 'top 92%',
+    onEnter: () => {
+      gsap.to('.gallery-btn-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
+    },
+    once: true
+  });
+
+  /* ── 9. TEAM KÁRTYÁK ── */
+  ScrollTrigger.create({
+    trigger: '.team-grid',
+    start: 'top 85%',
+    onEnter: () => {
+      gsap.to('.team-grid .fade-scale', {
+        opacity: 1, scale: 1,
+        duration: 0.65,
+        stagger: 0.18,
+        ease: 'back.out(1.3)'
+      });
+    },
+    once: true
+  });
+
+  /* ── 10. CONTACT INFO BLOKKOK ── */
+  ScrollTrigger.create({
+    trigger: '.info-wrap',
+    start: 'top 85%',
+    onEnter: () => {
+      gsap.to('.info.fade-up', {
+        opacity: 1, y: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power3.out'
+      });
+    },
+    once: true
+  });
+
+  /* Map */
+  ScrollTrigger.create({
+    trigger: '#map',
+    start: 'top 90%',
+    onEnter: () => {
+      gsap.to('#map', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' });
+    },
+    once: true
+  });
+
+  /* ── 11. PORTFOLIO FILTER ── */
+  document.querySelectorAll('#portfolio-flters li').forEach(li => {
+    li.addEventListener('click', function() {
+      document.querySelectorAll('#portfolio-flters li').forEach(l => l.classList.remove('filter-active'));
+      this.classList.add('filter-active');
+      gsap.fromTo(this, { scale: 0.9 }, { scale: 1, duration: 0.28, ease: 'back.out(2)' });
+    });
+  });
+
+  /* ── 12. SMOOTH SCROLL NAVIGÁCIÓ ── */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        gsap.to(window, {
+          duration: 1.1,
+          scrollTo: { y: target, offsetY: 80 },
+          ease: 'power3.inOut'
+        });
+      }
+    });
+  });
+
+</script>
+</body>
+</html>

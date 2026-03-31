@@ -42,6 +42,9 @@
 </head>
 <body>
 
+  {{-- Scroll progress bar --}}
+  <div id="progress-bar"></div>
+
   {{-- ======= Header ======= --}}
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
@@ -148,6 +151,11 @@
 
   {{-- Main JS --}}
   <script src="{{ asset('assets/js/main.js') }}"></script>
+
+  {{-- GSAP animációs könyvtár --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
   @stack('scripts')
 </body>
