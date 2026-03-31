@@ -8,7 +8,7 @@ class ArlistaController extends Controller
 {
     public function index()
     {
-        $kategoriak = Kategoria::with('adatok')->has('adatok')->get();
+        $kategoriak = Kategoria::with('arlistaTetelei')->has('arlistaTetelei')->get();
 
         return view('arlista', compact('kategoriak'));
     }

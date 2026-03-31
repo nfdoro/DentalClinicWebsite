@@ -9,7 +9,7 @@ class ArlistaTetel extends Model
 {
     protected $table = 'adatok';
 
-    protected $fillable = ['kategoria_id', 'muveletnev', 'ar'];
+    protected $fillable = ['kategoria_id', 'muveletnev', 'ar', 'kiegeszites'];
 
     public function kategoria(): BelongsTo
     {

@@ -28,11 +28,20 @@
               <td><h3>{{ $kat->nev }}</h3></td>
             </tr>
           </table>
-          @foreach($kat->adatok as $adat)
+          @foreach($kat->arlistaTetelei as $adat)
           <table>
             <tr>
               <td class="arlista-muveletnev">{{ $adat->muveletnev }}</td>
-              <td style="text-align: right"><strong>{{ $adat->ar }}</strong></td>
+              <td style="text-align: right"><strong>
+                @if(is_numeric($adat->ar))
+                  {{ number_format((float)$adat->ar, 0, ',', '.') }} Ft
+                @else
+                  {{ $adat->ar }}
+                @endif
+                @if($adat->kiegeszites)
+                  <span style="font-weight:400; color:#999; font-size:0.88em;"> / {{ $adat->kiegeszites }}</span>
+                @endif
+              </strong></td>
             </tr>
           </table>
           @endforeach
