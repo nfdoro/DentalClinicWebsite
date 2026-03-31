@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Adat;
+use App\Models\ArlistaTetel;
 use App\Models\Galeria;
 use App\Models\Kategoria;
 use Illuminate\Database\Seeder;
@@ -153,7 +153,7 @@ class FogaszatSeeder extends Seeder
         ];
 
         foreach ($adatok as [$katId, $muveletnev, $ar]) {
-            Adat::create([
+            ArlistaTetel::create([
                 'kategoria_id' => $katId,
                 'muveletnev' => $muveletnev,
                 'ar' => $ar,

@@ -15,9 +15,9 @@ class Kategoria extends Model
         'szolgaltatas' => 'boolean',
     ];
 
-    public function adatok(): HasMany
+    public function arlistaTetelei(): HasMany
     {
-        return $this->hasMany(Adat::class, 'kategoria_id');
+        return $this->hasMany(ArlistaTetel::class, 'kategoria_id');
     }
 
     public function galeria(): HasMany
