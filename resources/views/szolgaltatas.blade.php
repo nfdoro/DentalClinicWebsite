@@ -29,7 +29,7 @@
 
 @section('content')
 
-  {{-- Világos oldal fejléc --}}
+  {{-- ── Sötét fejléc (Magazine stílus) ── --}}
   <div class="szolg-page-header">
     <div class="container">
       <p class="szolgaltatas-breadcrumb">
@@ -44,14 +44,16 @@
   </div>
 
   <main id="main">
-    <section id="portfolio-details" class="portfolio-details">
+    <section class="portfolio-details">
       <div class="container">
 
-        <div class="row gy-4">
+        {{-- ── Magazine grid: Bal carousel + Jobb tartalom ── --}}
+        <div class="szolg-mag-grid">
 
-          {{-- Bal: képek --}}
-          @if($kategoria->galeria->count() > 0)
-          <div class="col-lg-6">
+          {{-- Bal: sticky carousel + info kártya --}}
+          <div class="szolg-mag-left">
+
+            @if($kategoria->galeria->count() > 0)
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper">
                 @foreach($kategoria->galeria as $kep)
@@ -64,13 +66,9 @@
               <div class="swiper-button-prev"></div>
               <div class="swiper-button-next"></div>
             </div>
-          </div>
-          @endif
+            @endif
 
-          {{-- Jobb: info + leírás --}}
-          <div class="{{ $kategoria->galeria->count() > 0 ? 'col-lg-6' : 'col-lg-12' }}">
-
-            {{-- Info kártya --}}
+            {{-- Info kártya a carousel alatt --}}
             <div class="szolg-info-card">
               <div class="szolg-info-card-body">
                 <div class="szolg-meta">
@@ -84,23 +82,25 @@
               </div>
               <div class="szolg-cta-row">
                 <a href="{{ route('arlista') }}" class="szolg-cta-btn">
-                  <i class="bi bi-list-ul"></i>
-                  Árlista
+                  <i class="bi bi-list-ul"></i> Árlista
                 </a>
               </div>
             </div>
 
-            {{-- Leírás --}}
+          </div>
+
+          {{-- Jobb: Lead + Body szöveg --}}
+          <div class="szolg-mag-right">
             @if($kategoria->leiras)
             <div class="szolg-leiras">
               {!! $kategoria->leiras !!}
             </div>
             @endif
-
           </div>
+
         </div>
 
-        {{-- Többi szolgáltatás --}}
+        {{-- ── Egyéb szolgáltatások ── --}}
         <div class="szolg-egyeb">
           <h5>Egyéb szolgáltatásaink</h5>
           <div class="szolg-egyeb-grid">

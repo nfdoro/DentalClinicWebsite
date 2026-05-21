@@ -10,6 +10,11 @@ class EditArlistaTetel extends EditRecord
 {
     protected static string $resource = ArlistaTetelResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Árlista tétel szerkesztése';
+    }
+
     protected function getHeaderActions(): array
     {
         return [

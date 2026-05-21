@@ -6,7 +6,7 @@
 
 @section('content')
 
-  <main id="main">
+  <main id="main" class="arlista-main">
     <div class="container">
       <section id="breadcrumbs" class="breadcrumbs"></section>
 

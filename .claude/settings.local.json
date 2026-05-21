@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(php --version 2>&1)",
+      "PowerShell(php -S 127.0.0.1:9999 2>&1; echo \"Exit: $LASTEXITCODE\")"
+    ]
+  }
+}

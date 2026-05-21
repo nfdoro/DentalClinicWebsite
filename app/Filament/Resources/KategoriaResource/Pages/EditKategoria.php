@@ -10,6 +10,11 @@ class EditKategoria extends EditRecord
 {
     protected static string $resource = KategoriaResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Kategória szerkesztése';
+    }
+
     protected function getHeaderActions(): array
     {
         return [

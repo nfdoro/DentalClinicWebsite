@@ -220,11 +220,20 @@
     });
 
     // Slider magasságát szinkronizálja a jobb oldali kolumnával
+    // (csak asztali nézeten — mobilon a grid 1 oszlop, ott ne nyújtsa meg)
     const syncSliderHeight = function() {
-      const leftCol = sliderEl.closest('[class*="col-"]');
-      const rightCol = leftCol ? leftCol.nextElementSibling : null;
-      if (rightCol) {
-        const h = rightCol.offsetHeight;
+      // Mobilon (991px alatt) ne módosítsuk — CSS kezeli
+      if (window.innerWidth <= 991) {
+        sliderEl.style.height = '';
+        swiperInstance.update();
+        return;
+      }
+      // Asztali: a magazine grid jobb oszlopához igazítjuk
+      const magLeft  = sliderEl.closest('.szolg-mag-left');
+      const magGrid  = magLeft ? magLeft.closest('.szolg-mag-grid') : null;
+      const magRight = magGrid ? magGrid.querySelector('.szolg-mag-right') : null;
+      if (magRight) {
+        const h = magRight.offsetHeight;
         if (h > 200) {
           sliderEl.style.height = h + 'px';
           swiperInstance.update();

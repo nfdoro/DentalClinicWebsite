@@ -9,4 +9,14 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateKategoria extends CreateRecord
 {
     protected static string $resource = KategoriaResource::class;
+
+    public function getTitle(): string
+    {
+        return 'Új kategória létrehozása';
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

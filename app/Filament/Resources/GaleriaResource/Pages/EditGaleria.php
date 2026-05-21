@@ -10,6 +10,11 @@ class EditGaleria extends EditRecord
 {
     protected static string $resource = GaleriaResource::class;
 
+    public function getTitle(): string
+    {
+        return 'Kép szerkesztése';
+    }
+
     protected function getHeaderActions(): array
     {
         return [

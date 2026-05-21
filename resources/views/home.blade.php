@@ -40,58 +40,306 @@
 
 @section('content')
 
-  {{-- ======= Hero ======= --}}
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="container text-center">
-      <h1>
-        <span class="hero-line">Látogasson el a <span>fogorvosához</span>,</span>
-        <span class="hero-line">ne hagyja, hogy a szenvedéstől való félelme nagyobb legyen,</span>
-        <span class="hero-line">mint <span>mosolygási vágya</span>.</span>
+  {{-- ======= Hero Carousel ======= --}}
+  <section id="hero">
+
+    {{-- SLIDE 1 — Fogszabályozás --}}
+    <div class="hero-slide active" data-index="0">
+      <h1 class="hero-slide-title">
+        Látogasson el a fogorvosához,<br>
+        és nyerjen vissza egy <em>tökéletes mosolyt</em>.
       </h1>
-      <h2 id="hero-address">Magyarország &nbsp;·&nbsp; Miskolc &nbsp;·&nbsp; Madarász Viktor utca 13/A &nbsp;·&nbsp; 2. emelet, 03 kapucsengő</h2>
+      <p class="hero-slide-sub">Modern Invisalign és hagyományos fogszabályozóval — az első konzultáció ingyenes.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'fogszabalyozas') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Fogszabályozás részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num">~18<sup>hó</sup></div>
+          <div class="hic-label">Átlagos kezelési idő</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num">0<sup>ft</sup></div>
+          <div class="hic-label">Konzultáció díja</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Invisalign</div>
+          <div class="hic-label">Certified partner</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-scroll-hint" id="scrollHint">
-      <span>Görgessen</span>
-      <div class="scroll-line"></div>
+
+    {{-- SLIDE 2 — Gyökérkezelés --}}
+    <div class="hero-slide" data-index="1">
+      <h1 class="hero-slide-title">
+        Ne hagyja, hogy a fájdalomtól való félelem<br>
+        megakadályozza a <em>fogmegőrzést</em>.
+      </h1>
+      <p class="hero-slide-sub">Helyi érzéstelenítéssel, gyorsan és fájdalommentesen mentjük meg a fertőzött fogat.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'gyokerkezeles') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Gyökérkezelés részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num">1–3<sup>alk.</sup></div>
+          <div class="hic-label">Szükséges alkalmak</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Helyi</div>
+          <div class="hic-label">Érzéstelenítéssel</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Mentett</div>
+          <div class="hic-label">Saját fog megőrzése</div>
+        </div>
+      </div>
     </div>
+
+    {{-- SLIDE 3 — Fogtömés --}}
+    <div class="hero-slide" data-index="2">
+      <h1 class="hero-slide-title">
+        A szuvasodás ellen az egyetlen válasz<br>
+        az <em>időben elvégzett kezelés</em>.
+      </h1>
+      <p class="hero-slide-sub">Egyetlen alkalom alatt, fehér esztétikai tömőanyaggal — helyreállítjuk a fog természetes megjelenését.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'fogtomes') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Fogtömés részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num">1<sup>alk.</sup></div>
+          <div class="hic-label">Egyetlen alkalom</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Fehér</div>
+          <div class="hic-label">Esztétikai tömőanyag</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Azonnali</div>
+          <div class="hic-label">Eredmény</div>
+        </div>
+      </div>
+    </div>
+
+    {{-- SLIDE 4 — Fogpótlás --}}
+    <div class="hero-slide" data-index="3">
+      <h1 class="hero-slide-title">
+        Hiányzó fog? Állítsuk vissza<br>
+        <em>mosolyát és önbizalmát</em>.
+      </h1>
+      <p class="hero-slide-sub">Koronától az implantátumig — tartós, természetes megjelenésű fogpótlással.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'fogpotlas') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Fogpótlás részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num hic-text">Korona</div>
+          <div class="hic-label">Híd · Implantátum</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Teljes</div>
+          <div class="hic-label">Foghiány is pótolható</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Tartós</div>
+          <div class="hic-label">Hosszú élettartam</div>
+        </div>
+      </div>
+    </div>
+
+    {{-- SLIDE 5 — Prevenció --}}
+    <div class="hero-slide" data-index="4">
+      <h1 class="hero-slide-title">
+        Ne várjon a panaszra —<br>
+        a megelőzés a <em>legokosabb befektetés</em>.
+      </h1>
+      <p class="hero-slide-sub">Évente kétszeri rutin vizsgálat megelőzi a fogínygyulladást, szuvasodást és csontpusztulást.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'prevencio') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Prevenció részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num">2<sup>×</sup></div>
+          <div class="hic-label">Évente ajánlott</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Fogkő</div>
+          <div class="hic-label">Professzionális eltávolítás</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Szűrés</div>
+          <div class="hic-label">Teljes vizsgálat</div>
+        </div>
+      </div>
+    </div>
+
+    {{-- SLIDE 6 — Foghúzás --}}
+    <div class="hero-slide" data-index="5">
+      <h1 class="hero-slide-title">
+        Amikor a fog már nem menthető meg,<br>
+        <em>gyors és fájdalommentes megoldás</em>.
+      </h1>
+      <p class="hero-slide-sub">Atraumatikus technikával végzett foghúzás — utólagos fogpótlás lehetőségével.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'foghuzas') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Foghúzás részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num hic-text">Gyors</div>
+          <div class="hic-label">Atraumatikus technika</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Helyi</div>
+          <div class="hic-label">Érzéstelenítéssel</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Pótlás</div>
+          <div class="hic-label">Utólag lehetséges</div>
+        </div>
+      </div>
+    </div>
+
+    {{-- SLIDE 7 — Fogfehérítés --}}
+    <div class="hero-slide" data-index="6">
+      <h1 class="hero-slide-title">
+        Ragyogó mosoly — mert<br>
+        az <em>első benyomás számít</em>.
+      </h1>
+      <p class="hero-slide-sub">Professzionális fogfehérítéssel akár 8 tónussal világosabb fogak. Rendelői és otthoni megoldás egyaránt.</p>
+      <div class="hero-slide-btns">
+        <a href="{{ route('szolgaltatas.show', 'fogfeherites') }}" class="hero-btn-primary">
+          <i class="bi bi-arrow-right-circle"></i> Fogfehérítés részletek
+        </a>
+        <a href="{{ route('home') }}#contact" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> Elérhetőség
+        </a>
+      </div>
+      <div class="hero-infocard">
+        <div class="hic-row">
+          <div class="hic-num">8<sup>tón</sup></div>
+          <div class="hic-label">Átlagos fehérítés</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Gyors</div>
+          <div class="hic-label">Rendelői fehérítés</div>
+        </div>
+        <div class="hic-row">
+          <div class="hic-num hic-text">Otthoni</div>
+          <div class="hic-label">Szett is elérhető</div>
+        </div>
+      </div>
+    </div>
+
+    {{-- Cím sor --}}
+    <p class="hero-address" id="hero-address">
+      Magyarország &nbsp;·&nbsp; Miskolc &nbsp;·&nbsp; Madarász Viktor utca 13/A &nbsp;·&nbsp; 2. emelet, 03 kapucsengő
+    </p>
+
+    {{-- Dots + Nyilak --}}
+    <div class="hero-bottom">
+      <div class="hero-dots" id="heroDots"></div>
+      <div class="hero-arrows">
+        <button class="hero-arrow-btn" id="heroPrev"><i class="bi bi-arrow-left"></i></button>
+        <button class="hero-arrow-btn" id="heroNext"><i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+
+    {{-- Progress bar --}}
+    <div class="hero-progress-bar"><div class="hero-progress-inner" id="heroProgress"></div></div>
+
   </section>
-  {{-- ======= End Hero ======= --}}
+  {{-- ======= End Hero Carousel ======= --}}
 
   <main id="main">
 
     {{-- ======= Rólunk ======= --}}
-    <section id="about" class="about">
+    <section id="about" class="rolunk-section">
       <div class="container">
+
         <div class="section-title fade-up">
           <h2>Rólunk</h2>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <div class="about-img-wrap fade-left">
-              <img src="{{ asset('images/rolunk.jpg') }}" class="img-fluid" alt="Dr. Nagy-Fazakas Csongor fogászati rendelő">
+
+        <div class="rolunk-wrap">
+
+          {{-- BAL: Fotó + stat kártyák --}}
+          <div class="rolunk-photo-col">
+            <div class="rolunk-photo-frame-deco"></div>
+            <div class="rolunk-photo">
+              <img src="{{ asset('images/drnfcsongor.jpg') }}" alt="Dr. Nagy-Fazakas Csongor">
+            </div>
+            <div class="rolunk-stat-card stat-top">
+              <div class="rolunk-stat-num">2016</div>
+              <div class="rolunk-stat-label">Diploma éve</div>
+            </div>
+            <div class="rolunk-stat-card stat-mid">
+              <div class="rolunk-stat-num">9<sup>+ év</sup></div>
+              <div class="rolunk-stat-label">Tapasztalat</div>
+            </div>
+            <div class="rolunk-stat-card stat-bottom">
+              <div class="rolunk-stat-num">200<sup>+</sup></div>
+              <div class="rolunk-stat-label">Páciens</div>
             </div>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 fade-right">
-            <div>
-              <ul>
-                <li>
-                  <h4>Munkám során legfontosabb szempont a páciensekkel kialakított közvetlen, bizalmi viszony,
-                  mely lehetővé teszi számukra a szakmai szempontok ismertetése mellett, egyéni elvárásaik érvényesítését.</h4>
-                </li>
-                <li>
-                  <h4>A legnagyobb elégtétel számomra, távozó pácienseim elégedett mosolya.
-                  Ennek eléréséért, mindig azon vagyok, hogy szakmai tudásom legjavát nyújtsam (ezt folyamatos továbbképzésekkel gyarapítom) és,
-                  hogy egy olyan meghitt, szeretetteljes légkört biztosítsak, ahova örömmel térnek vissza.</h4>
-                </li>
-              </ul>
-            </div>
-            <div class="row icon-boxes">
-              <div class="col-md-6">
-                <i class="bx bx-receipt"></i>
-                <h5>2016-ban szereztem diplomát a Marosvásárhelyi Orvosi és Gyógyszerészeti Egyetem Fogorvosi Karán</h5>
+
+          {{-- JOBB: Szöveg --}}
+          <div class="rolunk-content">
+            <h2 class="rolunk-heading">
+              A pácienseim bizalma<br>a legfontosabb <em>értékem.</em>
+            </h2>
+
+            <p class="rolunk-bio">
+              Munkám során legfontosabb szempont a páciensekkel kialakított közvetlen, bizalmi viszony, mely lehetővé teszi számukra a szakmai szempontok ismertetése mellett, egyéni elvárásaik érvényesítését.
+            </p>
+            <p class="rolunk-bio">
+              A legnagyobb elégtétel számomra, távozó pácienseim elégedett mosolya. Ennek eléréséért, mindig azon vagyok, hogy szakmai tudásom legjavát nyújtsam (ezt folyamatos továbbképzésekkel gyarapítom) és, hogy egy olyan meghitt, szeretetteljes légkört biztosítsak, ahova örömmel térnek vissza.
+            </p>
+
+            <div class="rolunk-timeline">
+              <div class="rolunk-tl-item">
+                <div class="rolunk-tl-dot"></div>
+                <div class="rolunk-tl-text">
+                  <strong>2016</strong> — Diploma, Marosvásárhelyi Orvosi és Gyógyszerészeti Egyetem, Fogorvosi Kar
+                </div>
               </div>
             </div>
+
+            <div class="rolunk-sig-block">
+              <div class="rolunk-sig-name">Dr. Nagy-Fazakas Csongor</div>
+              <div class="rolunk-sig-role">Fogorvos · Rendelővezető</div>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -227,18 +475,24 @@
               <div class="row">
                 <div class="col-lg-4 info fade-up">
                   <i class="bi bi-geo-alt"></i>
-                  <h4>Helyszín:</h4>
-                  <p>Magyarország, Miskolc<br>Madarász Viktor utca 13/A<br>2. emelet, 03 kapucsengő</p>
+                  <div class="info-text">
+                    <h4>Helyszín:</h4>
+                    <p>Magyarország, Miskolc<br>Madarász Viktor utca 13/A<br>2. emelet, 03 kapucsengő</p>
+                  </div>
                 </div>
                 <div class="col-lg-4 info mt-4 mt-lg-0 fade-up">
                   <i class="bi bi-envelope"></i>
-                  <h4>Email:</h4>
-                  <p>info@fogaszat-miskolc.hu</p>
+                  <div class="info-text">
+                    <h4>Email:</h4>
+                    <p>info@fogaszat-miskolc.hu</p>
+                  </div>
                 </div>
                 <div class="col-lg-4 info mt-4 mt-lg-0 fade-up">
                   <i class="bi bi-phone"></i>
-                  <h4>Telefonszám:</h4>
-                  <p><a href="tel:+36706276160">+36 70 627 6160</a></p>
+                  <div class="info-text">
+                    <h4>Telefonszám:</h4>
+                    <p><a href="tel:+36706276160">+36 70 627 6160</a></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -279,28 +533,85 @@
     });
   }
 
-  /* ── 3. HERO — sorok beúszása ── */
-  gsap.set('.hero-line', { opacity: 0, y: 28 });
-  gsap.set('#hero-address', { opacity: 0, y: 20 });
+  /* ── 3. HERO CAROUSEL ── */
+  (function() {
+    const slides   = document.querySelectorAll('.hero-slide');
+    const dotsWrap = document.getElementById('heroDots');
+    const progEl   = document.getElementById('heroProgress');
+    const TOTAL    = slides.length;
+    const INTERVAL = 6000;
+    let current = 0, autoTimer;
 
-  const heroTl = gsap.timeline({ delay: 0.25 });
-  heroTl
-    .to('.hero-line', {
-      opacity: 1, y: 0,
-      duration: 0.85,
-      stagger: 0.2,
-      ease: 'power3.out'
-    })
-    .to('#hero-address', {
-      opacity: 1, y: 0,
-      duration: 0.7,
-      ease: 'power2.out'
-    }, '-=0.3')
-    .to('#scrollHint', {
-      opacity: 1,
-      duration: 0.6,
-      ease: 'power2.out'
-    }, '+=0.2');
+    /* Dots generálás */
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => { goTo(i); startAuto(); });
+      dotsWrap.appendChild(d);
+    });
+
+    function getDots() { return dotsWrap.querySelectorAll('.hero-dot'); }
+
+    function animateIn(slide) {
+      const els = slide.querySelectorAll('.hero-slide-title, .hero-slide-sub, .hero-slide-btns');
+      gsap.fromTo(els,
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 0.85, stagger: 0.15, ease: 'power3.out', delay: 0.2 }
+      );
+      const card = slide.querySelector('.hero-infocard');
+      if (card) gsap.fromTo(card,
+        { opacity: 0, x: 20 },
+        { opacity: 1, x: 0, duration: 0.8, ease: 'power2.out', delay: 0.7 }
+      );
+    }
+
+    function goTo(idx) {
+      const dots = getDots();
+      slides[current].classList.add('leaving');
+      dots[current].classList.remove('active');
+      const next = (idx + TOTAL) % TOTAL;
+      setTimeout(() => {
+        slides[current].classList.remove('active', 'leaving');
+        current = next;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        animateIn(slides[current]);
+      }, 300);
+    }
+
+    function startProgress() {
+      progEl.style.transition = 'none';
+      progEl.style.width = '0%';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        progEl.style.transition = 'width 6s linear';
+        progEl.style.width = '100%';
+      }));
+    }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      startProgress();
+      autoTimer = setInterval(() => { goTo(current + 1); setTimeout(startProgress, 350); }, INTERVAL);
+    }
+
+    document.getElementById('heroNext').addEventListener('click', () => { goTo(current + 1); startAuto(); });
+    document.getElementById('heroPrev').addEventListener('click', () => { goTo(current - 1); startAuto(); });
+
+    /* Első slide animáció */
+    gsap.set('.hero-slide.active .hero-slide-title, .hero-slide.active .hero-slide-sub, .hero-slide.active .hero-slide-btns', { opacity: 0, y: 28 });
+    gsap.set('.hero-slide.active .hero-infocard', { opacity: 0, x: 20 });
+    gsap.set('#hero-address', { opacity: 0, y: 16 });
+
+    const heroTl = gsap.timeline({ delay: 0.25 });
+    heroTl
+      .to('.hero-slide.active .hero-slide-title', { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out' })
+      .to('.hero-slide.active .hero-slide-sub',   { opacity: 1, y: 0, duration: 0.7,  ease: 'power3.out' }, '-=0.5')
+      .to('.hero-slide.active .hero-slide-btns',  { opacity: 1, y: 0, duration: 0.7,  ease: 'power3.out' }, '-=0.5')
+      .to('.hero-slide.active .hero-infocard',    { opacity: 1, x: 0, duration: 0.7,  ease: 'power2.out' }, '-=0.4')
+      .to('#hero-address', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.3');
+
+    startAuto();
+  })();
 
   /* ── 4. HERO — marble parallax ── */
   gsap.to('#hero', {
@@ -311,17 +622,6 @@
       start: 'top top',
       end: 'bottom top',
       scrub: 1.8
-    }
-  });
-
-  /* Scroll hint eltűnik görgetésre */
-  gsap.to('#scrollHint', {
-    opacity: 0, y: -20,
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top top',
-      end: '25% top',
-      scrub: true
     }
   });
 
@@ -338,13 +638,23 @@
     });
   });
 
-  /* ── 6. ABOUT — kép és szöveg beúszás ── */
+  /* ── 6. ABOUT — Rólunk beúszás ── */
   ScrollTrigger.create({
-    trigger: '#about .row',
+    trigger: '#about .rolunk-wrap',
     start: 'top 83%',
     onEnter: () => {
-      gsap.to('.fade-left', { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out' });
-      gsap.to('.fade-right', { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out', delay: 0.15 });
+      gsap.fromTo('.rolunk-photo-col',
+        { opacity: 0, x: -40 },
+        { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out' }
+      );
+      gsap.fromTo('.rolunk-content',
+        { opacity: 0, x: 40 },
+        { opacity: 1, x: 0, duration: 1.0, ease: 'power3.out', delay: 0.15 }
+      );
+      gsap.fromTo('.rolunk-stat-card',
+        { opacity: 0, scale: 0.85 },
+        { opacity: 1, scale: 1, duration: 0.6, stagger: 0.12, ease: 'back.out(1.4)', delay: 0.4 }
+      );
     },
     once: true
   });
