@@ -18,6 +18,7 @@ Route::get('/blog/{slug}', [CikkController::class, 'show'])->name('blog.show');
 // Sitemap
 Route::get('/sitemap.xml', function () {
     $kategoriak = \App\Models\Kategoria::where('szolgaltatas', true)->get();
-    $content = view('sitemap', compact('kategoriak'))->render();
+    $cikkek = \App\Models\Cikk::published()->orderByDesc('published_at')->get();
+    $content = view('sitemap', compact('kategoriak', 'cikkek'))->render();
     return response($content, 200)->header('Content-Type', 'application/xml');
 })->name('sitemap');
