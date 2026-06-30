@@ -110,10 +110,11 @@ class CikkResource extends Resource
                     ->sortable()
                     ->limit(60),
 
-                Tables\Columns\BadgeColumn::make('published_at')
+                Tables\Columns\TextColumn::make('allapot')
                     ->label('Állapot')
-                    ->formatStateUsing(fn ($state) => $state ? 'Közzétett' : 'Vázlat')
-                    ->color(fn ($state) => $state ? 'success' : 'gray'),
+                    ->getStateUsing(fn ($record) => $record->published_at ? 'Közzétett' : 'Vázlat')
+                    ->badge()
+                    ->color(fn (string $state) => $state === 'Közzétett' ? 'success' : 'gray'),
 
                 Tables\Columns\TextColumn::make('published_at')
                     ->label('Közzétéve')
