@@ -24,4 +24,9 @@ class Kategoria extends Model
     {
         return $this->hasMany(Galeria::class, 'kategoria_id');
     }
+
+    public function faqs(): HasMany
+    {
+        return $this->hasMany(Faq::class)->orderBy('sorrend');
+    }
 }
