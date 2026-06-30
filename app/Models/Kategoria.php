@@ -9,7 +9,7 @@ class Kategoria extends Model
 {
     protected $table = 'kategoriak';
 
-    protected $fillable = ['nev', 'leiras', 'icon', 'szolgaltatas', 'slug'];
+    protected $fillable = ['nev', 'leiras', 'kiemelt_leiras', 'icon', 'szolgaltatas', 'slug'];
 
     protected $casts = [
         'szolgaltatas' => 'boolean',
