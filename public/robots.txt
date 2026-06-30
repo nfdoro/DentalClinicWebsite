@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /storage/
 Disallow: /.env
+Disallow: /admin
 
-Sitemap: /sitemap.xml
+Sitemap: https://fogaszat-miskolc.hu/sitemap.xml
