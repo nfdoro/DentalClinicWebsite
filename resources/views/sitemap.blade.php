@@ -40,4 +40,10 @@
         <priority>0.7</priority>
     </url>
     @endforeach
+    <url>
+        <loc>{{ route('fogaszat.eszak-magyarorszag') }}</loc>
+        <lastmod>2026-06-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
 </urlset>
