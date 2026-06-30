@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArlistaController;
+use App\Http\Controllers\CikkController;
 use App\Http\Controllers\GaleriaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SzolgaltatasController;
@@ -10,6 +11,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/arlista', [ArlistaController::class, 'index'])->name('arlista');
 Route::get('/galeria', [GaleriaController::class, 'index'])->name('galeria');
 Route::get('/szolgaltatasok/{slug}', [SzolgaltatasController::class, 'show'])->name('szolgaltatas.show');
+
+Route::get('/blog', [CikkController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [CikkController::class, 'show'])->name('blog.show');
 
 // Sitemap
 Route::get('/sitemap.xml', function () {
