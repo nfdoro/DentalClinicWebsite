@@ -40,7 +40,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Szolgáltatásaink",
-      "item": "{{ url('/') }}#what-we-do"
+      "item": "{{ url('/') }}"
     },
     {
       "@type": "ListItem",

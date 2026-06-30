@@ -35,10 +35,6 @@
   ],
   "priceRange": "$$",
   "image": "{{ asset('images/rolunk.jpg') }}",
-  "sameAs": [
-    "https://www.facebook.com/FACEBOOK_URL_IDE",
-    "https://g.page/GOOGLE_BUSINESS_ID_IDE"
-  ],
   "medicalSpecialty": "Dentist",
   "availableService": [
     @foreach($szolgaltatasok as $s)
