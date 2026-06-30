@@ -10,9 +10,12 @@ class SzolgaltatasController extends Controller
     public function show(string $slug)
     {
         $kategoria = Kategoria::where('slug', $slug)
-            ->with(['galeria' => function ($q) {
-                $q->whereNotNull('fajlnev');
-            }])
+            ->with([
+                'galeria' => function ($q) {
+                    $q->whereNotNull('fajlnev');
+                },
+                'faqs',
+            ])
             ->firstOrFail();
 
         return view('szolgaltatas', compact('kategoria'));
