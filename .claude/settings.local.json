@@ -2,7 +2,24 @@
   "permissions": {
     "allow": [
       "PowerShell(php --version 2>&1)",
-      "PowerShell(php -S 127.0.0.1:9999 2>&1; echo \"Exit: $LASTEXITCODE\")"
+      "PowerShell(php -S 127.0.0.1:9999 2>&1; echo \"Exit: $LASTEXITCODE\")",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/task-brief /mnt/ce4d53b3-916d-40a4-b697-3f1be8eb00c2/DentalClinicWebsite/docs/superpowers/plans/2026-06-30-seo-technikai-javitasok.md 1)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 44ef292705caff61d4e99aa8737244e04c0f0b89 HEAD 2>/dev/null)",
+      "Bash(git *)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package d1cc46535436bf3cfdfe1afc989f2122b5cc078d HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package b91c38cc171eb588709c00e6af053fba5007e218 HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 4b622307fcafa836639a27a113ef3958b99dd4ce HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 441fd2c08fad557e634d0fb6764a0bdb85f4c5c7 HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 8391acb4e7ee36e9cb3c55a4a5e7f44a6a5c9b9b HEAD)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 8391acb HEAD)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 4db476d19d448861cb8ee6264dbe158009c68d4a HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package ee307cbe106237ff58f4f93cec2a43ef25d30db4 HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 797de60fac275b51650cff0e876f91443e9d625b HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 22b50cfa7899f73aa16af830e761de47e7a52a61 HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 5c2ec12 HEAD 2>/dev/null)",
+      "Bash(bash /home/hunor/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3/skills/subagent-driven-development/scripts/review-package 7b24aa7 HEAD 2>/dev/null)"
     ]
   }
 }
