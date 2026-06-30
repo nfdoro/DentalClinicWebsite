@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $kategoria->nev . ' Miskolc - Dr. Nagy-Fazakas Csongor Fogászat')
-@section('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelő - ' . $kategoria->nev . ' kezelések Miskolcon. Hívjon időpontért: +36 70 627 6160')
+@section('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelő — ' . $kategoria->nev . ' Miskolcon. Elérhető Eger, Ózd, Kazincbarcika és Nyíregyháza közeléből is. Időpontfoglalás: +36 70 627 6160')
 @section('keywords', strtolower($kategoria->nev) . ' miskolc, ' . strtolower($kategoria->nev) . ' ár, fogorvos miskolc')
 
 @section('schema')
@@ -23,6 +23,31 @@
     },
     "telephone": "+36706276160"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Főoldal",
+      "item": "{{ url('/') }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Szolgáltatásaink",
+      "item": "{{ url('/') }}#what-we-do"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ $kategoria->nev }}"
+    }
+  ]
 }
 </script>
 @endsection
