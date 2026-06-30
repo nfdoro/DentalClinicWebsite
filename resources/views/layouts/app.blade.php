@@ -106,6 +106,7 @@
           <li><a class="nav-link scrollto" href="{{ route('home') }}#portfolio">Galéria</a></li>
           <li><a class="nav-link scrollto" href="{{ route('home') }}#team">Csapatunk</a></li>
           <li><a class="nav-link scrollto" href="{{ route('arlista') }}">Árlista</a></li>
+          <li><a class="nav-link" href="{{ route('blog.index') }}">Blog</a></li>
           <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Elérhetőségek</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -153,6 +154,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}#about">Rólunk</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('galeria') }}">Galéria</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('arlista') }}">Árlista</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('blog.index') }}">Blog</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}#contact">Kapcsolat</a></li>
             </ul>
           </div>
