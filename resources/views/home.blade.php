@@ -76,7 +76,7 @@
         </div>
         <div class="hic-row">
           <div class="hic-num hic-text">Invisalign</div>
-          <div class="hic-label">Certified partner</div>
+          <div class="hic-label">Fogszabályozás</div>
         </div>
       </div>
     </div>

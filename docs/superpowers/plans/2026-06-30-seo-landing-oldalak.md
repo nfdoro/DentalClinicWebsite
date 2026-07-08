@@ -202,7 +202,7 @@ A `resources/views/fogaszat/eszak-magyarorszag.blade.php` teljes tartalma:
   "@@context": "https://schema.org",
   "@type": "Dentist",
   "name": "Dr. Nagy-Fazakas Csongor Fogászati Rendelő",
-  "description": "Fogászati rendelő Miskolcon, Észak-Magyarország egész területéről elérhető. Invisalign certified partner, implantátum, fogfehérítés.",
+  "description": "Fogászati rendelő Miskolcon, Észak-Magyarország egész területéről elérhető. Invisalign fogszabályozás, implantátum, fogfehérítés.",
   "url": "{{ url('/') }}",
   "telephone": "+36706276160",
   "address": {
@@ -284,7 +284,6 @@ A `resources/views/fogaszat/eszak-magyarorszag.blade.php` teljes tartalma:
 
           <h3 class="mt-4">Miért éri meg az utazás?</h3>
           <ul>
-            <li><strong>Invisalign Certified Partner</strong> — kevés rendelő rendelkezik ezzel a minősítéssel Észak-Magyarországon</li>
             <li><strong>9+ év tapasztalat</strong> — komplex implantátum és fogszabályozó kezelések</li>
             <li><strong>Ingyenes első konzultáció</strong> fogszabályozáshoz</li>
             <li><strong>Egyéni, személyes ellátás</strong> — nem tömeggyártás</li>

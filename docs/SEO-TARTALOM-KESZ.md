@@ -18,9 +18,8 @@ kiemelés nélkül, természetes szövegkörnyezetben szerepelnek (kulcsszóhalm
 
 ```html
 <p>A fogszabályozás ma már nem jelenti automatikusan a fémes, jól látható kapcsokat és drótokat.
-Rendelőnkben <strong>Invisalign Certified Partner</strong> minősítéssel kínálunk átlátszó, kivehető
-fogszabályozást Miskolcon és környékén — Ózdról, Kazincbarcikáról, Egerből és Nyíregyházáról is sokan
-választják ezt a kezelést nálunk.</p>
+Rendelőnkben átlátszó, kivehető Invisalign fogszabályozást kínálunk Miskolcon és környékén —
+Ózdról, Kazincbarcikáról, Egerből és Nyíregyházáról is sokan választják ezt a kezelést nálunk.</p>
 
 <h3>Mi az Invisalign, és miben más, mint a hagyományos fogszabályozó?</h3>
 <p>Az Invisalign egy áttetsző, egyedileg 3D-nyomtatott műanyag sínekből (alignerekből) álló rendszer,
@@ -231,9 +230,8 @@ a pontosabb mozgatást. Ezek a kiegészítők is részei lehetnek a végső árn
 
 <h3>4. Hol végzik a kezelést</h3>
 <p>Az árak régiónként és rendelőnként is eltérhetnek — egy fővárosi, magas rezsijű klinika ára
-jellemzően magasabb, mint egy vidéki, de ugyanolyan minőségű, tanúsított rendelőé. Miskolci
-rendelőnkben ezért gyakran versenyképesebb árat tudunk kínálni, mint egy budapesti klinika,
-ugyanolyan Invisalign Certified Partner minősítéssel.</p>
+jellemzően magasabb, mint egy vidéki, de ugyanolyan minőségű rendelőé. Miskolci rendelőnkben
+ezért gyakran versenyképesebb árat tudunk kínálni, mint egy budapesti klinika.</p>
 
 <h2>Mire számítson a konzultáción?</h2>
 <p>Az első lépés mindig egy ingyenes konzultáció és 3D intraorális szkennelés — ez fájdalommentes,
@@ -256,9 +254,9 @@ harapás hosszú távon ínyproblémákhoz, egyenetlen kopáshoz vezethet, ami k
 beavatkozást igényelhet. Minél korábban kezdi el a kezelést, annál egyszerűbb és olcsóbb
 megoldással érhető el a kívánt eredmény.</p>
 
-<p>Ha Miskolcon vagy környékén (Eger, Ózd, Kazincbarcika, Nyíregyháza) keres Invisalign
-Certified Partner rendelőt, foglaljon ingyenes konzultációt — a szkennelés és a pontos
-árajánlat után dönthet nyugodtan.</p>
+<p>Ha Miskolcon vagy környékén (Eger, Ózd, Kazincbarcika, Nyíregyháza) keres megbízható Invisalign
+kezelést, foglaljon ingyenes konzultációt — a szkennelés és a pontos árajánlat után dönthet
+nyugodtan.</p>
 ```
 
 ---
@@ -424,7 +422,7 @@ technológia és személyre szabott kezelési tervek jellemzik a munkánkat.</p>
 <li><strong>Fogtömés</strong> — modern, esztétikus, fogszínű anyagokkal</li>
 <li><strong>Gyökérkezelés</strong> — fájdalommentes, korszerű technikával</li>
 <li><strong>Fogpótlás</strong> — implantátum és híd, egyénre szabott tervezéssel</li>
-<li><strong>Fogszabályozás</strong> — Invisalign Certified Partnerként átlátszó, kivehető megoldással</li>
+<li><strong>Fogszabályozás</strong> — Invisalign átlátszó, kivehető megoldással</li>
 <li><strong>Fogfehérítés</strong> — rendelői és otthoni módszerrel</li>
 <li><strong>Foghúzás</strong> — bölcsességfog-eltávolítástól a szövődménymentes húzásokig</li>
 </ul>
@@ -481,8 +479,8 @@ elérhető.</p>
 <h3>Komplex, speciális kezeléseknél</h3>
 <p>Implantáció, Invisalign fogszabályozás vagy összetettebb fogpótlási tervek esetén
 nem mindegy, mekkora tapasztalattal és milyen technológiával rendelkezik a rendelő.
-Egy Invisalign Certified Partner minősítés, digitális szkenner vagy 3D tervezés olyan
-pontosságot biztosít, amiért érdemes hosszabb utat vállalni.</p>
+A digitális szkenner és a gondos tervezés olyan pontosságot biztosít, amiért érdemes
+hosszabb utat vállalni.</p>
 <h3>Második vélemény esetén</h3>
 <p>Ha egy nagyobb beavatkozás (pl. implantátum vagy sok fogat érintő fogpótlás) előtt
 áll, és szeretne egy független, alapos véleményt kapni, egy másik városban praktizáló

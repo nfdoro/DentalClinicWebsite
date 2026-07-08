@@ -210,7 +210,6 @@ Ezeket te írod (AI segítséggel is lehet):
 | Fogfehérítés előtt-után: mit várj a kezeléstől? | fogfehérítés tapasztalatok | Országos |
 | Fogorvos Miskolcon — miért válasszon minket? | fogorvos miskolc | Helyi |
 | Miskolctól Egerig — miért érdemes utazni a fogorvoshoz? | fogászat eger miskolc | Regionális |
-| Invisalign Certified Partner — mit jelent ez neked? | invisalign certified | Márka |
 
 ---
 
