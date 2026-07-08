@@ -56,7 +56,7 @@
         Látogasson el a fogorvosához,<br>
         és nyerjen vissza egy <em>tökéletes mosolyt</em>.
       </h1>
-      <p class="hero-slide-sub">Modern Invisalign és hagyományos fogszabályozóval — az első konzultáció ingyenes.</p>
+      <p class="hero-slide-sub">Modern, önligírozó fogszabályozóval — az első konzultáció ingyenes.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'fogszabalyozas') }}" class="hero-btn-primary">
           <i class="bi bi-arrow-right-circle"></i> Fogszabályozás részletek
@@ -75,8 +75,8 @@
           <div class="hic-label">Konzultáció díja</div>
         </div>
         <div class="hic-row">
-          <div class="hic-num hic-text">Invisalign</div>
-          <div class="hic-label">Fogszabályozás</div>
+          <div class="hic-num hic-text">Önligírozó</div>
+          <div class="hic-label">Fogszabályozó rendszer</div>
         </div>
       </div>
     </div>

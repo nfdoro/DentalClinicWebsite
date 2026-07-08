@@ -86,7 +86,7 @@ class CikkResource extends Resource
                         Forms\Components\TextInput::make('kulcsszavak')
                             ->label('Kulcsszavak')
                             ->maxLength(500)
-                            ->placeholder('pl. invisalign miskolc, fogszabályozás ár')
+                            ->placeholder('pl. fogszabályozás miskolc, fogszabályozás ár')
                             ->columnSpanFull(),
                     ]),
 

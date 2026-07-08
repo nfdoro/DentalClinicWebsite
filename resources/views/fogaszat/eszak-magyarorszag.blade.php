@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Fogászat Észak-Magyarország — Dr. Nagy-Fazakas Csongor, Miskolc')
-@section('description', 'Fogászati rendelő Miskolcon, Észak-Magyarország szívében. Eger, Ózd, Kazincbarcika, Nyíregyháza és Tiszaújváros közeléből is könnyen elérhető. Invisalign, implantátum, fogfehérítés.')
+@section('description', 'Fogászati rendelő Miskolcon, Észak-Magyarország szívében. Eger, Ózd, Kazincbarcika, Nyíregyháza és Tiszaújváros közeléből is könnyen elérhető. Fogszabályozás, implantátum, fogfehérítés.')
 @section('og_image', asset('images/rolunk.jpg'))
 
 @section('schema')
@@ -10,7 +10,7 @@
   "@@context": "https://schema.org",
   "@type": "Dentist",
   "name": "Dr. Nagy-Fazakas Csongor Fogászati Rendelő",
-  "description": "Fogászati rendelő Miskolcon, Észak-Magyarország egész területéről elérhető. Invisalign fogszabályozás, implantátum, fogfehérítés.",
+  "description": "Fogászati rendelő Miskolcon, Észak-Magyarország egész területéről elérhető. Fogszabályozás, implantátum, fogfehérítés.",
   "url": "{{ url('/') }}",
   "telephone": "+36706276160",
   "address": {

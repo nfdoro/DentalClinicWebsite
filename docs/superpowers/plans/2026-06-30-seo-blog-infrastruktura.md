@@ -320,7 +320,7 @@ A `resources/views/blog/index.blade.php` teljes tartalma:
 @extends('layouts.app')
 
 @section('title', 'Blog — Dr. Nagy-Fazakas Csongor Fogászat Miskolc')
-@section('description', 'Fogászati tippek, kezelési útmutatók és szakmai cikkek Dr. Nagy-Fazakas Csongor fogászati rendelőjétől. Invisalign, implantátum, fogfehérítés és prevenció témákban.')
+@section('description', 'Fogászati tippek, kezelési útmutatók és szakmai cikkek Dr. Nagy-Fazakas Csongor fogászati rendelőjétől. Fogszabályozás, implantátum, fogfehérítés és prevenció témákban.')
 @section('og_image', asset('images/rolunk.jpg'))
 
 @section('schema')
@@ -787,7 +787,7 @@ Létrehozni: `resources/views/admin/cikkek/form.blade.php`
 
     <div class="mb-3">
       <label class="form-label">Kulcsszavak</label>
-      <input type="text" name="kulcsszavak" class="form-control" value="{{ old('kulcsszavak', $cikk->kulcsszavak) }}" placeholder="pl. invisalign miskolc, fogszabályozás ár">
+      <input type="text" name="kulcsszavak" class="form-control" value="{{ old('kulcsszavak', $cikk->kulcsszavak) }}" placeholder="pl. fogszabályozás miskolc, fogszabályozás ár">
     </div>
 
     <div class="mb-3">

@@ -13,51 +13,49 @@ kiemelés nélkül, természetes szövegkörnyezetben szerepelnek (kulcsszóhalm
 
 ## 1. Kiemelt leírások (Kategóriák menüpont → `kiemelt_leiras` mező)
 
-### 1/A — Fogszabályozás (Invisalign)
-*Kulcsszavak: invisalign ár magyarország, fogszabályozás miskolc, láthatatlan fogszabályozó*
+### 1/A — Fogszabályozás (önligírozó, kapcsos rendszer)
+*Kulcsszavak: fogszabályozás miskolc, önligírozó fogszabályozó, kapcsos fogszabályozó*
 
 ```html
-<p>A fogszabályozás ma már nem jelenti automatikusan a fémes, jól látható kapcsokat és drótokat.
-Rendelőnkben átlátszó, kivehető Invisalign fogszabályozást kínálunk Miskolcon és környékén —
-Ózdról, Kazincbarcikáról, Egerből és Nyíregyházáról is sokan választják ezt a kezelést nálunk.</p>
+<p>A fogszabályozás ma már nem feltétlenül jelenti azt, hogy minden ívcserénél apró gumigyűrűket
+kell cserélni a bracketeken. Rendelőnkben modern, önligírozó (kapcsos) fogszabályozó rendszert
+alkalmazunk Miskolcon és környékén — Ózdról, Kazincbarcikáról, Egerből és Nyíregyházáról is sokan
+választják ezt a kezelést nálunk.</p>
 
-<h3>Mi az Invisalign, és miben más, mint a hagyományos fogszabályozó?</h3>
-<p>Az Invisalign egy áttetsző, egyedileg 3D-nyomtatott műanyag sínekből (alignerekből) álló rendszer,
-amely fokozatosan, kontrollált mozgással állítja a helyükre a fogakat. Mivel a sín szinte láthatatlan,
-a kezelés a mindennapokban nem feltűnő — ez az egyik fő oka annak, hogy a <em>láthatatlan fogszabályozó</em>
-felnőttek körében is egyre népszerűbb, nemcsak tinédzsereknél.</p>
+<h3>Mi az önligírozó fogszabályozó, és miben más, mint a hagyományos, gumis brackettes?</h3>
+<p>A hagyományos, ún. ligatúrás fogszabályozónál a fogszabályozó ívet apró gumigyűrűkkel ("gumizással")
+rögzítik minden egyes brackethez, amelyeket kontrollonként cserélni kell. Az önligírozó, azaz kapcsos
+rendszernél a bracketbe épített apró zár tartja a fogszabályozó ívet — nincs szükség gumigyűrűre.</p>
 
-<p>A hagyományos, rögzített fogszabályozóval szemben az Invisalign sínek kivehetők: étkezéskor,
-fogmosáskor egyszerűen leveszed őket, így a szájhigiénia is könnyebben tartható, és nincs korlátozás
-abban, mit ehetsz.</p>
+<p>Ennek köszönhetően kisebb a súrlódás az ív és a bracket között, így a fogak kíméletesebb, gyengédebb
+erővel mozdulnak el, és az ívcsere is gyorsabb, egyszerűbb eljárás — nem kell minden alkalommal
+egyenként visszapótolni a gumigyűrűket. A gumik hiánya emellett könnyebben tisztán tartható
+fogszabályozót is jelent, mert nincs, ami ételmaradékot, plakkot fogjon meg a bracket körül.</p>
 
 <h3>Kinek ajánlott?</h3>
 <ul>
 <li>Enyhe és közepesen súlyos fogszabálytalanság esetén (rágótévesztés, tömöttség, résesség)</li>
-<li>Felnőtteknek, akik diszkrét megoldást keresnek munkahelyi vagy társasági környezetben</li>
-<li>Azoknak, akik korábban lemondtak a fogszabályozásról a fémes megjelenés miatt</li>
+<li>Azoknak, akik kevesebb kontrollal, kényelmesebb kezeléssel szeretnék rendezni a fogsorukat</li>
+<li>Felnőtteknek és tinédzsereknek egyaránt — nincs felső korhatár, amíg a fog és íny egészséges</li>
 </ul>
-<p>Súlyosabb, csontrendszeri eredetű harapási rendellenességeknél a hagyományos vagy kombinált
-fogszabályozás lehet a megfelelőbb választás — ezt személyes konzultáción, 3D szkennelés és röntgen
-alapján tudjuk pontosan megmondani.</p>
+<p>Súlyosabb, csontrendszeri eredetű harapási rendellenességeknél a kezelés hossza és terve
+eltérhet — ezt személyes konzultáción, szkennelés és röntgen alapján tudjuk pontosan megmondani.</p>
 
-<h3>Mennyibe kerül az Invisalign kezelés?</h3>
-<p>Az <em>Invisalign ár Magyarországon</em> nagyban függ attól, hány alignerre van szükség, és milyen
-súlyosságú az elmozdulás — ezért egységes árat felelőtlenség lenne megadni konzultáció nélkül. A pontos
-árajánlatot mindig a kezdeti szkennelés és fogorvosi felmérés után tudjuk elkészíteni, ingyenes első
-konzultáció keretében.</p>
+<h3>Mennyibe kerül a fogszabályozás?</h3>
+<p>A <em>fogszabályozás ára</em> nagyban függ attól, mekkora az elmozdulás mértéke, és milyen hosszú
+kezelésre van szükség — ezért egységes árat felelőtlenség lenne megadni konzultáció nélkül. A pontos
+árajánlatot mindig a kezdeti felmérés után tudjuk elkészíteni, ingyenes első konzultáció keretében.</p>
 
 <h3>Hogyan zajlik a kezelés nálunk?</h3>
 <ol>
-<li>Ingyenes konzultáció és 3D intraorális szkennelés (nyomat helyett digitálisan)</li>
-<li>Kezelési terv és várható eredmény szimulációja</li>
-<li>Egyedi alignerek legyártása és folyamatos, kb. 6-8 hetenkénti kontroll</li>
-<li>Retenciós fázis a végeredmény megtartásáért</li>
+<li>Ingyenes konzultáció és szájvizsgálat, szükség esetén röntgennel</li>
+<li>Kezelési terv összeállítása a fogszabálytalanság mértéke alapján</li>
+<li>Az önligírozó (kapcsos) fogszabályozó felhelyezése, majd rendszeres, jellemzően 6-8 hetenkénti kontroll</li>
+<li>Retenciós fázis (rögzítő eszköz viselése) a végeredmény megtartásáért</li>
 </ol>
 
-<p>Ha Miskolcon, Egerben, Ózdon vagy Kazincbarcikán keres megbízható, tanúsított Invisalign
-fogszabályozást, foglaljon időpontot ingyenes konzultációra — az utazás megéri a diszkrét, pontosan
-tervezett eredményért.</p>
+<p>Ha Miskolcon, Egerben, Ózdon vagy Kazincbarcikán keres megbízható fogszabályozást, foglaljon
+időpontot ingyenes konzultációra — elmondjuk, mire számíthat az önligírozó rendszerrel.</p>
 ```
 
 ---
@@ -153,16 +151,16 @@ kap, nem csak egy gyors, de kockázatos otthoni terméket.</p>
 
 ### Fogszabályozás (kategoria_id = 2)
 
-1. **Mennyi ideig tart az Invisalign kezelés?**
-   A legtöbb esetben 6-18 hónap, a fogszabálytalanság mértékétől függően. Az első konzultáción, a 3D szkennelés után pontos időtartamot tudunk mondani.
-2. **Fáj az Invisalign viselése?**
-   Új aligner behelyezésekor 1-2 napig enyhe nyomásérzés jelentkezhet, ez a fogak mozgásának jele. Ez lényegesen kevésbé fájdalmas, mint a hagyományos, drótos fogszabályozó.
-3. **Naponta mennyi ideig kell hordani a sínt?**
-   Napi 20-22 órán át javasolt viselni, csak étkezéskor és fogmosáskor vegye ki. Minél kevesebbet veszi ki, annál gyorsabban halad a kezelés.
+1. **Mennyi ideig tart az önligírozó fogszabályozó kezelés?**
+   A legtöbb esetben 12-24 hónap, a fogszabálytalanság mértékétől függően. Az első konzultáción, a felmérés után pontos időtartamot tudunk mondani.
+2. **Fáj az önligírozó fogszabályozó?**
+   Felhelyezés után és minden ívcsere után néhány napig enyhe nyomásérzés jelentkezhet, ez a fogak mozgásának jele. A gumigyűrű nélküli, kapcsos rögzítés miatt a súrlódás kisebb, így a kezelés jellemzően kíméletesebb, mint a hagyományos, gumis fogszabályozónál.
+3. **Miben más az önligírozó rendszer, mint a hagyományos, gumis fogszabályozó?**
+   A hagyományos fogszabályozónál minden kontrollon apró gumigyűrűkkel rögzítik újra az ívet a bracketekhez. Az önligírozó, kapcsos rendszernél a bracketbe épített zár tartja az ívet — nincs gumizás, gyorsabb az ívcsere, és könnyebb tisztán tartani.
 4. **Felnőttként is érdemes fogszabályozást csináltatni?**
-   Igen, az Invisalign kezelések jelentős része felnőtt pácienseknél történik — nincs felső korhatár, amíg a fog és íny egészséges.
+   Igen, a fogszabályozó kezelések jelentős része felnőtt pácienseknél történik — nincs felső korhatár, amíg a fog és íny egészséges.
 5. **Mi történik a kezelés után, visszamozdulnak a fogak?**
-   A kezelés után retainer (rögzítő sín) viselése szükséges, hogy az eredmény tartós maradjon. Ezt személyre szabottan határozzuk meg.
+   A kezelés után retainer (rögzítő eszköz) viselése szükséges, hogy az eredmény tartós maradjon. Ezt személyre szabottan határozzuk meg.
 
 ### Fogpótlás (kategoria_id = 4)
 
@@ -195,68 +193,74 @@ kap, nem csak egy gyors, de kockázatos otthoni terméket.</p>
 ## 3. Blog cikkek (Blog cikkek menüpont)
 
 ### Cikk 1 — 🔴 Magas prioritás
-**Cím:** Mennyibe kerül az Invisalign Magyarországon 2026-ban?
-**Slug:** mennyibe-kerul-az-invisalign-magyarorszagon-2026-ban
-**Célzott kulcsszó:** invisalign ár magyarország
-**Meta leírás:** Mitől függ az Invisalign ára Magyarországon? Áttekintjük, milyen tényezők befolyásolják a láthatatlan fogszabályozás költségét, és mire számítson egy konzultáción.
+**Cím:** Önligírozó (kapcsos) fogszabályozó — mit érdemes tudni róla?
+**Slug:** onligirozo-kapcsos-fogszabalyozo-mit-erdemes-tudni-rola
+**Célzott kulcsszó:** önligírozó fogszabályozó
+**Meta leírás:** Mi az önligírozó, kapcsos fogszabályozó, és miben más, mint a hagyományos, gumis brackettes? Összefoglaltuk az előnyöket és mire számítson a kezelés során.
 **Közzététel dátuma:** 2026-07-15
 
 **Bevezető:**
-Az Invisalign az egyik legnépszerűbb kérdés, amivel pácienseink hozzánk fordulnak: mennyibe kerül valójában a láthatatlan fogszabályozás Magyarországon? A válasz nem egyetlen szám — több tényezőtől függ. Ebben a cikkben végigvesszük, mi mindent befolyásol az árat, és hogyan érdemes felkészülni a konzultációra.
+Sokan gondolják úgy, hogy a fogszabályozó egyenlő az apró gumigyűrűkkel, amiket kontrollonként cserélni kell. Az önligírozó, azaz kapcsos rendszerű fogszabályozó ezt a problémát küszöböli ki. Ebben a cikkben elmagyarázzuk, hogyan működik, miben más, mint a hagyományos megoldás, és kinek ajánlott.
 
 **Tartalom:**
 ```html
-<p>Az Invisalign kezelés ára Magyarországon nagy szórást mutat, és ez nem véletlen: a végösszeg
-sok, egyénre szabott tényezőtől függ. Aki online keresgél, gyakran találkozik nagyon eltérő
-számokkal — ez azért van, mert egy enyhe fogszabálytalanság korrekciója és egy komplex, több
-fogív mozgatását igénylő eset ára jelentősen eltér egymástól.</p>
+<p>A fogszabályozók fejlődése nem állt meg a fémes bracketeknél — a rögzítés módja is sokat
+változott az elmúlt években. Az önligírozó, köznyelvben gyakran "kapcsos" fogszabályozó az egyik
+legnagyobb változást hozó fejlesztés, mégis sokan nem is tudnak a létezéséről, amikor
+fogszabályozást fontolgatnak.</p>
 
-<h2>Mitől függ az Invisalign ára?</h2>
-<h3>1. A fogszabálytalanság súlyossága</h3>
-<p>Minél kisebb az elmozdulás mértéke, annál kevesebb alignerre (átlátszó sínre) van szükség a
-kezeléshez, ami közvetlenül csökkenti a költséget. Egy enyhe, esztétikai jellegű korrekció
-(pl. néhány foltosan elálló fog rendezése) lényegesen kevesebb sínt igényel, mint egy komplex
-harapási rendellenesség kezelése.</p>
+<h2>Hagyományos vagy önligírozó — mi a különbség?</h2>
+<p>A hagyományos, ún. ligatúrás fogszabályozónál a fogíven mozgó drótot minden egyes brackethez
+apró gumigyűrűkkel ("ligatúrával") rögzítik. Ezeket a gumikat minden kontrollon cserélni kell,
+és idővel elszíneződhetnek, illetve nagyobb súrlódást okoznak az ív és a bracket között.</p>
+<p>Az önligírozó (kapcsos) rendszernél nincs szükség gumigyűrűre: a bracketbe épített apró,
+mozgatható zár tartja a helyén a fogszabályozó ívet. Ez a technikai különbség több gyakorlati
+előnnyel is jár.</p>
 
-<h3>2. A kezelés típusa: Invisalign Lite vagy Comprehensive</h3>
-<p>Az Invisalign rendszernek több csomagja létezik, kevesebb, illetve korlátlan aligner-cserével.
-Enyhébb eseteknél az olcsóbb csomag is elegendő lehet, míg összetettebb eseteknél a teljes,
-korlátlan cserét biztosító csomagra van szükség.</p>
+<h2>Miért érdemes önligírozó fogszabályozót választani?</h2>
+<h3>Kisebb súrlódás, kíméletesebb erő</h3>
+<p>Mivel az ív szabadabban mozoghat a bracketben, a fogak mozgatásához kisebb, egyenletesebb erő
+is elegendő. Ez a gyakorlatban azt jelenti, hogy a kezelés jellemzően kevésbé fájdalmas, mint a
+hagyományos, erősen megfeszített gumis rendszernél.</p>
+<h3>Gyorsabb, egyszerűbb ívcsere</h3>
+<p>Mivel nincs mit egyenként visszapótolni brackenként, az ívcsere rövidebb idő alatt elvégezhető
+a kontrollokon — ez a páciensnek is kényelmesebb, rövidebb rendelői időt jelent alkalmanként.</p>
+<h3>Könnyebb szájhigiénia</h3>
+<p>A gumigyűrűk hiánya azt is jelenti, hogy kevesebb felület marad, ahol ételmaradék és plakk
+megtapadhat a bracket körül — ez megkönnyíti a fogmosást és csökkenti a fogszuvasodás,
+ínygyulladás kockázatát a kezelés alatt.</p>
 
-<h3>3. Kiegészítő beavatkozások</h3>
-<p>Előfordul, hogy a fogszabályozás előtt más kezelésre is szükség van — például foghúzásra
-helyhiány miatt, vagy kis műanyag "attachment" elemek felhelyezésére a fogakra, amelyek segítik
-a pontosabb mozgatást. Ezek a kiegészítők is részei lehetnek a végső árnak.</p>
-
-<h3>4. Hol végzik a kezelést</h3>
-<p>Az árak régiónként és rendelőnként is eltérhetnek — egy fővárosi, magas rezsijű klinika ára
-jellemzően magasabb, mint egy vidéki, de ugyanolyan minőségű rendelőé. Miskolci rendelőnkben
-ezért gyakran versenyképesebb árat tudunk kínálni, mint egy budapesti klinika.</p>
+<h2>Kinek ajánlott az önligírozó fogszabályozó?</h2>
+<ul>
+<li>Enyhe és közepesen súlyos fogszabálytalanság esetén (rágótévesztés, tömöttség, résesség)</li>
+<li>Azoknak, akik kényelmesebb, kevésbé fájdalmas kezelést szeretnének</li>
+<li>Felnőtteknek és tinédzsereknek egyaránt</li>
+</ul>
+<p>Súlyosabb, csontrendszeri eredetű harapási rendellenességeknél a kezelés hossza és terve
+egyénileg eltérhet — ezt személyes konzultáción, szükség esetén röntgen alapján tudjuk pontosan
+megmondani.</p>
 
 <h2>Mire számítson a konzultáción?</h2>
-<p>Az első lépés mindig egy ingyenes konzultáció és 3D intraorális szkennelés — ez fájdalommentes,
-nyomatvétel nélküli digitális letapogatás, ami pontosan megmutatja a fogak jelenlegi helyzetét.
-Ez alapján a fogorvos:</p>
+<p>Az első lépés mindig egy ingyenes konzultáció és szájvizsgálat, amely alapján a fogorvos:</p>
 <ul>
-<li>meghatározza, hogy Invisalign-nal megoldható-e az eset</li>
-<li>szimulációt készít a várható végeredményről</li>
+<li>felméri a fogszabálytalanság mértékét és típusát</li>
+<li>elmondja, mennyi ideig tarthat a kezelés</li>
 <li>pontos, tételes árajánlatot ad, rejtett költségek nélkül</li>
 </ul>
 
 <h2>Van-e részletfizetési lehetőség?</h2>
-<p>Sok rendelő, így mi is, kínálunk részletfizetési konstrukciót, hogy a kezelés havi
-részletekben, kiszámíthatóan legyen finanszírozható. Erről a konzultáción tudunk pontos
-tájékoztatást adni.</p>
+<p>Kínálunk részletfizetési konstrukciót, hogy a kezelés havi részletekben, kiszámíthatóan legyen
+finanszírozható. Erről a konzultáción tudunk pontos tájékoztatást adni.</p>
 
 <h2>Miért éri meg most belevágni?</h2>
 <p>A fogszabálytalanság kezelés nélkül idővel jellemzően nem javul magától — sőt, a rossz
 harapás hosszú távon ínyproblémákhoz, egyenetlen kopáshoz vezethet, ami később komplexebb, drágább
-beavatkozást igényelhet. Minél korábban kezdi el a kezelést, annál egyszerűbb és olcsóbb
-megoldással érhető el a kívánt eredmény.</p>
+beavatkozást igényelhet. Minél korábban kezdi el a kezelést, annál egyszerűbb megoldással érhető
+el a kívánt eredmény.</p>
 
-<p>Ha Miskolcon vagy környékén (Eger, Ózd, Kazincbarcika, Nyíregyháza) keres megbízható Invisalign
-kezelést, foglaljon ingyenes konzultációt — a szkennelés és a pontos árajánlat után dönthet
-nyugodtan.</p>
+<p>Ha Miskolcon vagy környékén (Eger, Ózd, Kazincbarcika, Nyíregyháza) keres megbízható, modern
+fogszabályozást, foglaljon ingyenes konzultációt — elmondjuk, mire számíthat az önligírozó
+rendszerrel.</p>
 ```
 
 ---
@@ -422,7 +426,7 @@ technológia és személyre szabott kezelési tervek jellemzik a munkánkat.</p>
 <li><strong>Fogtömés</strong> — modern, esztétikus, fogszínű anyagokkal</li>
 <li><strong>Gyökérkezelés</strong> — fájdalommentes, korszerű technikával</li>
 <li><strong>Fogpótlás</strong> — implantátum és híd, egyénre szabott tervezéssel</li>
-<li><strong>Fogszabályozás</strong> — Invisalign átlátszó, kivehető megoldással</li>
+<li><strong>Fogszabályozás</strong> — modern, önligírozó (kapcsos) rendszerrel</li>
 <li><strong>Fogfehérítés</strong> — rendelői és otthoni módszerrel</li>
 <li><strong>Foghúzás</strong> — bölcsességfog-eltávolítástól a szövődménymentes húzásokig</li>
 </ul>
@@ -477,10 +481,10 @@ elérhető.</p>
 
 <h2>Mikor éri meg utazni a fogorvoshoz?</h2>
 <h3>Komplex, speciális kezeléseknél</h3>
-<p>Implantáció, Invisalign fogszabályozás vagy összetettebb fogpótlási tervek esetén
-nem mindegy, mekkora tapasztalattal és milyen technológiával rendelkezik a rendelő.
-A digitális szkenner és a gondos tervezés olyan pontosságot biztosít, amiért érdemes
-hosszabb utat vállalni.</p>
+<p>Implantáció, fogszabályozás vagy összetettebb fogpótlási tervek esetén nem mindegy,
+mekkora tapasztalattal és milyen technológiával rendelkezik a rendelő. A digitális
+diagnosztika és a gondos tervezés olyan pontosságot biztosít, amiért érdemes hosszabb
+utat vállalni.</p>
 <h3>Második vélemény esetén</h3>
 <p>Ha egy nagyobb beavatkozás (pl. implantátum vagy sok fogat érintő fogpótlás) előtt
 áll, és szeretne egy független, alapos véleményt kapni, egy másik városban praktizáló
@@ -503,7 +507,7 @@ találkozóval kezdeni, mielőtt hosszabb távú kezelésre elköteleződik</li>
 <h2>Hogyan szervezzük ezt a mi pácienseinknél?</h2>
 <p>Ózdról, Kazincbarcikáról, Egerből és Nyíregyházáról érkező pácienseinknél igyekszünk
 úgy ütemezni a kontrollokat, hogy minél kevesebb alkalommal kelljen utazni — például
-egy Invisalign kezelésnél a kontrollok gyakoriságát a haladáshoz igazítjuk, nem
+egy fogszabályozó kezelésnél a kontrollok gyakoriságát a haladáshoz igazítjuk, nem
 automatikusan a legrövidebb intervallumhoz.</p>
 
 <h2>Megéri-e valójában?</h2>

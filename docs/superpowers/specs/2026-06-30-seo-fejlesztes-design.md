@@ -11,7 +11,7 @@
 A weboldal már rendelkezik alapvető SEO elemekkel (title tagek, meta description, schema.org, sitemap.xml, canonical URL-ek, Open Graph részben). A fejlesztés célja ezeket kiegészíteni és egy teljes, kétszintű SEO stratégiát felépíteni:
 
 1. **Helyi szint:** Miskolc és környéke (Ózd, Kazincbarcika, Eger, Nyíregyháza) — Google Business Profile + local schema
-2. **Országos szint:** Invisalign, implantátum, fogfehérítés kulcsszavakra Magyarország-szerte — blog + landing oldalak
+2. **Országos szint:** fogszabályozás, implantátum, fogfehérítés kulcsszavakra Magyarország-szerte — blog + landing oldalak
 
 **Kiválasztott megközelítés:** Párhuzamos (technikai javítások + tartalom infrastruktúra egyszerre)
 
@@ -205,7 +205,7 @@ Ezeket te írod (AI segítséggel is lehet):
 
 | Cikk | Célzott kulcsszó | Típus |
 |------|-----------------|-------|
-| Mennyibe kerül az Invisalign Magyarországon 2026-ban? | invisalign ár magyarország | Országos |
+| Önligírozó (kapcsos) fogszabályozó — mit érdemes tudni róla? | önligírozó fogszabályozó | Országos |
 | Implantátum vagy híd — melyiket válasszam? | fogimplantátum vagy híd | Országos |
 | Fogfehérítés előtt-után: mit várj a kezeléstől? | fogfehérítés tapasztalatok | Országos |
 | Fogorvos Miskolcon — miért válasszon minket? | fogorvos miskolc | Helyi |
@@ -217,7 +217,7 @@ Ezeket te írod (AI segítséggel is lehet):
 
 ### 4.1 Emelt szintű szolgáltatás oldalak
 
-A három kiemelt kezelésnél (Invisalign, implantátum, fogfehérítés) a jelenlegi rövid szövegek helyett hosszabb, informatívabb tartalom kerül az admin felületről szerkesztve:
+A három kiemelt kezelésnél (fogszabályozás, implantátum, fogfehérítés) a jelenlegi rövid szövegek helyett hosszabb, informatívabb tartalom kerül az admin felületről szerkesztve:
 - Részletes leírás (500-1000 szó)
 - GYIK szekció (FAQPage schema)
 - Előtt-után képek galériával
@@ -231,7 +231,7 @@ A három kiemelt kezelésnél (Invisalign, implantátum, fogfehérítés) a jele
 ```
 - Egyedi tartalom: megközelíthetőség Eger, Ózd, Kazincbarcika, Nyíregyháza irányából
 - Menetidők, közlekedési opciók
-- Miért érdemes utazni (ár-érték, szakértelem, Invisalign partner)
+- Miért érdemes utazni (ár-érték, szakértelem, modern fogszabályozó technológia)
 - Nem spam: valódi, hasznos információ
 
 ### 4.3 Belső linkelési struktúra
@@ -278,6 +278,6 @@ Főoldal
 1. **Hét 1-2:** Technikai SEO javítások (kód) + Google Search Console + GA4 beállítás
 2. **Hét 2-3:** Blog infrastruktúra (migration, controller, views, admin panel)
 3. **Hét 3-4:** Google Business Profile létrehozása + első 3 blog cikk
-4. **Hónap 2:** Emelt szintű szolgáltatás oldalak (Invisalign, implantátum, fogfehérítés)
+4. **Hónap 2:** Emelt szintű szolgáltatás oldalak (fogszabályozás, implantátum, fogfehérítés)
 5. **Hónap 2-3:** Regionális landing oldal + belső linkelés finomhangolása
 6. **Folyamatos:** Havi 1-2 blog cikk közzététele

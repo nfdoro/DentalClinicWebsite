@@ -39,7 +39,7 @@ class KategoriaResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\RichEditor::make('kiemelt_leiras')
                     ->label('Kiemelt leírás (hosszú, SEO-optimalizált)')
-                    ->helperText('Csak a kiemelt kezeléseknél töltsd ki: Invisalign, implantátum, fogfehérítés.')
+                    ->helperText('Csak a kiemelt kezeléseknél töltsd ki: fogszabályozás, implantátum, fogfehérítés.')
                     ->toolbarButtons([
                         'bold', 'italic', 'underline',
                         'h2', 'h3',

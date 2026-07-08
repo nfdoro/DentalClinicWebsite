@@ -55,7 +55,7 @@ Lokális dev adatbázisban már be van ültetve (`kategoriak.kiemelt_leiras`, `f
 
 ### Kiemelt leírások (SEO-optimalizált hosszú szöveg)
 A `Kategóriák` menüpontban a következő 3 szolgáltatásnál töltsd ki a **Kiemelt leírás** mezőt (RichEditor, min. 400-600 szó):
-- **Invisalign / Fogszabályozás** — kulcsszavak: invisalign ár magyarország, fogszabályozás miskolc, láthatatlan fogszabályozó
+- **Fogszabályozás (önligírozó, kapcsos rendszer)** — kulcsszavak: fogszabályozás miskolc, önligírozó fogszabályozó, kapcsos fogszabályozó
 - **Fogpótlás / Implantátum** — kulcsszavak: fogimplantátum miskolc, fogpótlás ár, implantátum vagy híd
 - **Fogfehérítés** — kulcsszavak: fogfehérítés miskolc, fogfehérítés ár, otthoni fogfehérítés
 
@@ -73,7 +73,7 @@ meta leírás, javasolt közzétételi dátum) elkészült: [docs/SEO-TARTALOM-K
 
 | Cikk | Célzott kulcsszó | Prioritás | Javasolt dátum |
 |------|-----------------|-----------|-----------------|
-| Mennyibe kerül az Invisalign Magyarországon 2026-ban? | invisalign ár magyarország | 🔴 Magas | 2026-07-15 |
+| Önligírozó (kapcsos) fogszabályozó — mit érdemes tudni róla? | önligírozó fogszabályozó | 🔴 Magas | 2026-07-15 |
 | Implantátum vagy híd — melyiket válasszam? | fogimplantátum vagy híd | 🔴 Magas | 2026-07-22 |
 | Fogfehérítés előtt-után: mit várj a kezeléstől? | fogfehérítés tapasztalatok | 🔴 Magas | 2026-07-29 |
 | Fogorvos Miskolcon — miért válasszon minket? | fogorvos miskolc | 🟡 Közepes | 2026-08-05 |
