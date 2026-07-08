@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'ga4' => [
+        'tracking_id' => env('GA4_TRACKING_ID', ''),
+    ],
+
+    'search_console' => [
+        'verify' => env('SEARCH_CONSOLE_VERIFY', ''),
+    ],
+
 ];

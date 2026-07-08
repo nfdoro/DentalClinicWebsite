@@ -25,7 +25,14 @@
     "latitude": 48.1065,
     "longitude": 20.7872
   },
-  "openingHoursSpecification": [],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  ],
   "priceRange": "$$",
   "image": "{{ asset('images/rolunk.jpg') }}",
   "medicalSpecialty": "Dentist",
@@ -76,10 +83,10 @@
 
     {{-- SLIDE 2 — Gyökérkezelés --}}
     <div class="hero-slide" data-index="1">
-      <h1 class="hero-slide-title">
+      <h2 class="hero-slide-title">
         Ne hagyja, hogy a fájdalomtól való félelem<br>
         megakadályozza a <em>fogmegőrzést</em>.
-      </h1>
+      </h2>
       <p class="hero-slide-sub">Helyi érzéstelenítéssel, gyorsan és fájdalommentesen mentjük meg a fertőzött fogat.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'gyokerkezeles') }}" class="hero-btn-primary">
@@ -107,10 +114,10 @@
 
     {{-- SLIDE 3 — Fogtömés --}}
     <div class="hero-slide" data-index="2">
-      <h1 class="hero-slide-title">
+      <h2 class="hero-slide-title">
         A szuvasodás ellen az egyetlen válasz<br>
         az <em>időben elvégzett kezelés</em>.
-      </h1>
+      </h2>
       <p class="hero-slide-sub">Egyetlen alkalom alatt, fehér esztétikai tömőanyaggal — helyreállítjuk a fog természetes megjelenését.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'fogtomes') }}" class="hero-btn-primary">
@@ -138,10 +145,10 @@
 
     {{-- SLIDE 4 — Fogpótlás --}}
     <div class="hero-slide" data-index="3">
-      <h1 class="hero-slide-title">
+      <h2 class="hero-slide-title">
         Hiányzó fog? Állítsuk vissza<br>
         <em>mosolyát és önbizalmát</em>.
-      </h1>
+      </h2>
       <p class="hero-slide-sub">Koronától az implantátumig — tartós, természetes megjelenésű fogpótlással.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'fogpotlas') }}" class="hero-btn-primary">
@@ -169,10 +176,10 @@
 
     {{-- SLIDE 5 — Prevenció --}}
     <div class="hero-slide" data-index="4">
-      <h1 class="hero-slide-title">
+      <h2 class="hero-slide-title">
         Ne várjon a panaszra —<br>
         a megelőzés a <em>legokosabb befektetés</em>.
-      </h1>
+      </h2>
       <p class="hero-slide-sub">Évente kétszeri rutin vizsgálat megelőzi a fogínygyulladást, szuvasodást és csontpusztulást.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'prevencio') }}" class="hero-btn-primary">
@@ -200,10 +207,10 @@
 
     {{-- SLIDE 6 — Foghúzás --}}
     <div class="hero-slide" data-index="5">
-      <h1 class="hero-slide-title">
+      <h2 class="hero-slide-title">
         Amikor a fog már nem menthető meg,<br>
         <em>gyors és fájdalommentes megoldás</em>.
-      </h1>
+      </h2>
       <p class="hero-slide-sub">Atraumatikus technikával végzett foghúzás — utólagos fogpótlás lehetőségével.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'foghuzas') }}" class="hero-btn-primary">
@@ -231,10 +238,10 @@
 
     {{-- SLIDE 7 — Fogfehérítés --}}
     <div class="hero-slide" data-index="6">
-      <h1 class="hero-slide-title">
+      <h2 class="hero-slide-title">
         Ragyogó mosoly — mert<br>
         az <em>első benyomás számít</em>.
-      </h1>
+      </h2>
       <p class="hero-slide-sub">Professzionális fogfehérítéssel akár 8 tónussal világosabb fogak. Rendelői és otthoni megoldás egyaránt.</p>
       <div class="hero-slide-btns">
         <a href="{{ route('szolgaltatas.show', 'fogfeherites') }}" class="hero-btn-primary">
