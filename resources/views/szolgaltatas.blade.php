@@ -50,6 +50,26 @@
   ]
 }
 </script>
+@if($kategoria->faqs->count())
+<script type="application/ld+json">
+{
+  "@@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    @foreach($kategoria->faqs as $faq)
+    {
+      "@type": "Question",
+      "name": {{ json_encode($faq->kerdes) }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ json_encode($faq->valasz) }}
+      }
+    }{{ !$loop->last ? ',' : '' }}
+    @endforeach
+  ]
+}
+</script>
+@endif
 @endsection
 
 @section('content')
@@ -124,6 +144,29 @@
           </div>
 
         </div>
+
+        {{-- ── GYIK szekció ── --}}
+        @if($kategoria->faqs->count())
+        <div class="szolg-faq">
+          <h2>Gyakran Ismételt Kérdések</h2>
+          <div class="accordion" id="faqAccordion">
+            @foreach($kategoria->faqs as $faq)
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#faq{{ $faq->id }}"
+                        aria-expanded="false" aria-controls="faq{{ $faq->id }}">
+                  {{ $faq->kerdes }}
+                </button>
+              </h3>
+              <div id="faq{{ $faq->id }}" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">{{ $faq->valasz }}</div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+        @endif
 
         {{-- ── Egyéb szolgáltatások ── --}}
         <div class="szolg-egyeb">
