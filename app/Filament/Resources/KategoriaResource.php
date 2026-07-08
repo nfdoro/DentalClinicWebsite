@@ -37,6 +37,17 @@ class KategoriaResource extends Resource
                     ->label('Leírás')
                     ->placeholder('Rövid leírás a szolgáltatásról...')
                     ->columnSpanFull(),
+                Forms\Components\RichEditor::make('kiemelt_leiras')
+                    ->label('Kiemelt leírás (hosszú, SEO-optimalizált)')
+                    ->helperText('Csak a kiemelt kezeléseknél töltsd ki: Invisalign, implantátum, fogfehérítés.')
+                    ->toolbarButtons([
+                        'bold', 'italic', 'underline',
+                        'h2', 'h3',
+                        'bulletList', 'orderedList',
+                        'link', 'blockquote',
+                        'undo', 'redo',
+                    ])
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('icon')
                     ->label('Ikon (fájl elérési út)')
                     ->helperText('Pl.: images/icons/gyoker.png')

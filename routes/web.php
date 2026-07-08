@@ -15,6 +15,12 @@ Route::get('/szolgaltatasok/{slug}', [SzolgaltatasController::class, 'show'])->n
 Route::get('/blog', [CikkController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [CikkController::class, 'show'])->name('blog.show');
 
+// Regionális landing oldalak
+Route::get('/fogaszat/eszak-magyarorszag', function () {
+    $szolgaltatasok = \App\Models\Kategoria::where('szolgaltatas', true)->get();
+    return view('fogaszat.eszak-magyarorszag', compact('szolgaltatasok'));
+})->name('fogaszat.eszak-magyarorszag');
+
 // Sitemap
 Route::get('/sitemap.xml', function () {
     $kategoriak = \App\Models\Kategoria::where('szolgaltatas', true)->get();

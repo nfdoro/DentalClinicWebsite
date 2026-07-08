@@ -145,6 +145,14 @@
 
         </div>
 
+        {{-- ── Kiemelt (hosszú SEO) leírás ── --}}
+        @if($kategoria->kiemelt_leiras)
+        <div class="szolg-kiemelt-leiras mt-5">
+          <h2>Részletes információk: {{ $kategoria->nev }} Miskolcon</h2>
+          {!! $kategoria->kiemelt_leiras !!}
+        </div>
+        @endif
+
         {{-- ── GYIK szekció ── --}}
         @if($kategoria->faqs->count())
         <div class="szolg-faq">

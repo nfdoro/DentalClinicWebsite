@@ -155,6 +155,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('galeria') }}">Galéria</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('arlista') }}">Árlista</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('blog.index') }}">Blog</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ route('fogaszat.eszak-magyarorszag') }}">Észak-Magyarország</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ route('home') }}#contact">Kapcsolat</a></li>
             </ul>
           </div>

@@ -505,6 +505,13 @@
             </div>
           </div>
 
+          <div class="text-center mt-4 mb-2">
+            <p class="text-muted small">
+              Rendelőnk Miskolcon található, de pácienseinket fogadjuk
+              <a href="{{ route('fogaszat.eszak-magyarorszag') }}">Eger, Ózd, Kazincbarcika, Nyíregyháza és Tiszaújváros</a> közeléből is.
+            </p>
+          </div>
+
           <div id="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d792.0695239355053!2d20.787230008431443!3d48.106499155561345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47409ffcf4e6bc09%3A0xf5ca4089e8674680!2sMiskolc%2C%20Madar%C3%A1sz%20Viktor%20u.%2013%2C%203525%20Magyarorsz%C3%A1g!5e0!3m2!1shu!2sro!4v1682521750086!5m2!1shu!2sro"
               width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy"
