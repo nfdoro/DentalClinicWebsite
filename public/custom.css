@@ -1192,6 +1192,10 @@ a.icon-box:hover {
 /*--------------------------------------------------------------
   # Árlista gyors-navigáció
 --------------------------------------------------------------*/
+.arlista-main .section-title {
+  padding-bottom: 0;
+}
+
 .arlista-nav {
   position: sticky;
   top: 90px;
