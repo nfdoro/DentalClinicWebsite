@@ -15,10 +15,23 @@
       </div>
 
       {{-- Gyors-navigáció --}}
-      <div class="arlista-nav">
+      <div id="arlista-nav-sentinel" aria-hidden="true"></div>
+      <div class="arlista-nav" id="arlistaNav">
         @foreach($kategoriak as $kat)
           <a href="#kat-{{ $kat->slug }}" class="arlista-nav-link">{{ $kat->nev }}</a>
         @endforeach
+      </div>
+
+      {{-- Görgetéskor balra kicsúszó dokkolt változat (asztalon pill-oszlop, mobilon hamburger) --}}
+      <div class="arlista-nav-docked" id="arlistaNavDocked">
+        <button type="button" class="arlista-nav-toggle" aria-label="Kategóriák megnyitása" aria-expanded="false">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="arlista-nav-docked-list">
+          @foreach($kategoriak as $kat)
+            <a href="#kat-{{ $kat->slug }}" class="arlista-nav-link">{{ $kat->nev }}</a>
+          @endforeach
+        </div>
       </div>
 
       <div class="row">
@@ -45,5 +58,45 @@
       </div>
     </div>
   </main>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('arlistaNav');
+      var docked = document.getElementById('arlistaNavDocked');
+      var sentinel = document.getElementById('arlista-nav-sentinel');
+      if (!nav || !docked || !sentinel) return;
+
+      var toggle = docked.querySelector('.arlista-nav-toggle');
+
+      function setDocked(on) {
+        nav.classList.toggle('is-hidden', on);
+        docked.classList.toggle('is-visible', on);
+        if (!on) {
+          docked.classList.remove('open');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      // A fejléc (~72px) + kis térköz alatt vált dokkolt állapotba
+      var io = new IntersectionObserver(function (entries) {
+        setDocked(!entries[0].isIntersecting);
+      }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
+      io.observe(sentinel);
+
+      if (toggle) {
+        toggle.addEventListener('click', function () {
+          var open = docked.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      docked.querySelectorAll('.arlista-nav-docked-list a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          docked.classList.remove('open');
+          if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 
 @endsection
