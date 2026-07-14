@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kategoria extends Model
 {
+    use HasFactory;
+
     protected $table = 'kategoriak';
 
     protected $fillable = ['nev', 'leiras', 'kiemelt_leiras', 'icon', 'szolgaltatas', 'slug'];
