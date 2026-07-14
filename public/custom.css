@@ -1194,18 +1194,14 @@ a.icon-box:hover {
 --------------------------------------------------------------*/
 .arlista-nav {
   position: sticky;
-  top: 72px;
+  top: 90px;
   z-index: 20;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-bottom: 40px;
-  padding: 12px 0;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
 }
 
 .arlista-nav-link {
@@ -1221,6 +1217,7 @@ a.icon-box:hover {
   text-decoration: none;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
   white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .arlista-nav-link:hover {
@@ -1786,9 +1783,9 @@ a.icon-box:hover {
   #map { height: 300px; margin-top: 20px; }
 
   /* ── Árlista ── */
-  .arlista-nav { top: 62px; gap: 8px; margin-bottom: 28px; padding: 9px 0; }
+  .arlista-nav { top: 78px; gap: 8px; margin-bottom: 28px; }
   .arlista-nav-link { font-size: 13px; padding: 6px 14px; }
-  [id^="kat-"] { scroll-margin-top: 118px; }
+  [id^="kat-"] { scroll-margin-top: 128px; }
   #main .row table tr td { font-size: 14px; padding-top: 9px !important; padding-bottom: 9px !important; }
 
   /* ── Footer ── */
