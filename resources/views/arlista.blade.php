@@ -17,6 +17,10 @@
       {{-- Gyors-navigáció --}}
       <div id="arlista-nav-sentinel" aria-hidden="true"></div>
       <div class="arlista-nav" id="arlistaNav">
+        <div class="arlista-search">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          <input type="search" class="arlista-search-input" placeholder="Keresés a beavatkozások között…" aria-label="Keresés az árlistában" autocomplete="off">
+        </div>
         @foreach($kategoriak as $kat)
           <a href="#kat-{{ $kat->slug }}" class="arlista-nav-link">{{ $kat->nev }}</a>
         @endforeach
@@ -28,6 +32,10 @@
           <i class="bi bi-list"></i>
         </button>
         <div class="arlista-nav-docked-list">
+          <div class="arlista-search">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" class="arlista-search-input" placeholder="Keresés…" aria-label="Keresés az árlistában" autocomplete="off">
+          </div>
           @foreach($kategoriak as $kat)
             <a href="#kat-{{ $kat->slug }}" class="arlista-nav-link">{{ $kat->nev }}</a>
           @endforeach
@@ -36,13 +44,13 @@
 
       <div class="row">
         @foreach($kategoriak as $kat)
-          <table id="kat-{{ $kat->slug }}">
+          <table id="kat-{{ $kat->slug }}" class="arlista-kat">
             <tr>
               <td><h3>{{ $kat->nev }}</h3></td>
             </tr>
           </table>
           @foreach($kat->arlistaTetelei as $adat)
-          <table>
+          <table class="arlista-item">
             <tr>
               <td class="arlista-muveletnev">{{ $adat->muveletnev }}</td>
               <td style="text-align: right"><strong>
@@ -55,6 +63,7 @@
           </table>
           @endforeach
         @endforeach
+        <p id="arlista-no-results" class="arlista-no-results" style="display:none;">Nincs a keresésnek megfelelő tétel.</p>
       </div>
     </div>
   </main>
@@ -96,6 +105,50 @@
           if (toggle) toggle.setAttribute('aria-expanded', 'false');
         });
       });
+
+      // ── Keresés / szűrés ──
+      var inputs = document.querySelectorAll('.arlista-search-input');
+      var noResults = document.getElementById('arlista-no-results');
+      var rowEl = document.querySelector('.arlista-main .row');
+      if (inputs.length && rowEl) {
+        // ékezet-érzéketlen összehasonlításhoz (kombináló jelek 0x0300–0x036F kihagyása)
+        var norm = function (s) {
+          s = (s || '').toLowerCase().normalize('NFD');
+          var out = '';
+          for (var i = 0; i < s.length; i++) {
+            var c = s.charCodeAt(i);
+            if (c < 0x0300 || c > 0x036f) out += s.charAt(i);
+          }
+          return out;
+        };
+        var applyFilter = function (query) {
+          var q = norm(query.trim());
+          var kids = rowEl.children, currentHeader = null, headerHasMatch = false, anyMatch = false;
+          var flush = function () {
+            if (currentHeader) currentHeader.style.display = headerHasMatch ? '' : 'none';
+          };
+          for (var i = 0; i < kids.length; i++) {
+            var el = kids[i];
+            if (el.classList.contains('arlista-kat')) {
+              flush();
+              currentHeader = el;
+              headerHasMatch = false;
+            } else if (el.classList.contains('arlista-item')) {
+              var match = !q || norm(el.textContent).indexOf(q) !== -1;
+              el.style.display = match ? '' : 'none';
+              if (match) { headerHasMatch = true; anyMatch = true; }
+            }
+          }
+          flush();
+          if (noResults) noResults.style.display = (q && !anyMatch) ? '' : 'none';
+        };
+        inputs.forEach(function (inp) {
+          inp.addEventListener('input', function () {
+            inputs.forEach(function (other) { if (other !== inp) other.value = inp.value; });
+            applyFilter(inp.value);
+          });
+        });
+      }
     })();
   </script>
 
