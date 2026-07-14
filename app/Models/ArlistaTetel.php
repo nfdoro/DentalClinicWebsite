@@ -18,4 +18,33 @@ class ArlistaTetel extends Model
     {
         return $this->belongsTo(Kategoria::class, 'kategoria_id');
     }
+
+    /**
+     * Az ár megjelenítésre formázva.
+     * Kezeli az egyetlen összeget (25000) és az intervallumot (25000-30000) is.
+     */
+    public function getArFormattedAttribute(): string
+    {
+        $raw = trim((string) $this->ar);
+
+        if ($raw === '') {
+            return '';
+        }
+
+        // Egyetlen szám, pl.: 25000
+        if (is_numeric($raw)) {
+            return number_format((float) $raw, 0, ',', '.') . ' Ft';
+        }
+
+        // Intervallum: két szám kötőjellel/nagykötőjellel elválasztva, pl.: 25000-30000
+        if (preg_match('/^(\d[\d\s.]*?)\s*[-–—]\s*(\d[\d\s.]*)$/u', $raw, $m)) {
+            $tol = number_format((float) preg_replace('/\D/', '', $m[1]), 0, ',', '.');
+            $ig  = number_format((float) preg_replace('/\D/', '', $m[2]), 0, ',', '.');
+
+            return $tol . ' – ' . $ig . ' Ft';
+        }
+
+        // Egyéb szöveg (pl. „Egyedi árajánlat")
+        return $raw;
+    }
 }

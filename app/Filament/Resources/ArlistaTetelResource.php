@@ -37,14 +37,7 @@ class ArlistaTetelResource extends Resource
                     ->label('Ár (Ft)')
                     ->required()
                     ->suffix('Ft')
-                    ->helperText('Csak a számot írja be, pl.: 25000')
-                    ->afterStateHydrated(function ($state, $set) {
-                        // Ha a tárolt érték szöveges (pl. "3.000 Ft"), kiszedjük a számot
-                        if ($state && !is_numeric($state)) {
-                            $cleaned = preg_replace('/[^0-9]/', '', $state);
-                            $set('ar', $cleaned);
-                        }
-                    }),
+                    ->helperText('Egy összeg (pl.: 25000) vagy intervallum (pl.: 25000-30000).'),
                 Forms\Components\TextInput::make('kiegeszites')
                     ->label('Kiegészítés')
                     ->placeholder('Pl.: max. 10 perc, / fogív, stb.'),
@@ -64,7 +57,7 @@ class ArlistaTetelResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('ar')
                     ->label('Ár')
-                    ->formatStateUsing(fn ($state) => number_format((float)$state, 0, ',', '.') . ' Ft')
+                    ->formatStateUsing(fn ($state, $record) => $record->ar_formatted)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('kiegeszites')
                     ->label('Kiegészítés')

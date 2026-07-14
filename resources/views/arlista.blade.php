@@ -33,11 +33,7 @@
             <tr>
               <td class="arlista-muveletnev">{{ $adat->muveletnev }}</td>
               <td style="text-align: right"><strong>
-                @if(is_numeric($adat->ar))
-                  {{ number_format((float)$adat->ar, 0, ',', '.') }} Ft
-                @else
-                  {{ $adat->ar }}
-                @endif
+                {{ $adat->ar_formatted }}
                 @if($adat->kiegeszites)
                   <span style="font-weight:400; color:#999; font-size:0.88em;"> / {{ $adat->kiegeszites }}</span>
                 @endif

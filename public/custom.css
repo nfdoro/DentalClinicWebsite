@@ -174,9 +174,9 @@ footer#footer {
 
 #hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 3vw, 44px);
+  font-size: clamp(28px, 3.2vw, 46px);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.5;
   letter-spacing: 0.2px;
   color: #1a1a1a;
   margin-bottom: 20px;
@@ -194,14 +194,14 @@ footer#footer {
 
 #hero h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
+  font-size: clamp(28px, 3.2vw, 46px);
   font-weight: 400;
   font-style: italic;
   letter-spacing: 0.3px;
   text-transform: none;
   color: rgba(0,0,0,0.68);
-  line-height: 1.9;
-  margin-bottom: 0;
+  line-height: 1.5;
+  margin-bottom: 16px;
 }
 
 /*--------------------------------------------------------------
@@ -786,9 +786,21 @@ a.icon-box:hover {
 .szolgaltatas-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 4vw, 54px);
-  font-weight: 400; color: #1a1a1a; margin: 0;
+  font-weight: 400; color: #1a1a1a; margin: 0 0 24px;
   letter-spacing: -0.5px;
 }
+
+/* ── Gyors tények ── */
+.szolg-quickfacts { display: flex; gap: 10px; flex-wrap: wrap; }
+.szolg-qf-card {
+  background: #fff; border-radius: 10px;
+  padding: 14px 18px; flex: 1 1 160px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  display: flex; align-items: center; gap: 12px;
+}
+.szolg-qf-card i { font-size: 19px; color: #1a1a1a; flex-shrink: 0; }
+.szolg-qf-value { font-family: 'Playfair Display', serif; font-size: 17px; color: #1a1a1a; line-height: 1.15; }
+.szolg-qf-label { font-family: 'Poppins', sans-serif; font-size: 10px; letter-spacing: 0.4px; color: #999; text-transform: uppercase; margin-top: 2px; }
 
 /* ── Oldal tartalom ── */
 .portfolio-details {
@@ -797,267 +809,287 @@ a.icon-box:hover {
   position: relative;
 }
 
-/* ── Magazine grid ── */
-.szolg-mag-grid {
+/* ── Cikk-szerű, egy oszlopos elrendezés ── */
+.szolg-article { max-width: 1040px; margin: 0 auto; }
+.szolg-clear { clear: both; }
+
+/* ── Váltakozó (cikk-cakk) tartalom-sorok — szöveg és kép élesen elválasztva ── */
+.szolg-feature-row {
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 64px;
-  align-items: start;
-  margin-bottom: 60px;
-  min-width: 0;  /* grid overflow megelőzés */
+  grid-template-columns: 1fr 540px;
+  gap: 48px;
+  align-items: center;
+  padding: 52px 0;
+  border-top: 1px solid #e4e4e4;
 }
+.szolg-feature-row:first-child { border-top: none; padding-top: 0; }
+.szolg-feature-row-reverse { grid-template-columns: 540px 1fr; }
+.szolg-feature-row-reverse .szolg-feature-content { order: 2; }
+.szolg-feature-row-reverse .szolg-feature-img { order: 1; }
+.szolg-feature-content { min-width: 0; }
 
-/* ── Bal: sticky carousel + info ── */
-.szolg-mag-left {
-  position: sticky;
-  top: 92px;
-  min-width: 0; /* grid overflow megelőzés */
-  width: 100%;
-}
-
-/* ── Jobb: tartalom ── */
-.szolg-mag-right {
-  min-width: 0; /* grid overflow megelőzés */
-}
-
-/* Carousel */
-.portfolio-details-slider {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  background: #efefef;
-  height: 400px;
-  margin-bottom: 20px;
-  width: 100%;      /* ne lógjon ki a grid-ből */
-  max-width: 100%;  /* biztosíték */
-}
-.portfolio-details-slider .swiper-wrapper {
-  height: 100% !important;
-  width: 100% !important; /* mobilon ne legyen szélesebb a konténernél */
-}
-.portfolio-details-slider .swiper-slide {
-  display: flex; align-items: center; justify-content: center;
-  height: 100% !important; background: #efefef;
-  width: 100% !important; /* minden slide kitölti a slider szélességét */
-}
-.portfolio-details-slider img {
-  width: 100%; height: 100%;
-  object-fit: contain; display: block; padding: 24px;
-}
-.portfolio-details-slider .swiper-button-prev,
-.portfolio-details-slider .swiper-button-next {
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,0.92); border-radius: 50%;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12); color: #1a1a1a;
-}
-.portfolio-details-slider .swiper-button-prev::after,
-.portfolio-details-slider .swiper-button-next::after { font-size: 12px; font-weight: 700; }
-.portfolio-details-slider .swiper-pagination-bullet { background: #999; opacity: 0.5; }
-.portfolio-details-slider .swiper-pagination-bullet-active { background: #1a1a1a; opacity: 1; }
-
-/* Info kártya */
-.szolg-info-card {
-  background: #fff; border-radius: 14px;
-  border: 1px solid #e4e4e4; overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-}
-.szolg-info-card-body {
-  padding: 22px 24px 18px;
-  display: flex; flex-direction: column; gap: 14px;
-  border-bottom: 1px solid #e4e4e4;
-}
-.szolg-meta {
-  display: flex; align-items: center; gap: 12px;
-  font-family: 'Open Sans', sans-serif; font-size: 14px; color: #444;
-}
-.szolg-meta i {
-  width: 34px; height: 34px; background: #f0f0f0;
-  border-radius: 8px; display: flex; align-items: center;
-  justify-content: center; font-size: 14px; color: #1a1a1a; flex-shrink: 0;
-}
-.szolg-meta a { color: #1a1a1a; font-weight: 500; text-decoration: none; }
-.szolg-meta a:hover { color: #555; }
-.szolg-cta-row {}
-.szolg-cta-btn {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  background: #1a1a1a; color: #fff !important;
-  font-family: 'Poppins', sans-serif; font-size: 13px;
-  font-weight: 600; letter-spacing: 0.5px; padding: 16px;
-  text-decoration: none !important; transition: background 0.22s;
-}
-.szolg-cta-btn:hover { background: #333; color: #fff !important; }
-.szolg-cta-btn i { font-size: 15px; }
-
-/* ── Jobb: leírás — magazine stílus ── */
-.szolg-mag-right {}
-
-.szolg-leiras {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 17px; line-height: 2; color: #3a3a3a;
-}
-
-/* Első bekezdés kiemelve — nagy dőlt Playfair, bal vonal */
-.szolg-leiras p:first-child {
+/* Szakaszszámozás a cím előtt */
+.szolg-feature-num {
+  display: inline-block;
   font-family: 'Playfair Display', serif;
-  font-size: 21px; font-style: italic; font-weight: 400;
-  color: #1a1a1a; line-height: 1.75;
-  border-left: 3px solid #1a1a1a;
-  padding-left: 24px;
-  margin-bottom: 32px;
+  font-style: italic; font-size: 15px; font-weight: 600;
+  color: #aaa; letter-spacing: 0.5px;
+  margin-right: 10px;
 }
 
-.szolg-leiras p {
-  margin-bottom: 22px; font-size: 17px;
+/* Képek — "contain", hogy a magasabb (portré) fotók is jól mutassanak, levágás nélkül */
+.szolg-feature-img {
+  display: block; min-width: 0;
+  width: 100%; aspect-ratio: 4 / 3;
+  border-radius: 14px; overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+}
+.szolg-feature-img img { width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box; display: block; }
+
+/* ── Hero sor — egyedi, markánsabb kezdő megjelenés ── */
+.szolg-hero-eyebrow {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 1.6px;
+  text-transform: uppercase; color: #999;
+  margin-bottom: 14px;
+}
+.szolg-hero-text p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 68px; font-weight: 700; font-style: normal;
+  float: left; line-height: 0.82;
+  padding: 4px 8px 0 0;
+  color: #1a1a1a;
+}
+
+/* Réteges, eltolt keret a hero kép mögött */
+.szolg-feature-img-wrap { position: relative; }
+.szolg-feature-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 14px;
+  z-index: 0;
+}
+.szolg-feature-img-wrap .szolg-feature-img { position: relative; z-index: 1; }
+
+/* ── Leírás — magazine stílus ── */
+.szolg-leiras, .szolg-kiemelt-leiras {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px; line-height: 2; color: #3a3a3a;
+}
+.szolg-kiemelt-leiras { margin-top: 8px; }
+.szolg-leiras p, .szolg-kiemelt-leiras p {
+  margin-bottom: 22px; font-size: 18px;
   line-height: 2; color: #3a3a3a;
 }
-.szolg-leiras p:last-child { margin-bottom: 0; }
-.szolg-leiras h3, .szolg-leiras h4 {
+.szolg-leiras p:last-child, .szolg-kiemelt-leiras p:last-child { margin-bottom: 0; }
+.szolg-leiras h3, .szolg-leiras h4,
+.szolg-kiemelt-leiras h3, .szolg-kiemelt-leiras h4 {
   font-family: 'Playfair Display', serif;
   font-weight: 600; color: #1a1a1a;
   margin-top: 32px; margin-bottom: 14px;
+  clear: both;
 }
-.szolg-leiras h3 { font-size: 24px; }
-.szolg-leiras h4 { font-size: 20px; }
-.szolg-leiras ul, .szolg-leiras ol { padding-left: 22px; margin-bottom: 22px; }
-.szolg-leiras li { font-size: 17px; line-height: 1.9; color: #3a3a3a; margin-bottom: 8px; }
-.szolg-leiras strong { color: #1a1a1a; font-weight: 600; }
-.szolg-leiras a { color: #1a1a1a; }
+.szolg-leiras h3, .szolg-kiemelt-leiras h3 { font-size: 24px; }
+.szolg-leiras h4, .szolg-kiemelt-leiras h4 { font-size: 20px; }
+.szolg-leiras ol, .szolg-kiemelt-leiras ol { padding-left: 22px; margin-bottom: 22px; }
+.szolg-leiras ul, .szolg-kiemelt-leiras ul {
+  list-style: none; padding-left: 0; margin: 0 0 26px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.szolg-leiras li, .szolg-kiemelt-leiras li { font-size: 18px; line-height: 1.75; color: #3a3a3a; margin-bottom: 8px; }
+.szolg-leiras ul li, .szolg-kiemelt-leiras ul li {
+  position: relative; padding-left: 34px; margin-bottom: 0;
+}
+.szolg-leiras ul li::before, .szolg-kiemelt-leiras ul li::before {
+  content: '\F633';
+  font-family: 'bootstrap-icons';
+  position: absolute; left: 0; top: 2px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: #1a1a1a; color: #fff;
+  font-size: 12px; line-height: 22px; text-align: center;
+}
+.szolg-leiras strong, .szolg-kiemelt-leiras strong { color: #1a1a1a; font-weight: 600; }
+.szolg-leiras a, .szolg-kiemelt-leiras a { color: #1a1a1a; }
+
+/* ── Foglalás CTA sáv — sötét, teljes szélességű törés a sorok között ── */
+.szolg-cta-band {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 34px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  margin: 8px 0 44px;
+}
+.szolg-cta-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; margin-bottom: 6px; }
+.szolg-cta-sub { font-family: 'Open Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.55); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.szolg-cta-sub i { font-size: 12px; color: rgba(255,255,255,0.4); }
+.szolg-cta-dot { margin: 0 4px; color: rgba(255,255,255,0.3); }
+.szolg-cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.szolg-cta-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: #1a1a1a !important;
+  font-family: 'Poppins', sans-serif; font-size: 13px;
+  font-weight: 600; letter-spacing: 0.4px; padding: 13px 22px;
+  border-radius: 6px;
+  text-decoration: none !important; transition: all 0.22s;
+}
+.szolg-cta-btn:hover { background: #eee; color: #1a1a1a !important; transform: translateY(-2px); }
+.szolg-cta-btn-ghost { background: transparent; color: #fff !important; border: 1.5px solid rgba(255,255,255,0.3); }
+.szolg-cta-btn-ghost:hover { background: rgba(255,255,255,0.1); color: #fff !important; border-color: rgba(255,255,255,0.5); }
+.szolg-cta-btn i { font-size: 14px; }
+
+/* ── Galéria sáv (extra képek) — végtelenített, körbeforgó ── */
+.szolg-gallery-strip {
+  overflow: hidden;
+  margin: 0 0 40px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.szolg-gallery-track {
+  display: flex; gap: 14px; width: max-content;
+  animation: szolg-strip-scroll 32s linear infinite;
+}
+.szolg-gallery-strip:hover .szolg-gallery-track { animation-play-state: paused; }
+.szolg-gallery-track a {
+  flex: 0 0 auto; display: block;
+  width: 230px; height: 172px;
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid #e4e4e4;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+.szolg-gallery-track a:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.szolg-gallery-track img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@keyframes szolg-strip-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .szolg-gallery-track { animation: none; }
+}
+
+/* ── GYIK ── */
+.szolg-faq { margin-bottom: 44px; padding-top: 36px; border-top: 1px solid #e4e4e4; }
+.szolg-faq h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;
+}
+.szolg-faq-accordion .accordion-item {
+  background: transparent; border: none;
+  border-bottom: 1px solid #e4e4e4; border-radius: 0 !important;
+}
+.szolg-faq-accordion .accordion-item:last-child { border-bottom: none; }
+.szolg-faq-accordion .accordion-button {
+  background: transparent; box-shadow: none;
+  font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500;
+  color: #1a1a1a; padding: 18px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.szolg-faq-accordion .accordion-button:not(.collapsed) { background: transparent; color: #1a1a1a; }
+.szolg-faq-accordion .accordion-button::after { display: none; }
+.szolg-faq-accordion .accordion-button:focus { box-shadow: none; }
+.szolg-faq-icon { font-size: 17px; color: #999; flex-shrink: 0; transition: transform 0.3s ease-out; }
+.szolg-faq-accordion .accordion-button:not(.collapsed) .szolg-faq-icon { transform: rotate(45deg); }
+.szolg-faq-accordion .accordion-body {
+  padding: 0 0 22px; font-family: 'Open Sans', sans-serif;
+  font-size: 15px; line-height: 1.85; color: #666;
+}
 
 /* ── Egyéb szolgáltatások ── */
-.szolg-egyeb {
-  padding-top: 44px; border-top: 1px solid #e4e4e4;
-}
+.szolg-egyeb { padding-top: 44px; border-top: 1px solid #e4e4e4; }
 .szolg-egyeb h5 {
   font-family: 'Playfair Display', serif;
   font-size: 22px; font-weight: 600; color: #1a1a1a; margin-bottom: 20px;
 }
-.szolg-egyeb-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.szolg-egyeb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
 .szolg-egyeb-item {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
   background: #fff; border: 1px solid #e0e0e0;
-  border-radius: 8px; padding: 10px 18px;
-  font-family: 'Open Sans', sans-serif; font-size: 14px;
-  font-weight: 500; color: #666; text-decoration: none; transition: all 0.22s;
+  border-radius: 12px; padding: 14px 16px;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none; transition: all 0.25s ease-out;
 }
 .szolg-egyeb-item:hover {
-  border-color: #1a1a1a; color: #1a1a1a;
-  transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: #1a1a1a;
+  transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
-.szolg-egyeb-item img { width: 22px; height: 22px; object-fit: contain; }
+.szolg-egyeb-icon {
+  width: 38px; height: 38px; background: #f5f5f5;
+  border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 16px; color: #1a1a1a;
+}
+.szolg-egyeb-icon img { width: 20px; height: 20px; object-fit: contain; }
+.szolg-egyeb-nev { font-size: 14px; font-weight: 500; color: #1a1a1a; flex: 1; }
+.szolg-egyeb-arrow { font-size: 13px; color: #bbb; transition: transform 0.25s ease-out; }
+.szolg-egyeb-item:hover .szolg-egyeb-arrow { transform: translateX(4px); color: #1a1a1a; }
 
 /* ── Reszponzív ── */
-@media (max-width: 1100px) {
-  .szolg-mag-grid { grid-template-columns: 340px 1fr; gap: 48px; }
-}
-
 @media (max-width: 991px) {
   .szolg-page-header { padding: 90px 0 28px; }
-  .szolgaltatas-title { font-size: 26px; }
-  .szolg-mag-grid { grid-template-columns: 1fr; gap: 24px; }
-  .szolg-mag-grid { margin-bottom: 36px; }
-  .szolg-mag-left { position: static; }
+  .szolgaltatas-title { font-size: 26px; margin-bottom: 18px; }
   .portfolio-details { padding: 36px 0 52px; }
+  .szolg-feature-row { grid-template-columns: 1fr 360px; gap: 32px; padding: 40px 0; }
+  .szolg-feature-row-reverse { grid-template-columns: 360px 1fr; }
+  .szolg-leiras, .szolg-kiemelt-leiras { font-size: 17px; }
+  .szolg-leiras p, .szolg-kiemelt-leiras p { font-size: 17px; }
+}
 
-  /* Carousel */
-  .portfolio-details-slider {
-    height: 260px !important;
-    margin-bottom: 16px;
+@media (max-width: 767px) {
+  /* Váltakozó sorok mobilon: egy oszlopba rendezve, kép mindig felül */
+  .szolg-feature-row, .szolg-feature-row-reverse {
+    grid-template-columns: 1fr;
+    padding: 32px 0;
   }
-  .portfolio-details-slider .swiper-slide {
-    height: 260px !important;
-    min-height: 260px;
-  }
-  .portfolio-details-slider img {
-    height: 260px;
-    min-height: 260px;
-    padding: 20px;
-  }
-
-  /* Info kártya — vízszintes layout tablet */
-  .szolg-info-card { display: flex; flex-direction: column; }
-  .szolg-info-card-body {
-    padding: 18px 20px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .szolg-meta { flex: 1 1 auto; min-width: 200px; }
-
-  /* Leírás */
-  .szolg-leiras { font-size: 16px; }
-  .szolg-leiras p:first-child { font-size: 18px; }
-
-  /* Carousel navigáció */
-  .portfolio-details-slider .swiper-button-prev,
-  .portfolio-details-slider .swiper-button-next { width: 34px; height: 34px; }
+  .szolg-feature-row .szolg-feature-content,
+  .szolg-feature-row-reverse .szolg-feature-content { order: 2; }
+  .szolg-feature-row .szolg-feature-img,
+  .szolg-feature-row-reverse .szolg-feature-img { order: 1; margin-bottom: 4px; }
 }
 
 @media (max-width: 575px) {
   /* Fejléc */
   .szolg-page-header { padding: 78px 0 20px; }
-  .szolgaltatas-title { font-size: 22px; line-height: 1.3; letter-spacing: 0; }
+  .szolgaltatas-title { font-size: 22px; line-height: 1.3; letter-spacing: 0; margin-bottom: 16px; }
   .szolgaltatas-breadcrumb { font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+
+  .szolg-quickfacts { gap: 8px; }
+  .szolg-qf-card { padding: 12px 14px; flex: 1 1 100%; }
 
   /* Tartalom */
   .portfolio-details { padding: 24px 0 40px; }
-  .szolg-mag-grid { gap: 20px; margin-bottom: 28px; }
 
-  /* Carousel */
-  .portfolio-details-slider {
-    height: 220px !important;
-    border-radius: 12px;
-    margin-bottom: 14px;
-  }
-  .portfolio-details-slider .swiper-slide {
-    height: 220px !important;
-    min-height: 220px;
-  }
-  .portfolio-details-slider img {
-    height: 220px;
-    min-height: 220px;
-    padding: 16px;
-  }
-  .portfolio-details-slider .swiper-button-prev,
-  .portfolio-details-slider .swiper-button-next {
-    width: 30px; height: 30px;
-  }
-  .portfolio-details-slider .swiper-button-prev::after,
-  .portfolio-details-slider .swiper-button-next::after { font-size: 10px; }
+  .szolg-feature-row, .szolg-feature-row-reverse { padding: 24px 0; gap: 18px; }
+  .szolg-feature-img { aspect-ratio: 4 / 3; }
 
-  /* Info kártya */
-  .szolg-info-card { border-radius: 10px; }
-  .szolg-info-card-body { padding: 14px 16px; gap: 10px; }
-  .szolg-meta { font-size: 13px; gap: 10px; }
-  .szolg-meta i { width: 30px; height: 30px; min-width: 30px; font-size: 12px; border-radius: 6px; }
-  .szolg-cta-btn { padding: 14px 16px; font-size: 12px; }
-  .szolg-cta-btn i { font-size: 13px; }
+  /* Eltolt keret mobilon kisebb, hogy ne csússzon ki a képernyőről */
+  .szolg-feature-img-wrap::before { inset: 10px -10px -10px 10px; }
+  .szolg-hero-text p:first-of-type::first-letter { font-size: 48px; padding: 2px 6px 0 0; }
+
+  /* Galéria sáv mobilon kisebb elemekkel */
+  .szolg-gallery-track a { width: 160px; height: 120px; }
 
   /* Leírás */
-  .szolg-leiras { font-size: 15px; line-height: 1.8; }
-  .szolg-leiras p { font-size: 15px; margin-bottom: 16px; }
-  .szolg-leiras p:first-child {
-    font-size: 16px; line-height: 1.65;
-    padding-left: 14px; margin-bottom: 20px;
-    border-left-width: 2px;
-  }
-  .szolg-leiras h3 { font-size: 20px; margin-top: 24px; }
-  .szolg-leiras h4 { font-size: 17px; }
-  .szolg-leiras li { font-size: 15px; }
+  .szolg-leiras, .szolg-kiemelt-leiras { font-size: 16px; line-height: 1.8; }
+  .szolg-leiras p, .szolg-kiemelt-leiras p { font-size: 16px; margin-bottom: 16px; }
+  .szolg-leiras h3, .szolg-kiemelt-leiras h3 { font-size: 20px; margin-top: 24px; }
+  .szolg-leiras h4, .szolg-kiemelt-leiras h4 { font-size: 17px; }
+  .szolg-leiras li, .szolg-kiemelt-leiras li { font-size: 16px; }
+
+  .szolg-cta-band { padding: 22px 20px; flex-direction: column; align-items: flex-start; }
+  .szolg-cta-actions { width: 100%; }
+  .szolg-cta-btn { flex: 1; justify-content: center; padding: 14px 16px; font-size: 12px; }
 
   /* Egyéb szolgáltatások */
   .szolg-egyeb { padding-top: 24px; }
   .szolg-egyeb h5 { font-size: 17px; margin-bottom: 12px; }
-  .szolg-egyeb-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .szolg-egyeb-item {
-    font-size: 12px; padding: 9px 12px; gap: 6px;
-    border-radius: 6px; justify-content: flex-start;
-  }
-  .szolg-egyeb-item img { width: 18px; height: 18px; flex-shrink: 0; }
+  .szolg-egyeb-grid { grid-template-columns: 1fr; gap: 8px; }
 }
 
 /*--------------------------------------------------------------
@@ -1161,11 +1193,19 @@ a.icon-box:hover {
   # Árlista gyors-navigáció
 --------------------------------------------------------------*/
 .arlista-nav {
+  position: sticky;
+  top: 72px;
+  z-index: 20;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-bottom: 40px;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .arlista-nav-link {
@@ -1243,9 +1283,9 @@ a.icon-box:hover {
 .fade-right { opacity: 0; transform: translateX(50px); }
 .fade-scale { opacity: 0; transform: scale(0.92); }
 
-/* smooth scroll offset a fix navbarhoz */
+/* smooth scroll offset a fix navbarhoz + sticky kategória-sávhoz */
 [id^="kat-"] {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 140px;
 }
 
 /* Natív böngésző horgony-görgetés offset a fő szekciókhoz */
@@ -1371,7 +1411,7 @@ a.icon-box:hover {
 /* Főcím */
 .hero-slide-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 2.4vw, 38px);
+  font-size: clamp(28px, 3.2vw, 46px);
   font-weight: 400; line-height: 1.5;
   color: #1a1a1a; max-width: 920px;
   margin-bottom: 16px;
@@ -1384,9 +1424,9 @@ a.icon-box:hover {
 /* Al-szöveg */
 .hero-slide-sub {
   font-family: 'Playfair Display', serif;
-  font-size: 16px; font-style: italic; font-weight: 400;
+  font-size: 19px; font-style: italic; font-weight: 400;
   color: rgba(0,0,0,0.62); line-height: 1.85;
-  max-width: 560px; margin-bottom: 32px;
+  max-width: 620px; margin-bottom: 32px;
 }
 
 /* Gombok */
@@ -1746,8 +1786,9 @@ a.icon-box:hover {
   #map { height: 300px; margin-top: 20px; }
 
   /* ── Árlista ── */
-  .arlista-nav { gap: 8px; margin-bottom: 28px; }
+  .arlista-nav { top: 62px; gap: 8px; margin-bottom: 28px; padding: 9px 0; }
   .arlista-nav-link { font-size: 13px; padding: 6px 14px; }
+  [id^="kat-"] { scroll-margin-top: 118px; }
   #main .row table tr td { font-size: 14px; padding-top: 9px !important; padding-bottom: 9px !important; }
 
   /* ── Footer ── */
