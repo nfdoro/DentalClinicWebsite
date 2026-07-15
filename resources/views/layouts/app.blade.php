@@ -4,6 +4,19 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+  {{-- Google Analytics (gtag.js) — csak éles környezetben --}}
+  @production
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJ064TYZPD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HJ064TYZPD');
+  </script>
+  @endproduction
+
   <title>@yield('title', 'Dr. Nagy-Fazakas Csongor - Fogászati Rendelő Miskolc')</title>
   <meta name="description" content="@yield('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelője Miskolcon. Gyökérkezelés, fogszabályozás, fogtömés, fogpótlás, fogfehérítés és prevenciós kezelések.')">
   <meta name="keywords" content="@yield('keywords', 'fogorvos miskolc, fogászat miskolc, gyökérkezelés, fogszabályozás, fogtömés, fogpótlás, fogfehérítés, dr nagy-fazakas csongor')">
