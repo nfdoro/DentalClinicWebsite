@@ -810,18 +810,37 @@ a.icon-box:hover {
 }
 .portfolio-details .container { max-width: 1240px; }
 
-/* ── Cikk-szerű, egy oszlopos elrendezés ── */
+/* ── Cikk-szerű elrendezés ── */
 .szolg-article { max-width: 1180px; margin: 0 auto; }
 .szolg-clear { clear: both; }
 
-/* ── Tartalom-sorok: szöveg, alatta középre igazított, láblécezhető kép ── */
+/* ── Szakasz-sorok: szöveg és kép egymás mellett (cikk-cakk) ── */
 .szolg-feature-row {
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 52px;
+  align-items: center;
   padding: 56px 0;
   border-top: 1px solid #e4e4e4;
 }
 .szolg-feature-row:first-child { border-top: none; padding-top: 0; }
-.szolg-feature-content { min-width: 0; max-width: 940px; margin: 0 auto; }
+.szolg-feature-row-reverse { grid-template-columns: 520px 1fr; }
+.szolg-feature-row-reverse .szolg-feature-content { order: 2; }
+.szolg-feature-row-reverse .szolg-figure { order: 1; }
+.szolg-feature-content { min-width: 0; }
+
+/* ── Hero (átfogó) sor: egy oszlop — szöveg, alatta középre a kép ── */
+.szolg-feature-row-hero {
+  display: block;
+}
+.szolg-feature-row-hero .szolg-feature-content {
+  max-width: 940px;
+  margin: 0 auto;
+}
+.szolg-feature-row-hero .szolg-figure {
+  max-width: 660px;
+  margin: 30px auto 0;
+}
 
 /* Szakaszszámozás a cím előtt */
 .szolg-feature-num {
@@ -841,10 +860,9 @@ a.icon-box:hover {
 }
 .szolg-feature-img img { width: 100%; height: 100%; object-fit: contain; padding: 6px; box-sizing: border-box; display: block; }
 
-/* ── Középre igazított, láblécezhető képkeret ── */
+/* ── Láblécezhető képkeret (szakaszsorban tölti az oszlopot, hero-ban középen) ── */
 .szolg-figure {
-  max-width: 660px;
-  margin: 30px auto 0;
+  margin: 0;
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 12px;
@@ -1037,14 +1055,21 @@ a.icon-box:hover {
   .szolgaltatas-title { font-size: 26px; margin-bottom: 18px; }
   .portfolio-details { padding: 36px 0 52px; }
   .portfolio-details .container { max-width: 100%; }
-  .szolg-feature-row { padding: 44px 0; }
+  .szolg-feature-row { grid-template-columns: 1fr 360px; gap: 32px; padding: 44px 0; }
+  .szolg-feature-row-reverse { grid-template-columns: 360px 1fr; }
   .szolg-leiras, .szolg-kiemelt-leiras { font-size: 17px; }
   .szolg-leiras p, .szolg-kiemelt-leiras p { font-size: 17px; }
 }
 
 @media (max-width: 767px) {
-  .szolg-feature-row, .szolg-feature-row-reverse { padding: 32px 0; }
-  .szolg-figure { margin-top: 22px; }
+  /* Szakaszsorok mobilon egy oszlopba: szöveg felül, kép alatta */
+  .szolg-feature-row, .szolg-feature-row-reverse {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 32px 0;
+  }
+  .szolg-feature-row-reverse .szolg-feature-content,
+  .szolg-feature-row-reverse .szolg-figure { order: initial; }
 }
 
 @media (max-width: 575px) {

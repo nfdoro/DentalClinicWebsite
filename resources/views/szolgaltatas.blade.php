@@ -191,7 +191,7 @@ $ctaUtanIndex = $kiemeltSzakaszok->count() >= 2 ? intdiv($kiemeltSzakaszok->coun
 
           {{-- ── Váltakozó (cikk-cakk) szakaszok ── --}}
           @foreach($kiemeltSzakaszok as $i => $szakasz)
-          <div class="szolg-feature-row fade-up">
+          <div class="szolg-feature-row {{ $i % 2 === 1 ? 'szolg-feature-row-reverse' : '' }} fade-up">
             <div class="szolg-feature-content">
               <div class="szolg-kiemelt-leiras">{!! $szakasz !!}</div>
             </div>
