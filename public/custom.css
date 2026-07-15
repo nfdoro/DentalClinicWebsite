@@ -1317,6 +1317,10 @@ a.icon-box:hover {
   margin-bottom: 4px;
 }
 
+.arlista-nav-docked-list .arlista-nav-link {
+  text-align: center;
+}
+
 .arlista-nav-docked-list .arlista-search-box {
   width: 100%;
 }
