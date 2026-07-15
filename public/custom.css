@@ -1240,6 +1240,7 @@ a.icon-box:hover {
 .arlista-nav-docked-list {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 8px;
 }
 
@@ -1311,6 +1312,8 @@ a.icon-box:hover {
 }
 
 .arlista-nav-docked-list .arlista-search {
+  align-self: stretch;
+  width: 100%;
   margin-bottom: 4px;
 }
 
