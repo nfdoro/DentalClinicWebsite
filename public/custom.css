@@ -1266,6 +1266,12 @@ a.icon-box:hover {
   align-items: center;
 }
 
+/* Horizontális sávban a kereső szélessége responsive */
+.arlista-nav .arlista-search-box {
+  width: clamp(180px, 60%, 460px);
+  max-width: 100%;
+}
+
 .arlista-search-box .bi {
   position: absolute;
   left: 16px;
@@ -1276,7 +1282,7 @@ a.icon-box:hover {
 }
 
 .arlista-search-input {
-  width: 280px;
+  width: 100%;
   max-width: 100%;
   padding: 9px 18px 9px 40px;
   background: #fff;
