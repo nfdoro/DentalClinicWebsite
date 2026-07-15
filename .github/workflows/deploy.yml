@@ -1,0 +1,81 @@
+name: Deploy to cPanel (FTP)
+
+# Csak a "deploy" ágra tolva fut le (a main-en nyugodtan dolgozhatsz),
+# plusz kézzel is indíthatod a GitHub Actions fülön ("Run workflow").
+on:
+  push:
+    branches: [deploy]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-cpanel
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: PHP 8.4 beállítása
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, pdo, pdo_sqlite, sqlite3, dom, curl, fileinfo, xml, bcmath, intl, gd, zip
+          coverage: none
+
+      - name: Ideiglenes .env a buildhez (NEM kerül fel a szerverre)
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Composer függőségek (production, dev nélkül)
+        run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+
+      - name: Node 20 beállítása
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Vite assetek buildelése
+        run: |
+          npm ci
+          npm run build
+
+      - name: Fejlesztői maradványok törlése
+        run: rm -f public/hot
+
+      - name: Feltöltés FTPS-sel a szerverre
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          # A dedikált FTP-fiók gyökere maga a "fogaszat_app" mappa,
+          # ezért ide "./" kerül. (Ha a FŐ cPanel-fiókot használnád,
+          # akkor írd át erre: server-dir: fogaszat_app/ )
+          server-dir: ./
+          local-dir: ./
+          # SOHA ne töltse fel ezeket – különben letörölné az éles adatokat:
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .github/**
+            .claude/**
+            .vscode/**
+            .env
+            .env.*
+            database/database.sqlite
+            storage/**
+            public/storage/**
+            public/.htaccess
+            tests/**
+            phpunit.xml
+            serve.bat
+            *.md
