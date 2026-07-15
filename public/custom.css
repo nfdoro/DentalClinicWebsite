@@ -1306,9 +1306,9 @@ a.icon-box:hover {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* A dokkolt oszlopban a kereső a lista szélességéhez igazodik */
+/* A dokkolt oszlop a legszélesebb gombhoz (pl. „Fogszabályozás") zsugorodik */
 .arlista-nav-docked-list {
-  width: 240px;
+  width: max-content;
 }
 
 .arlista-nav-docked-list .arlista-search {

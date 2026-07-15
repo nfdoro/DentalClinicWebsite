@@ -37,7 +37,7 @@
           <div class="arlista-search">
             <span class="arlista-search-box">
               <i class="bi bi-search" aria-hidden="true"></i>
-              <input type="search" class="arlista-search-input" placeholder="Keresés…" aria-label="Keresés az árlistában" autocomplete="off">
+              <input type="search" size="1" class="arlista-search-input" placeholder="Keresés…" aria-label="Keresés az árlistában" autocomplete="off">
             </span>
           </div>
           @foreach($kategoriak as $kat)
