@@ -45,10 +45,28 @@ jobs:
           npm ci
           npm run build
 
+      - name: Felesleges vendor fordítások törlése (csak en, hu, ro marad)
+        shell: bash
+        run: |
+          before=$(find vendor -type f | wc -l)
+          mapfile -t dirs < <(find vendor -regextype posix-extended -type d -regex '.*/(resources/lang|lang|translations)/[^/]+')
+          for d in "${dirs[@]}"; do
+            name="$(basename "$d")"
+            case "$name" in
+              en|hu|ro) continue ;;
+            esac
+            # csak nyelvi kód nevű mappákat töröljük (pl. ko, de, pt_BR, zh-CN)
+            if [[ "$name" =~ ^[a-z]{2}([_-][A-Za-z0-9]+)?$ ]]; then
+              rm -rf "$d"
+            fi
+          done
+          after=$(find vendor -type f | wc -l)
+          echo "vendor fájlok: $before -> $after (megtartott nyelvek: en, hu, ro)"
+
       - name: Fejlesztői maradványok törlése
         run: rm -f public/hot
 
-      - name: Feltöltés FTPS-sel a szerverre
+      - name: Feltöltés FTP-vel a szerverre
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
