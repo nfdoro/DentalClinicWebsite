@@ -110,6 +110,28 @@
         });
       });
 
+      // ── Dokkolt oszlop szélessége = a legszélesebb kategória-gomb ──
+      var dockList = docked.querySelector('.arlista-nav-docked-list');
+      function sizeDockList() {
+        if (!dockList) return;
+        if (window.innerWidth <= 768) { dockList.style.width = ''; return; }
+        var links = dockList.querySelectorAll('.arlista-nav-link');
+        if (!links.length) return;
+        dockList.style.width = 'auto';
+        dockList.style.alignItems = 'flex-start';
+        var max = 0;
+        for (var i = 0; i < links.length; i++) {
+          if (links[i].offsetWidth > max) max = links[i].offsetWidth;
+        }
+        dockList.style.alignItems = 'stretch';
+        dockList.style.width = Math.ceil(max) + 'px';
+      }
+      sizeDockList();
+      window.addEventListener('resize', sizeDockList);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(sizeDockList);
+      }
+
       // ── Keresés / szűrés ──
       var inputs = document.querySelectorAll('.arlista-search-input');
       var noResults = document.getElementById('arlista-no-results');
