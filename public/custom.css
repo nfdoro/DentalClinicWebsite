@@ -1250,23 +1250,29 @@ a.icon-box:hover {
 
 /* Kereső */
 .arlista-search {
+  display: flex;
+  justify-content: center;
+}
+
+.arlista-nav .arlista-search {
+  flex-basis: 100%;
+  margin-bottom: 4px;
+}
+
+/* Szűk, relatív doboz: az ikon az inputhoz képest pozicionál */
+.arlista-search-box {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.arlista-nav .arlista-search {
-  flex-basis: 100%;
-  justify-content: center;
-  margin-bottom: 4px;
-}
-
-.arlista-search .bi {
+.arlista-search-box .bi {
   position: absolute;
   left: 16px;
   color: #999;
   font-size: 15px;
   pointer-events: none;
+  z-index: 1;
 }
 
 .arlista-search-input {
@@ -1300,6 +1306,10 @@ a.icon-box:hover {
 
 .arlista-nav-docked-list .arlista-search {
   margin-bottom: 4px;
+}
+
+.arlista-nav-docked-list .arlista-search-box {
+  width: 100%;
 }
 
 .arlista-nav-docked-list .arlista-search-input {

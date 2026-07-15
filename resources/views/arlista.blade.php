@@ -18,8 +18,10 @@
       <div id="arlista-nav-sentinel" aria-hidden="true"></div>
       <div class="arlista-nav" id="arlistaNav">
         <div class="arlista-search">
-          <i class="bi bi-search" aria-hidden="true"></i>
-          <input type="search" class="arlista-search-input" placeholder="Keresés a beavatkozások között…" aria-label="Keresés az árlistában" autocomplete="off">
+          <span class="arlista-search-box">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" class="arlista-search-input" placeholder="Keresés a beavatkozások között…" aria-label="Keresés az árlistában" autocomplete="off">
+          </span>
         </div>
         @foreach($kategoriak as $kat)
           <a href="#kat-{{ $kat->slug }}" class="arlista-nav-link">{{ $kat->nev }}</a>
@@ -33,8 +35,10 @@
         </button>
         <div class="arlista-nav-docked-list">
           <div class="arlista-search">
-            <i class="bi bi-search" aria-hidden="true"></i>
-            <input type="search" class="arlista-search-input" placeholder="Keresés…" aria-label="Keresés az árlistában" autocomplete="off">
+            <span class="arlista-search-box">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" class="arlista-search-input" placeholder="Keresés…" aria-label="Keresés az árlistában" autocomplete="off">
+            </span>
           </div>
           @foreach($kategoriak as $kat)
             <a href="#kat-{{ $kat->slug }}" class="arlista-nav-link">{{ $kat->nev }}</a>
