@@ -178,24 +178,32 @@ $ctaUtanIndex = $kiemeltSzakaszok->count() >= 2 ? intdiv($kiemeltSzakaszok->coun
               </div>
             </div>
             @if($heroKep)
-            <div class="szolg-feature-img-wrap">
+            <figure class="szolg-figure">
               <a href="{{ asset($heroKep->fajlnev) }}" class="szolg-feature-img portfolio-lightbox fade-scale" data-gallery="szolgGaleria" title="{{ $heroKep->rovidleiras }}">
                 <img src="{{ asset($heroKep->fajlnev) }}" alt="{{ $heroKep->rovidleiras }}">
               </a>
-            </div>
+              @if($heroKep->rovidleiras)
+              <figcaption class="szolg-figcaption">{{ $heroKep->rovidleiras }}</figcaption>
+              @endif
+            </figure>
             @endif
           </div>
 
           {{-- ── Váltakozó (cikk-cakk) szakaszok ── --}}
           @foreach($kiemeltSzakaszok as $i => $szakasz)
-          <div class="szolg-feature-row {{ $i % 2 === 1 ? 'szolg-feature-row-reverse' : '' }} fade-up">
+          <div class="szolg-feature-row fade-up">
             <div class="szolg-feature-content">
               <div class="szolg-kiemelt-leiras">{!! $szakasz !!}</div>
             </div>
             @if($szakaszKepek[$i] ?? null)
-            <a href="{{ asset($szakaszKepek[$i]->fajlnev) }}" class="szolg-feature-img portfolio-lightbox fade-scale" data-gallery="szolgGaleria" title="{{ $szakaszKepek[$i]->rovidleiras }}">
-              <img src="{{ asset($szakaszKepek[$i]->fajlnev) }}" alt="{{ $szakaszKepek[$i]->rovidleiras }}">
-            </a>
+            <figure class="szolg-figure">
+              <a href="{{ asset($szakaszKepek[$i]->fajlnev) }}" class="szolg-feature-img portfolio-lightbox fade-scale" data-gallery="szolgGaleria" title="{{ $szakaszKepek[$i]->rovidleiras }}">
+                <img src="{{ asset($szakaszKepek[$i]->fajlnev) }}" alt="{{ $szakaszKepek[$i]->rovidleiras }}">
+              </a>
+              @if($szakaszKepek[$i]->rovidleiras)
+              <figcaption class="szolg-figcaption">{{ $szakaszKepek[$i]->rovidleiras }}</figcaption>
+              @endif
+            </figure>
             @endif
           </div>
 
