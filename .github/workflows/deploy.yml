@@ -29,7 +29,7 @@ jobs:
       - name: Ideiglenes .env a buildhez (NEM kerül fel a szerverre)
         run: |
           cp .env.example .env
-          php artisan key:generate
+          php -r '$k="base64:".base64_encode(random_bytes(32)); $c=preg_replace("/^APP_KEY=.*/m","APP_KEY=$k",file_get_contents(".env")); file_put_contents(".env",$c);'
 
       - name: Composer függőségek (production, dev nélkül)
         run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
