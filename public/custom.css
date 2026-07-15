@@ -860,18 +860,16 @@ a.icon-box:hover {
 }
 .szolg-feature-img img { width: 100%; height: auto; display: block; }
 
-/* ── Láblécezhető képkeret (szakaszsorban tölti az oszlopot, hero-ban középen) ── */
+/* ── Láblécezhető kép (szakaszsorban tölti az oszlopot, hero-ban középen) ── */
 .szolg-figure {
   margin: 0;
   background: #fff;
-  border: 1px solid #e6e6e6;
   border-radius: 12px;
   box-shadow: 0 12px 34px rgba(0,0,0,0.08);
   overflow: hidden;
 }
 .szolg-figcaption {
   padding: 12px 20px 14px;
-  border-top: 1px solid #ededed;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px; line-height: 1.5; color: #6a6a6a;
   font-style: italic;
