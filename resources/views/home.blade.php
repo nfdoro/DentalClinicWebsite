@@ -310,12 +310,8 @@
               <div class="rolunk-stat-label">Diploma éve</div>
             </div>
             <div class="rolunk-stat-card stat-mid">
-              <div class="rolunk-stat-num">9<sup>+ év</sup></div>
+              <div class="rolunk-stat-num">10<sup>+ év</sup></div>
               <div class="rolunk-stat-label">Tapasztalat</div>
-            </div>
-            <div class="rolunk-stat-card stat-bottom">
-              <div class="rolunk-stat-num">200<sup>+</sup></div>
-              <div class="rolunk-stat-label">Páciens</div>
             </div>
           </div>
 
@@ -450,7 +446,7 @@
               <h4>Dr. Nagy-Fazakas Csongor</h4>
               <p>Fogorvos, rendelő vezető</p>
               <div class="social">
-                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="https://www.facebook.com/share/1RuKvhfTsT/" target="_blank" rel="noopener" aria-label="Facebook oldalunk"><i class="bi bi-facebook"></i></a>
               </div>
             </div>
           </div>
@@ -460,7 +456,7 @@
               <h4>Nagy-Fazakas Szilvia</h4>
               <p>Asszisztens</p>
               <div class="social">
-                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href="https://www.facebook.com/share/1RuKvhfTsT/" target="_blank" rel="noopener" aria-label="Facebook oldalunk"><i class="bi bi-facebook"></i></a>
               </div>
             </div>
           </div>
@@ -479,22 +475,15 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="info-wrap">
-              <div class="row">
-                <div class="col-lg-4 info fade-up">
+              <div class="row justify-content-center">
+                <div class="col-lg-5 info fade-up">
                   <i class="bi bi-geo-alt"></i>
                   <div class="info-text">
                     <h4>Helyszín:</h4>
                     <p>Magyarország, Miskolc<br>Madarász Viktor utca 13/A<br>2. emelet, 03 kapucsengő</p>
                   </div>
                 </div>
-                <div class="col-lg-4 info mt-4 mt-lg-0 fade-up">
-                  <i class="bi bi-envelope"></i>
-                  <div class="info-text">
-                    <h4>Email:</h4>
-                    <p><a href="mailto:{{ config('kapcsolat.email') }}">{{ config('kapcsolat.email') }}</a></p>
-                  </div>
-                </div>
-                <div class="col-lg-4 info mt-4 mt-lg-0 fade-up">
+                <div class="col-lg-5 info mt-4 mt-lg-0 fade-up">
                   <i class="bi bi-phone"></i>
                   <div class="info-text">
                     <h4>Telefonszám:</h4>

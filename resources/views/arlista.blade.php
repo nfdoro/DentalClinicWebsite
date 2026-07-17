@@ -17,7 +17,7 @@
       <p class="arlista-intro">
         Az árak tájékoztató jellegűek. A pontos díj a szájvizsgálatot követően, az egyéni állapot és a választott
         megoldás alapján határozható meg. Kérdés esetén hívjon minket:
-        <a href="tel:{{ config('kapcsolat.telefon_hivas') }}">{{ config('kapcsolat.telefon') }}</a>.
+        <a class="arlista-intro-tel" href="tel:{{ config('kapcsolat.telefon_hivas') }}">{{ config('kapcsolat.telefon') }}</a>
       </p>
 
       {{-- Gyors-navigáció --}}

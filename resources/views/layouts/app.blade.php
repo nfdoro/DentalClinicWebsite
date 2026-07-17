@@ -126,7 +126,7 @@
       </nav>
 
       <div class="header-social-links d-flex align-items-center">
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.facebook.com/share/1RuKvhfTsT/" class="facebook" target="_blank" rel="noopener" aria-label="Facebook oldalunk"><i class="bi bi-facebook"></i></a>
       </div>
 
     </div>
@@ -147,7 +147,6 @@
               Madarász Viktor utca 13/A <br>
               2. emelet, 03 kapucsengő <br><br>
               <strong>Telefon:</strong> <a href="tel:{{ config('kapcsolat.telefon_hivas') }}">{{ config('kapcsolat.telefon') }}</a><br>
-              <strong>Email:</strong> <a href="mailto:{{ config('kapcsolat.email') }}">{{ config('kapcsolat.email') }}</a><br>
             </p>
           </div>
 
@@ -183,7 +182,7 @@
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.facebook.com/share/1RuKvhfTsT/" class="facebook" target="_blank" rel="noopener" aria-label="Facebook oldalunk"><i class="bx bxl-facebook"></i></a>
       </div>
     </div>
   </footer>

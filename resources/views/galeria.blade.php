@@ -8,7 +8,7 @@
   <main id="main">
 
     {{-- ======= Galéria oldal ======= --}}
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio galeria-page">
       <div class="container">
 
         <div class="section-title">

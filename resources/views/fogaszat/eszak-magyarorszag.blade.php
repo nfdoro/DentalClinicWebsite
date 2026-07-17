@@ -91,7 +91,7 @@
 
           <h3 class="eszak-h3">Miért éri meg az utazás?</h3>
           <ul class="eszak-elonyok">
-            <li><strong>9+ év tapasztalat:</strong> komplex implantátum és fogszabályozó kezelések</li>
+            <li><strong>10+ év tapasztalat:</strong> komplex implantátum és fogszabályozó kezelések</li>
             <li><strong>Fogszabályozási konzultáció</strong> lenyomattal és kezelési tervvel</li>
             <li><strong>Egyéni, személyes ellátás,</strong> nem tömeggyártás</li>
             <li><strong>Parkolás:</strong> a rendelő közelében ingyenes parkoló érhető el</li>
