@@ -146,8 +146,8 @@
               Magyarország, Miskolc <br>
               Madarász Viktor utca 13/A <br>
               2. emelet, 03 kapucsengő <br><br>
-              <strong>Telefon:</strong> +36 70 627 6160<br>
-              <strong>Email:</strong> info@fogaszat-miskolc.hu<br>
+              <strong>Telefon:</strong> <a href="tel:{{ config('kapcsolat.telefon_hivas') }}">{{ config('kapcsolat.telefon') }}</a><br>
+              <strong>Email:</strong> <a href="mailto:{{ config('kapcsolat.email') }}">{{ config('kapcsolat.email') }}</a><br>
             </p>
           </div>
 
@@ -190,6 +190,9 @@
   {{-- ======= End Footer ======= --}}
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {{-- Globális sticky telefonos kapcsolatfelvételi gomb --}}
+  <x-telefon-sticky />
 
   {{-- Vendor JS --}}
   <script src="{{ asset('assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>

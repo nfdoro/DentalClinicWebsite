@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $kategoria->nev . ' Miskolc - Dr. Nagy-Fazakas Csongor Fogászat')
-@section('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelő — ' . $kategoria->nev . ' Miskolcon. Elérhető Eger, Ózd, Kazincbarcika és Nyíregyháza közeléből is. Időpontfoglalás: +36 70 627 6160')
+@section('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelő, ' . $kategoria->nev . ' Miskolcon. Elérhető Eger, Ózd, Kazincbarcika és Nyíregyháza közeléből is. Időpontfoglalás: +36 70 627 6160')
 @section('keywords', strtolower($kategoria->nev) . ' miskolc, ' . strtolower($kategoria->nev) . ' ár, fogorvos miskolc')
 
 @section('schema')
@@ -76,17 +76,17 @@
 $gyorsTenyek = [
     'fogszabalyozas' => [
         ['icon' => 'calendar3', 'value' => '12–24 hó', 'label' => 'Kezelési idő'],
-        ['icon' => 'cash-coin', 'value' => '0 Ft', 'label' => 'Konzultáció'],
+        ['icon' => 'clipboard2-pulse', 'value' => 'Egyéni', 'label' => 'Kezelési terv'],
         ['icon' => 'gear', 'value' => 'Kapcsos', 'label' => 'Rendszer'],
     ],
     'fogpotlas' => [
         ['icon' => 'calendar3', 'value' => '2–4 hó', 'label' => 'Oszteointegráció'],
-        ['icon' => 'cash-coin', 'value' => '0 Ft', 'label' => 'Konzultáció'],
+        ['icon' => 'gem', 'value' => 'Cirkon / porcelán', 'label' => 'Koronaanyagok'],
         ['icon' => 'shield-check', 'value' => 'Titán', 'label' => 'Implantátum anyaga'],
     ],
     'fogfeherites' => [
         ['icon' => 'clock', 'value' => '60–90 perc', 'label' => 'Rendelői kezelés'],
-        ['icon' => 'cash-coin', 'value' => '0 Ft', 'label' => 'Konzultáció'],
+        ['icon' => 'house-heart', 'value' => 'Rendelői + otthoni', 'label' => 'Két módszer'],
         ['icon' => 'stars', 'value' => '1–3 év', 'label' => 'Eredmény tartóssága'],
     ],
 ][$kategoria->slug] ?? null;
@@ -212,13 +212,13 @@ $ctaUtanIndex = $kiemeltSzakaszok->count() >= 2 ? intdiv($kiemeltSzakaszok->coun
             <div>
               <div class="szolg-cta-title">Foglaljon időpontot konzultációra</div>
               <div class="szolg-cta-sub">
-                <i class="bi bi-telephone-fill"></i> +36 70 627 6160
+                <i class="bi bi-telephone-fill"></i> {{ config('kapcsolat.telefon') }}
                 <span class="szolg-cta-dot">·</span>
                 <i class="bi bi-geo-alt-fill"></i> Miskolc, Madarász Viktor u. 13/A
               </div>
             </div>
             <div class="szolg-cta-actions">
-              <a href="tel:+36706276160" class="szolg-cta-btn">
+              <a href="tel:{{ config('kapcsolat.telefon_hivas') }}" class="szolg-cta-btn">
                 <i class="bi bi-telephone"></i> Elérhetőség
               </a>
               <a href="{{ route('arlista') }}" class="szolg-cta-btn szolg-cta-btn-ghost">
@@ -234,13 +234,13 @@ $ctaUtanIndex = $kiemeltSzakaszok->count() >= 2 ? intdiv($kiemeltSzakaszok->coun
             <div>
               <div class="szolg-cta-title">Foglaljon időpontot konzultációra</div>
               <div class="szolg-cta-sub">
-                <i class="bi bi-telephone-fill"></i> +36 70 627 6160
+                <i class="bi bi-telephone-fill"></i> {{ config('kapcsolat.telefon') }}
                 <span class="szolg-cta-dot">·</span>
                 <i class="bi bi-geo-alt-fill"></i> Miskolc, Madarász Viktor u. 13/A
               </div>
             </div>
             <div class="szolg-cta-actions">
-              <a href="tel:+36706276160" class="szolg-cta-btn">
+              <a href="tel:{{ config('kapcsolat.telefon_hivas') }}" class="szolg-cta-btn">
                 <i class="bi bi-telephone"></i> Elérhetőség
               </a>
               <a href="{{ route('arlista') }}" class="szolg-cta-btn szolg-cta-btn-ghost">
@@ -285,6 +285,9 @@ $ctaUtanIndex = $kiemeltSzakaszok->count() >= 2 ? intdiv($kiemeltSzakaszok->coun
             </div>
           </div>
           @endif
+
+          {{-- ── Anatómikus cirkon korona (csak Fogpótlás) ── --}}
+          @includeWhen($kategoria->slug === 'fogpotlas', 'partials.cirkon-korona')
 
           {{-- ── Egyéb szolgáltatások ── --}}
           <div class="szolg-egyeb fade-up">

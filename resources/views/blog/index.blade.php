@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blog — Dr. Nagy-Fazakas Csongor Fogászat Miskolc')
+@section('title', 'Blog - Dr. Nagy-Fazakas Csongor Fogászat Miskolc')
 @section('description', 'Fogászati tippek, kezelési útmutatók és szakmai cikkek Dr. Nagy-Fazakas Csongor fogászati rendelőjétől. Fogszabályozás, implantátum, fogfehérítés és prevenció témákban.')
 @section('og_image', asset('images/rolunk.jpg'))
 
@@ -38,22 +38,18 @@
     <div class="container">
 
       @if($cikkek->isEmpty())
-        <p class="text-center text-muted py-5">Hamarosan érkeznek az első cikkeink.</p>
+        <p class="blog-lista-ures">Hamarosan érkeznek az első cikkeink.</p>
       @else
-        <div class="row g-4">
+        <div class="row g-4 blog-lista-grid">
           @foreach($cikkek as $cikk)
-          <div class="col-lg-4 col-md-6">
-            <a href="{{ route('blog.show', $cikk->slug) }}" class="blog-card text-decoration-none">
-              @if($cikk->boritekep)
-              <div class="blog-card-img">
-                <img src="{{ asset($cikk->boritekep) }}" alt="{{ $cikk->cim }}" loading="lazy">
-              </div>
-              @endif
+          <div class="col-lg-4 col-md-6 d-flex">
+            <a href="{{ route('blog.show', $cikk->slug) }}" class="blog-card">
+              <x-blog-borito :kep="$cikk->boritekep" :cim="$cikk->cim" />
               <div class="blog-card-body">
-                <p class="blog-card-date">{{ $cikk->published_at->format('Y. F j.') }}</p>
+                <p class="blog-card-date">{{ $cikk->published_at->translatedFormat('Y. F j.') }}</p>
                 <h2 class="blog-card-cim">{{ $cikk->cim }}</h2>
                 <p class="blog-card-bevezeto">{{ Str::limit($cikk->bevezeto, 120) }}</p>
-                <span class="blog-card-tovabb">Tovább olvasom →</span>
+                <span class="blog-card-tovabb">Tovább olvasom <i class="bi bi-arrow-right"></i></span>
               </div>
             </a>
           </div>

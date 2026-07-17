@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $cikk->cim . ' — Dr. Nagy-Fazakas Csongor Fogászat')
+@section('title', $cikk->cim . ' - Dr. Nagy-Fazakas Csongor Fogászat')
 @section('description', $cikk->meta_leiras ?? Str::limit($cikk->bevezeto, 160))
 @section('og_image', $cikk->boritekep ? asset($cikk->boritekep) : asset('images/rolunk.jpg'))
 
@@ -58,7 +58,7 @@
   <article class="blog-cikk-section">
     <div class="container">
       <div class="blog-cikk-meta">
-        <span>{{ $cikk->published_at->format('Y. F j.') }}</span>
+        <span>{{ $cikk->published_at->translatedFormat('Y. F j.') }}</span>
         <span>·</span>
         <span>{{ $cikk->olvasasi_ido }} perc olvasás</span>
       </div>
@@ -69,15 +69,25 @@
       </div>
       @endif
 
+      @php
+        // A CMS-ből érkező táblázatokat vízszintesen görgethető keretbe fogjuk,
+        // hogy mobilon ne okozzanak vízszintes túlcsordulást.
+        $tartalom = preg_replace('/<table/i', '<div class="blog-table-wrap"><table', $cikk->tartalom);
+        $tartalom = preg_replace('#</table>#i', '</table></div>', $tartalom);
+      @endphp
       <div class="blog-cikk-tartalom">
-        {!! $cikk->tartalom !!}
+        {!! $tartalom !!}
       </div>
 
       <div class="blog-cikk-cta">
         <p>Kérdése van? Hívjon minket!</p>
-        <a href="tel:+36706276160" class="hero-btn-contact">
-          <i class="bi bi-telephone"></i> +36 70 627 6160
+        <a href="tel:{{ config('kapcsolat.telefon_hivas') }}" class="hero-btn-contact">
+          <i class="bi bi-telephone"></i> {{ config('kapcsolat.telefon') }}
         </a>
+      </div>
+
+      <div class="blog-cikk-vissza">
+        <a href="{{ route('blog.index') }}"><i class="bi bi-arrow-left"></i> Vissza a bloghoz</a>
       </div>
     </div>
   </article>
@@ -86,19 +96,15 @@
   <section class="blog-kapcsolodo-section">
     <div class="container">
       <h2 class="blog-kapcsolodo-cim">Kapcsolódó cikkek</h2>
-      <div class="row g-4">
+      <div class="row g-4 blog-lista-grid">
         @foreach($kapcsolodo as $k)
-        <div class="col-lg-4 col-md-6">
-          <a href="{{ route('blog.show', $k->slug) }}" class="blog-card text-decoration-none">
-            @if($k->boritekep)
-            <div class="blog-card-img">
-              <img src="{{ asset($k->boritekep) }}" alt="{{ $k->cim }}" loading="lazy">
-            </div>
-            @endif
+        <div class="col-lg-4 col-md-6 d-flex">
+          <a href="{{ route('blog.show', $k->slug) }}" class="blog-card">
+            <x-blog-borito :kep="$k->boritekep" :cim="$k->cim" />
             <div class="blog-card-body">
-              <p class="blog-card-date">{{ $k->published_at->format('Y. F j.') }}</p>
+              <p class="blog-card-date">{{ $k->published_at->translatedFormat('Y. F j.') }}</p>
               <h3 class="blog-card-cim">{{ $k->cim }}</h3>
-              <span class="blog-card-tovabb">Tovább olvasom →</span>
+              <span class="blog-card-tovabb">Tovább olvasom <i class="bi bi-arrow-right"></i></span>
             </div>
           </a>
         </div>
