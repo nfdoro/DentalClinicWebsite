@@ -93,6 +93,7 @@ jobs:
             storage/**
             public/storage/**
             public/.htaccess
+            public/favicon.ico
             tests/**
             phpunit.xml
             serve.bat

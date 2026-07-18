@@ -47,7 +47,7 @@
 
   @yield('schema')
 
-  <link href="{{ asset('images/implant.png') }}" rel="icon">
+  <link rel="icon" href="{{ asset('favicon.ico') }}?v=3">
 
   {{-- Google Fonts — preconnect a gyorsabb betöltésért --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">

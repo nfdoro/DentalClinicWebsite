@@ -253,8 +253,8 @@
       </div>
       <div class="hero-infocard">
         <div class="hic-row">
-          <div class="hic-num">akár 8<sup>tón</sup></div>
-          <div class="hic-label">Világosabb árnyalat</div>
+          <div class="hic-num">8<sup>tón</sup></div>
+          <div class="hic-label">Akár ennyivel világosabb</div>
         </div>
         <div class="hic-row">
           <div class="hic-num hic-text">Gyors</div>
