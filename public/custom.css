@@ -2372,8 +2372,10 @@ a.icon-box:hover {
   overflow: hidden;
   margin-bottom: 32px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  background: #fff; /* a kép melletti üres részt fehér tölti ki */
 }
-.blog-cikk-boritekep img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* A teljes kép látszik (nem vágjuk le); ami kimarad, azt kétoldalt fehér tölti ki. */
+.blog-cikk-boritekep img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
 .blog-cikk-tartalom {
   font-family: 'Open Sans', sans-serif;
@@ -2441,16 +2443,16 @@ a.icon-box:hover {
 
 .blog-cikk-cta {
   margin-top: 40px;
-  padding: 28px 30px;
-  background: #f4f2ee;
-  border-radius: 14px;
+  padding: 34px 30px;
+  background: #1a1a1a;
+  border-radius: 16px;
   text-align: center;
 }
 .blog-cikk-cta p {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  color: #1a1a1a;
-  margin: 0 0 16px;
+  font-size: 19px;
+  color: #fff;
+  margin: 0 0 18px;
 }
 .blog-cikk-vissza { margin-top: 28px; }
 .blog-cikk-vissza a {

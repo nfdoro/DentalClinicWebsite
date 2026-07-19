@@ -81,7 +81,7 @@
 
       <div class="blog-cikk-cta">
         <p>Kérdése van? Hívjon minket!</p>
-        <a href="tel:{{ config('kapcsolat.telefon_hivas') }}" class="hero-btn-contact">
+        <a href="tel:{{ config('kapcsolat.telefon_hivas') }}" class="szolg-cta-btn">
           <i class="bi bi-telephone"></i> {{ config('kapcsolat.telefon') }}
         </a>
       </div>
