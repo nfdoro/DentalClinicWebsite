@@ -9,6 +9,13 @@
 /*--------------------------------------------------------------
   # Általános
 --------------------------------------------------------------*/
+html {
+  /* Vízszintes elcsúszás/túlcsordulás megakadályozása mobilon.
+     A clip (nem hidden) nem hoz létre görgetési konténert, ezért a
+     position: sticky (pl. árlista menü) továbbra is működik. */
+  overflow-x: clip;
+}
+
 body {
   font-family: 'Inter', 'Open Sans', sans-serif;
   color: #2d2d2d;
@@ -1281,14 +1288,26 @@ a.icon-box:hover {
 .back-to-top {
   background: #1a1a1a;
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: all 0.3s;
+  width: 54px;
+  height: 54px;
+  right: calc(15px + env(safe-area-inset-right, 0px));
+  bottom: calc(15px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+  transition: background 0.22s ease, transform 0.22s ease, opacity 0.4s, visibility 0.4s;
+}
+
+.back-to-top i {
+  font-size: 26px;
 }
 
 .back-to-top:hover {
-  background: #444;
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid #1a1a1a;
+  outline-offset: 3px;
 }
 
 /*--------------------------------------------------------------
@@ -1306,8 +1325,8 @@ a.icon-box:hover {
 
 .tel-fab-btn {
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border: none;
   border-radius: 50%;
   background: #1a1a1a;
@@ -1388,7 +1407,7 @@ a.icon-box:hover {
 }
 
 @media (max-width: 768px) {
-  .tel-fab-btn { width: 52px; height: 52px; }
+  .tel-fab-btn { width: 48px; height: 48px; }
   .tel-fab-btn i { font-size: 20px; }
   .tel-fab-number { font-size: 16px; }
 }
@@ -2213,7 +2232,8 @@ a.icon-box:hover {
   #footer .footer-top h3 { font-size: 18px; }
 
   /* ── Back to top ── */
-  .back-to-top { width: 38px; height: 38px; }
+  .back-to-top { width: 48px; height: 48px; }
+  .back-to-top i { font-size: 24px; }
 }
 
 /*--------------------------------------------------------------
@@ -2615,10 +2635,11 @@ a.icon-box:hover {
   (kerek sötét hamburger gomb + fehér, lekerekített dropdown kártya)
 --------------------------------------------------------------*/
 @media (max-width: 991px) {
-  /* A magányos Facebook-ikon elrejtése a mobil fejlécből (kevésbé zsúfolt) */
-  #header .header-social-links { display: none; }
+  /* A magányos Facebook-ikon elrejtése a mobil fejlécből (kevésbé zsúfolt).
+     A !important a Bootstrap .d-flex (display:flex !important) felülírásához kell. */
+  #header .header-social-links { display: none !important; }
 
-  /* Hamburger gomb: kerek, sötét, fehér ikonnal */
+  /* Hamburger gomb (zárt állapot): háttér nélkül, sötét ikon a világos fejlécen */
   .mobile-nav-toggle {
     display: inline-flex;
     align-items: center;
@@ -2626,10 +2647,10 @@ a.icon-box:hover {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #1a1a1a;
-    color: #fff;
-    font-size: 21px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    color: #1a1a1a;
+    font-size: 27px;
+    box-shadow: none;
   }
 
   /* Nyitott állapot: könnyű fátyol a teljes sötét overlay helyett */
