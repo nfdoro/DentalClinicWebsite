@@ -94,6 +94,9 @@ jobs:
             public/storage/**
             public/.htaccess
             public/favicon.ico
+            public/images/galeria/**
+            public/images/icons/**
+            public/images/blog/**
             tests/**
             phpunit.xml
             serve.bat

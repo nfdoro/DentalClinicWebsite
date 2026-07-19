@@ -15,9 +15,13 @@ class KategoriaResource extends Resource
     protected static ?string $model = Kategoria::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+
     protected static ?string $navigationLabel = 'Kategóriák';
+
     protected static ?string $modelLabel = 'Kategória';
+
     protected static ?string $pluralModelLabel = 'Kategóriák';
+
     protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
@@ -48,10 +52,14 @@ class KategoriaResource extends Resource
                         'undo', 'redo',
                     ])
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('icon')
-                    ->label('Ikon (fájl elérési út)')
-                    ->helperText('Pl.: images/icons/gyoker.png')
-                    ->placeholder('images/icons/gyoker.png'),
+                Forms\Components\FileUpload::make('icon')
+                    ->label('Ikon')
+                    ->image()
+                    ->disk('kepek')
+                    ->directory('images/icons')
+                    ->visibility('public')
+                    ->imagePreviewHeight('90')
+                    ->helperText('Kis ikon a szolgáltatáshoz. Opcionális.'),
                 Forms\Components\Toggle::make('szolgaltatas')
                     ->label('Megjelenik a Szolgáltatásaink menüben')
                     ->required(),

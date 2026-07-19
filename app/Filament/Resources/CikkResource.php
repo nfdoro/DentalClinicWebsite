@@ -17,9 +17,13 @@ class CikkResource extends Resource
     protected static ?string $model = Cikk::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
+
     protected static ?string $navigationLabel = 'Blog cikkek';
+
     protected static ?string $modelLabel = 'Cikk';
+
     protected static ?string $pluralModelLabel = 'Cikkek';
+
     protected static ?int $navigationSort = 10;
 
     public static function form(Form $form): Form
@@ -68,8 +72,9 @@ class CikkResource extends Resource
                         Forms\Components\FileUpload::make('boritekep')
                             ->label('Borítókép')
                             ->image()
-                            ->disk('public')
+                            ->disk('kepek')
                             ->directory('images/blog')
+                            ->visibility('public')
                             ->imagePreviewHeight('150')
                             ->columnSpanFull(),
                     ]),
@@ -148,9 +153,9 @@ class CikkResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListCikkeks::route('/'),
+            'index' => Pages\ListCikkeks::route('/'),
             'create' => Pages\CreateCikk::route('/create'),
-            'edit'   => Pages\EditCikk::route('/{record}/edit'),
+            'edit' => Pages\EditCikk::route('/{record}/edit'),
         ];
     }
 }

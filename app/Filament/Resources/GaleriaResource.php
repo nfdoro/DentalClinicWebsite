@@ -9,16 +9,19 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Support\HtmlString;
 
 class GaleriaResource extends Resource
 {
     protected static ?string $model = Galeria::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
+
     protected static ?string $navigationLabel = 'Galéria';
+
     protected static ?string $modelLabel = 'Kép';
+
     protected static ?string $pluralModelLabel = 'Galéria képek';
+
     protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
@@ -31,17 +34,14 @@ class GaleriaResource extends Resource
                     ->required()
                     ->searchable()
                     ->preload(),
-                Forms\Components\Placeholder::make('kep_elonezet')
-                    ->label('Jelenlegi kép')
-                    ->content(fn ($record) => $record?->fajlnev
-                        ? new HtmlString('<img src="/' . e($record->fajlnev) . '" style="max-height:220px; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.12);">')
-                        : '—'
-                    )
-                    ->visibleOn('edit'),
-                Forms\Components\TextInput::make('fajlnev')
-                    ->label('Fájl elérési út')
-                    ->helperText('Pl.: images/galeria/kep.jpg')
-                    ->placeholder('images/galeria/kep.jpg'),
+                Forms\Components\FileUpload::make('fajlnev')
+                    ->label('Kép')
+                    ->image()
+                    ->disk('kepek')
+                    ->directory('images/galeria')
+                    ->visibility('public')
+                    ->imagePreviewHeight('180')
+                    ->helperText('Húzd ide a képet, vagy kattints a feltöltéshez.'),
                 Forms\Components\TextInput::make('rovidleiras')
                     ->label('Rövid leírás')
                     ->required()
@@ -55,7 +55,7 @@ class GaleriaResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('fajlnev')
                     ->label('Kép')
-                    ->disk('public'),
+                    ->disk('kepek'),
                 Tables\Columns\TextColumn::make('kategoria.nev')
                     ->label('Kategória')
                     ->sortable()
