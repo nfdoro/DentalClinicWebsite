@@ -3,6 +3,14 @@
 @section('title', $cikk->cim . ' - Dr. Nagy-Fazakas Csongor Fogászat')
 @section('description', $cikk->meta_leiras ?? Str::limit($cikk->bevezeto, 160))
 @section('og_image', $cikk->boritekep ? asset($cikk->boritekep) : asset('images/rolunk.jpg'))
+@section('og_type', 'article')
+
+@section('og_extra')
+<meta property="article:published_time" content="{{ $cikk->published_at->toIso8601String() }}">
+<meta property="article:modified_time" content="{{ $cikk->updated_at->toIso8601String() }}">
+<meta property="article:author" content="Dr. Nagy-Fazakas Csongor">
+<meta property="article:section" content="Fogászat">
+@endsection
 
 @section('schema')
 <script type="application/ld+json">
@@ -79,6 +87,18 @@
         {!! $tartalom !!}
       </div>
 
+      <div class="blog-megosztas" aria-label="Cikk megosztása">
+        <span class="blog-megosztas-cimke">Megosztás</span>
+        <a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('blog.show', $cikk->slug)) }}"
+           target="_blank" rel="noopener" aria-label="Megosztás Facebookon">
+          <i class="bi bi-facebook" aria-hidden="true"></i>
+        </a>
+        <button type="button" class="blog-share-btn blog-share-copy" data-url="{{ route('blog.show', $cikk->slug) }}"
+                aria-label="Link másolása a vágólapra">
+          <i class="bi bi-link-45deg" aria-hidden="true"></i>
+        </button>
+      </div>
+
       <div class="blog-cikk-cta">
         <p>Kérdése van? Hívjon minket!</p>
         <a href="tel:{{ config('kapcsolat.telefon_hivas') }}" class="szolg-cta-btn">
@@ -116,3 +136,25 @@
 </main>
 
 @endsection
+
+@push('scripts')
+<script>
+  document.querySelectorAll('.blog-share-copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = btn.getAttribute('data-url');
+      var visszajelzes = function () {
+        var i = btn.querySelector('i');
+        var eredeti = i.className;
+        i.className = 'bi bi-check-lg';
+        btn.classList.add('is-copied');
+        setTimeout(function () { i.className = eredeti; btn.classList.remove('is-copied'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(visszajelzes).catch(function () { window.prompt('Másold ki a linket:', url); });
+      } else {
+        window.prompt('Másold ki a linket:', url);
+      }
+    });
+  });
+</script>
+@endpush

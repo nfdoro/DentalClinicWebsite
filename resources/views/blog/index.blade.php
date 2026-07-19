@@ -30,6 +30,7 @@
       Blog
     </p>
     <h1 class="szolgaltatas-title">Blog</h1>
+    <p class="blog-lead">Olvasson fogászati tippeket, kezelési útmutatókat és szakmai cikkeket a rendelőnktől.</p>
   </div>
 </div>
 

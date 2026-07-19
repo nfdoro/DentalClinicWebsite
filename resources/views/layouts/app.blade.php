@@ -29,7 +29,7 @@
   @endif
 
   {{-- Open Graph --}}
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="@yield('og_type', 'website')">
   <meta property="og:title" content="@yield('title', 'Dr. Nagy-Fazakas Csongor - Fogászati Rendelő Miskolc')">
   <meta property="og:description" content="@yield('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelője Miskolcon.')">
   <meta property="og:url" content="{{ url()->current() }}">
@@ -38,6 +38,7 @@
   <meta property="og:image" content="@yield('og_image', asset('images/rolunk.jpg'))">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  @yield('og_extra')
 
   {{-- Twitter Card --}}
   <meta name="twitter:card" content="summary_large_image">
