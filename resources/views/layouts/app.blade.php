@@ -35,7 +35,7 @@
   <meta property="og:url" content="{{ url()->current() }}">
   <meta property="og:locale" content="hu_HU">
   <meta property="og:site_name" content="Dr. Nagy-Fazakas Csongor Fogászat">
-  <meta property="og:image" content="@yield('og_image', asset('images/rolunk.jpg'))">
+  <meta property="og:image" content="@yield('og_image', asset('images/og-share.jpg'))">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   @yield('og_extra')
@@ -44,7 +44,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="@yield('title', 'Dr. Nagy-Fazakas Csongor - Fogászati Rendelő Miskolc')">
   <meta name="twitter:description" content="@yield('description', 'Dr. Nagy-Fazakas Csongor fogászati rendelője Miskolcon.')">
-  <meta name="twitter:image" content="@yield('og_image', asset('images/rolunk.jpg'))">
+  <meta name="twitter:image" content="@yield('og_image', asset('images/og-share.jpg'))">
 
   @yield('schema')
 

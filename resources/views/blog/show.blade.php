@@ -2,7 +2,7 @@
 
 @section('title', $cikk->cim . ' - Dr. Nagy-Fazakas Csongor Fogászat')
 @section('description', $cikk->meta_leiras ?? Str::limit($cikk->bevezeto, 160))
-@section('og_image', $cikk->boritekep ? asset($cikk->boritekep) : asset('images/rolunk.jpg'))
+@section('og_image', $ogKep)
 @section('og_type', 'article')
 
 @section('og_extra')

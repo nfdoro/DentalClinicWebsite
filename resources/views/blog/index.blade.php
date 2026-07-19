@@ -2,7 +2,7 @@
 
 @section('title', 'Blog - Dr. Nagy-Fazakas Csongor Fogászat Miskolc')
 @section('description', 'Fogászati tippek, kezelési útmutatók és szakmai cikkek Dr. Nagy-Fazakas Csongor fogászati rendelőjétől. Fogszabályozás, implantátum, fogfehérítés és prevenció témákban.')
-@section('og_image', asset('images/rolunk.jpg'))
+@section('og_image', asset('images/og-share.jpg'))
 
 @section('schema')
 <script type="application/ld+json">
