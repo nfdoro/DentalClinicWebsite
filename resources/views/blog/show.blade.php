@@ -87,9 +87,22 @@
         {!! $tartalom !!}
       </div>
 
+      @php
+        $cikkUrl = route('blog.show', $cikk->slug);
+        $fbAppId = config('services.facebook.app_id');
+        // A Share Dialog a bevezetővel előtölti a poszt szövegét (quote), de ez csak akkor
+        // működik jól a látogatóknál, ha az app Live és a domain fel van véve, ezért kapcsolóhoz
+        // kötjük. Enélkül a megbízható, egyszerű link-megosztás megy.
+        $fbShareUrl = ($fbAppId && config('services.facebook.share_dialog'))
+            ? 'https://www.facebook.com/dialog/share?app_id='.$fbAppId.'&display=popup'
+                .'&href='.urlencode($cikkUrl)
+                .'&quote='.urlencode($cikk->bevezeto)
+                .'&redirect_uri='.urlencode($cikkUrl)
+            : 'https://www.facebook.com/sharer/sharer.php?u='.urlencode($cikkUrl);
+      @endphp
       <div class="blog-megosztas" aria-label="Cikk megosztása">
         <span class="blog-megosztas-cimke">Megosztás</span>
-        <a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('blog.show', $cikk->slug)) }}"
+        <a class="blog-share-btn" href="{{ $fbShareUrl }}"
            target="_blank" rel="noopener" aria-label="Megosztás Facebookon">
           <i class="bi bi-facebook" aria-hidden="true"></i>
         </a>

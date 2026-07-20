@@ -43,4 +43,16 @@ return [
         'verify' => env('SEARCH_CONSOLE_VERIFY', ''),
     ],
 
+    'facebook' => [
+        // Facebook App ID az fb:app_id meta taghez. Ez NYILVÁNOS érték (a forrásban is
+        // látszik), nem titok. (Az App Secret ettől külön, titkos érték - azt nem használjuk.)
+        'app_id' => env('FB_APP_ID', '1002346442669781'),
+
+        // A poszt-szöveg előtöltése (Share Dialog + quote) csak akkor kapcsoljon be, ha az
+        // app Live módban van ÉS a fogaszatmiskolc.com domain fel van véve az appban
+        // (App Domains + Website platform). Enélkül a látogatóknak hibás lenne a dialógus,
+        // ezért alapból ki van kapcsolva; ha kész a beállítás, FB_SHARE_DIALOG=true.
+        'share_dialog' => (bool) env('FB_SHARE_DIALOG', false),
+    ],
+
 ];

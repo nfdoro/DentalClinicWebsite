@@ -38,6 +38,9 @@
   <meta property="og:image" content="@yield('og_image', asset('images/og-share.jpg'))">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  @if(config('services.facebook.app_id'))
+  <meta property="fb:app_id" content="{{ config('services.facebook.app_id') }}">
+  @endif
   @yield('og_extra')
 
   {{-- Twitter Card --}}
