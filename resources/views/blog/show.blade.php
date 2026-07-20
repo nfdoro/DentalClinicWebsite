@@ -102,14 +102,32 @@
       @endphp
       <div class="blog-megosztas" aria-label="Cikk megosztása">
         <span class="blog-megosztas-cimke">Megosztás</span>
-        <a class="blog-share-btn" href="{{ $fbShareUrl }}"
-           target="_blank" rel="noopener" aria-label="Megosztás Facebookon">
+        <button type="button" class="blog-share-btn blog-share-fb" aria-haspopup="dialog" aria-label="Megosztás Facebookon">
           <i class="bi bi-facebook" aria-hidden="true"></i>
-        </a>
+        </button>
         <button type="button" class="blog-share-btn blog-share-copy" data-url="{{ route('blog.show', $cikk->slug) }}"
                 aria-label="Link másolása a vágólapra">
           <i class="bi bi-link-45deg" aria-hidden="true"></i>
         </button>
+      </div>
+      <div class="blog-share-modal" id="blogShareModal" hidden>
+        <div class="blog-share-modal-overlay" data-close></div>
+        <div class="blog-share-modal-box" role="dialog" aria-modal="true" aria-labelledby="blogShareModalCim">
+          <button type="button" class="blog-share-modal-x" data-close aria-label="Bezárás"><i class="bi bi-x-lg"></i></button>
+          <h3 id="blogShareModalCim">Megosztás a Facebookra</h3>
+          <p class="blog-share-modal-lead">
+            1. Másold ki a leírást. &nbsp;2. Kattints a „Tovább a Facebookra" gombra, és illeszd be a bejegyzés szövegébe (Ctrl+V). A cikk linkje a kártyát automatikusan hozzáadja.
+          </p>
+          <textarea class="blog-share-modal-szoveg" id="blogShareModalSzoveg" readonly rows="5">{{ $cikk->bevezeto }}</textarea>
+          <div class="blog-share-modal-gombok">
+            <button type="button" class="blog-share-modal-copy" id="blogShareModalCopy">
+              <i class="bi bi-clipboard" aria-hidden="true"></i> <span>Leírás másolása</span>
+            </button>
+            <a class="blog-share-modal-fb" href="{{ $fbShareUrl }}" target="_blank" rel="noopener">
+              <i class="bi bi-facebook" aria-hidden="true"></i> Tovább a Facebookra
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="blog-cikk-cta">
@@ -152,22 +170,78 @@
 
 @push('scripts')
 <script>
-  document.querySelectorAll('.blog-share-copy').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var url = btn.getAttribute('data-url');
-      var visszajelzes = function () {
+  (function () {
+    // Megbízható másolás: execCommand a click gesztuson belül; navigator.clipboard tartaléknak.
+    function masol(szoveg) {
+      var ta = document.createElement('textarea');
+      ta.value = szoveg;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.top = '0';
+      ta.style.left = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (!ok && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(szoveg).then(function () {}, function () {});
+      }
+      return ok;
+    }
+
+    // Link másolása gomb
+    document.querySelectorAll('.blog-share-copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        masol(btn.getAttribute('data-url'));
         var i = btn.querySelector('i');
         var eredeti = i.className;
         i.className = 'bi bi-check-lg';
         btn.classList.add('is-copied');
         setTimeout(function () { i.className = eredeti; btn.classList.remove('is-copied'); }, 1600);
-      };
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(visszajelzes).catch(function () { window.prompt('Másold ki a linket:', url); });
-      } else {
-        window.prompt('Másold ki a linket:', url);
-      }
+      });
     });
-  });
+
+    // Facebook megosztás modál: leírás kimásolása, majd tovább a Facebookra (a cikk linkjével).
+    var modal = document.getElementById('blogShareModal');
+    var fbBtn = document.querySelector('.blog-share-fb');
+    if (modal && fbBtn) {
+      var szovegEl = document.getElementById('blogShareModalSzoveg');
+      var copyBtn = document.getElementById('blogShareModalCopy');
+
+      function nyit() {
+        modal.hidden = false;
+        requestAnimationFrame(function () { modal.classList.add('is-open'); });
+        setTimeout(function () { szovegEl.focus(); szovegEl.select(); }, 60);
+      }
+      function zar() {
+        modal.classList.remove('is-open');
+        setTimeout(function () { modal.hidden = true; }, 250);
+      }
+
+      fbBtn.addEventListener('click', nyit);
+
+      copyBtn.addEventListener('click', function () {
+        masol(szovegEl.value);
+        szovegEl.focus();
+        szovegEl.select();
+        var sp = copyBtn.querySelector('span');
+        var eredeti = sp.textContent;
+        sp.textContent = 'Másolva!';
+        copyBtn.classList.add('is-copied');
+        setTimeout(function () { sp.textContent = eredeti; copyBtn.classList.remove('is-copied'); }, 1600);
+      });
+
+      // A "Tovább a Facebookra" link a cikk megosztási URL-jét nyitja (Blade-ben beállítva);
+      // megnyitás után zárjuk a modált.
+      var fbLink = modal.querySelector('.blog-share-modal-fb');
+      if (fbLink) fbLink.addEventListener('click', function () { setTimeout(zar, 150); });
+
+      modal.querySelectorAll('[data-close]').forEach(function (el) { el.addEventListener('click', zar); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) zar(); });
+    }
+  })();
 </script>
 @endpush
