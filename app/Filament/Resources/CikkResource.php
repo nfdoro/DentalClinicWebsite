@@ -99,7 +99,8 @@ class CikkResource extends Resource
                     ->schema([
                         Forms\Components\DateTimePicker::make('published_at')
                             ->label('Közzététel dátuma')
-                            ->helperText('Üresen hagyva a cikk vázlatként marad és nem jelenik meg.')
+                            ->seconds(false)
+                            ->helperText('Üresen hagyva a cikk vázlatként marad. Jövőbeli időpont esetén "Folyamatban" állapotba kerül, és pontosan az adott órában jelenik meg – nem előbb, nem utólag.')
                             ->native(false),
                     ]),
             ]);
@@ -117,13 +118,18 @@ class CikkResource extends Resource
 
                 Tables\Columns\TextColumn::make('allapot')
                     ->label('Állapot')
-                    ->getStateUsing(fn ($record) => $record->published_at ? 'Közzétett' : 'Vázlat')
+                    ->getStateUsing(fn ($record) => $record->allapot)
                     ->badge()
-                    ->color(fn (string $state) => $state === 'Közzétett' ? 'success' : 'gray'),
+                    ->color(fn (string $state) => match ($state) {
+                        'Közzétett' => 'success',
+                        'Folyamatban' => 'warning',
+                        default => 'gray',
+                    }),
 
                 Tables\Columns\TextColumn::make('published_at')
                     ->label('Közzétéve')
-                    ->dateTime('Y-m-d')
+                    ->dateTime('Y-m-d H:i')
+                    ->description(fn ($record) => $record->allapot === 'Folyamatban' ? 'ütemezve' : null)
                     ->sortable()
                     ->placeholder('—'),
 
