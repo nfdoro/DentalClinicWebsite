@@ -4,4 +4,4 @@ Disallow: /storage/
 Disallow: /.env
 Disallow: /admin
 
-Sitemap: https://fogaszat-miskolc.hu/sitemap.xml
+Sitemap: https://fogaszatmiskolc.com/sitemap.xml
