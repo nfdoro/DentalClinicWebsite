@@ -100,3 +100,30 @@ A 3 SEO branch konfliktusmentesen mergelve lett main-be (sorrendben: tech-fixes 
 | Google Search Console | Impressziók, kattintások, rangsor | Hetente |
 | Google Analytics 4 | Látogatók, forrás, tel. kattintás | Havonta |
 | Google Business Profile | Helyikeresések, irányítás kérés, hívások | Havonta |
+
+---
+
+## 7. Szerver konfiguráció — FONTOS, ne felejtsd el új szerverre költözéskor
+
+**`short_open_tag` KELL, hogy `Off` legyen a PHP-ben ezen a domainen.**
+
+2026-08-06: a `sitemap.xml` route napokig `500`-as hibát dobott élesben (`syntax error, unexpected
+identifier "version"`), mert a szerver PHP-jén be volt kapcsolva a `short_open_tag`, ami miatt a
+`resources/views/sitemap.blade.php` elején lévő nyers `<?xml version="1.0"?>` deklarációt a PHP
+short-tagként (`<?`) próbálta értelmezni, és elszállt rajta.
+
+**Javítás, ha új szerverre kerül a projekt:** cPanel → **MultiPHP INI Editor** → *Editor Mode* →
+domain kiválasztása → `short_open_tag = Off` hozzáadása → Save. (A Basic Mode-ban nincs ilyen opció,
+csak az Editor Mode-ban.)
+
+Emellett a `sitemap.blade.php` az 1. sorban a `{!! '<?xml version="1.0" encoding="UTF-8"?>' !!}`
+Blade-echo formát használja (nem a nyers `<?xml ...?>`-t) — ez egy plusz védőháló, hogy akkor is
+működjön, ha egy jövőbeli szerveren megint bekapcsolva marad a `short_open_tag`.
+
+**Deploy gotcha:** a GitHub Actions FTP deploy (`.github/workflows/deploy.yml`) egy állapot-fájlt
+(`.ftp-deploy-sync-state.json`) tart a szerveren, ami alapján eldönti, mely fájlokat kell újra
+feltöltenie. Ha valaki **kézzel módosít vagy töröl** fájlokat a szerveren (cPanel File Manager),
+a deploy ezt nem érzékeli, és a legközelebbi futtatáskor **nem** töltik vissza automatikusan azokat
+a fájlokat, mert a git-tartalom hash-e alapján "már szinkronban lévőnek" hiszi őket. Ha egy deploy
+után a szerveren látszólag semmi nem változik, töröld ezt az állapot-fájlt a szerver gyökeréből, és
+futtasd újra a workflow-t — ez kikényszerít egy teljes, friss feltöltést.
