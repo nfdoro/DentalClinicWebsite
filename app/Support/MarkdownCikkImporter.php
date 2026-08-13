@@ -5,16 +5,16 @@ namespace App\Support;
 use App\Models\Cikk;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use League\CommonMark\Environment\Environment;
-use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
-use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
-use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
-use League\CommonMark\MarkdownConverter;
 use RuntimeException;
 
 /**
- * Markdown (.md) fájlból cikket készít: a fájl eleji YAML fejlécből olvassa a
- * metaadatokat, a törzset pedig HTML-lé alakítja a RichEditor mezőbe.
+ * Markdown (.md) fájlból cikket készít: a fájl eleji YAML-szerű fejlécből olvassa
+ * a metaadatokat, a törzset pedig HTML-lé alakítja a RichEditor mezőbe.
+ *
+ * A fejlécet szándékosan saját, egyszerű beolvasóval dolgozzuk fel (nem a
+ * symfony/yaml könyvtárral), mert az éles szerveren a --no-dev telepítés miatt
+ * nem feltétlenül elérhető. A törzs HTML-lé alakítását a league/commonmark
+ * (Str::markdown) végzi, ami élesen is jelen van.
  *
  * Támogatott fejléc-kulcsok (angol és magyar megnevezés is elfogadott):
  *   title / cim            -> cím (kötelező)
@@ -55,21 +55,65 @@ class MarkdownCikkImporter
     }
 
     /**
-     * @return array{0: array<string, mixed>, 1: string} [fejléc, HTML törzs]
+     * @return array{0: array<string, string>, 1: string} [fejléc, HTML törzs]
      */
     private function parse(string $raw): array
     {
-        $environment = new Environment(['html_input' => 'strip']);
-        $environment->addExtension(new CommonMarkCoreExtension());
-        $environment->addExtension(new FrontMatterExtension());
+        // UTF-8 BOM és a Windows-os sorvégek egységesítése.
+        $raw = preg_replace('/^\xEF\xBB\xBF/', '', $raw);
+        $raw = str_replace("\r\n", "\n", $raw);
 
-        $result = (new MarkdownConverter($environment))->convert($raw);
+        $frontMatter = [];
+        $body = $raw;
 
-        $frontMatter = $result instanceof RenderedContentWithFrontMatter
-            ? (array) $result->getFrontMatter()
-            : [];
+        if (preg_match('/\A---\n(.*?)\n---\n?(.*)\z/s', $raw, $m)) {
+            $frontMatter = $this->parseFrontMatter($m[1]);
+            $body = $m[2];
+        }
 
-        return [$frontMatter, $this->stripLeadingH1($result->getContent())];
+        $html = Str::markdown($body, [
+            'html_input' => 'strip',
+            'allow_unsafe_links' => false,
+        ]);
+
+        return [$frontMatter, $this->stripLeadingH1($html)];
+    }
+
+    /**
+     * Egyszerű, lapos "kulcs: érték" fejléc beolvasó. Kezeli az idézőjeles
+     * értékeket és az idézőjel nélküli értékek utáni sor-végi kommenteket.
+     *
+     * @return array<string, string>
+     */
+    private function parseFrontMatter(string $block): array
+    {
+        $data = [];
+
+        foreach (explode("\n", $block) as $line) {
+            $line = trim($line);
+            if ($line === '' || ! str_contains($line, ':')) {
+                continue;
+            }
+
+            [$key, $value] = explode(':', $line, 2);
+            $key = trim($key);
+            $value = trim($value);
+
+            if (
+                (str_starts_with($value, '"') && str_ends_with($value, '"') && strlen($value) >= 2) ||
+                (str_starts_with($value, "'") && str_ends_with($value, "'") && strlen($value) >= 2)
+            ) {
+                $value = substr($value, 1, -1);
+            } elseif (($p = strpos($value, ' #')) !== false) {
+                $value = rtrim(substr($value, 0, $p));
+            }
+
+            if ($key !== '') {
+                $data[$key] = $value;
+            }
+        }
+
+        return $data;
     }
 
     /**
@@ -83,12 +127,15 @@ class MarkdownCikkImporter
 
     /**
      * Az első létező, nem üres kulcs értéke a fejlécből.
+     *
+     * @param  array<string, string>  $frontMatter
+     * @param  array<int, string>  $keys
      */
     private function pick(array $frontMatter, array $keys): ?string
     {
         foreach ($keys as $key) {
-            if (isset($frontMatter[$key]) && trim((string) $frontMatter[$key]) !== '') {
-                return (string) $frontMatter[$key];
+            if (isset($frontMatter[$key]) && trim($frontMatter[$key]) !== '') {
+                return $frontMatter[$key];
             }
         }
 
